@@ -15,7 +15,11 @@ def run_command(arguments: Sequence[str]) -> int:
     """Run a project command with the current Python interpreter."""
     command = [sys.executable, *arguments]
     print(f"> {' '.join(command)}", flush=True)
-    completed = subprocess.run(command, cwd=PROJECT_ROOT, check=False)
+    try:
+        completed = subprocess.run(command, cwd=PROJECT_ROOT, check=False)
+    except KeyboardInterrupt:
+        print("\nCommand stopped by user.", file=sys.stderr)
+        return 130
     return completed.returncode
 
 
@@ -90,4 +94,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

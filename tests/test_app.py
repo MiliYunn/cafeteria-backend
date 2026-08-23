@@ -16,6 +16,22 @@ def test_all_erd_tables_are_registered(app):
         }
 
 
+def test_every_table_has_timestamps(app):
+    with app.app_context():
+        for table in db.metadata.tables.values():
+            assert "created_at" in table.columns, table.name
+            assert "updated_at" in table.columns, table.name
+
+
+def test_payment_accounts_belong_to_shops(app):
+    with app.app_context():
+        table = db.metadata.tables["payment_accounts"]
+        assert not table.columns.shop_id.nullable
+        assert {foreign_key.target_fullname for foreign_key in table.columns.shop_id.foreign_keys} == {
+            "shops.id"
+        }
+
+
 def test_admin_route_requires_token(client):
     response = client.get("/api/admin/users")
     assert response.status_code == 401

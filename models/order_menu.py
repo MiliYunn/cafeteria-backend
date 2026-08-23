@@ -1,6 +1,7 @@
 from decimal import Decimal
+from datetime import datetime
 
-from sqlalchemy import BigInteger, ForeignKey, Numeric, UniqueConstraint
+from sqlalchemy import TIMESTAMP, BigInteger, ForeignKey, Numeric, UniqueConstraint, func, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from extensions import db
@@ -16,4 +17,5 @@ class OrderMenu(SerializableMixin, db.Model):
     menu_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("menus.id"), index=True, nullable=False)
     quantity: Mapped[int] = mapped_column(BigInteger, nullable=False)
     amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
-
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=func.current_timestamp())
+    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"), onupdate=func.current_timestamp())

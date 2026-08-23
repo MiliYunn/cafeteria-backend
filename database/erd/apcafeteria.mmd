@@ -10,6 +10,7 @@ erDiagram
     shops ||--o{ menus : offers
     genres ||--o{ menus : groups
     shops ||--o{ orders : receives
+    shops ||--o{ payment_accounts : owns
     payment_methods ||--o{ payment_accounts : provides
     payment_accounts ||--o{ orders : paid_to
     orders ||--|{ order_menus : contains
@@ -20,6 +21,8 @@ erDiagram
         BIGINT id PK
         VARCHAR name UK
         BOOLEAN is_active
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     users {
         BIGINT id PK
@@ -31,12 +34,16 @@ erDiagram
         VARCHAR password
         BOOLEAN is_active
         VARCHAR type
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     user_activities {
         BIGINT id PK
         BIGINT user_id FK
         TEXT activity
         DATETIME active_at
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     revoked_tokens {
         BIGINT id PK
@@ -44,6 +51,8 @@ erDiagram
         BIGINT user_id FK
         DATETIME expires_at
         DATETIME revoked_at
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     shops {
         BIGINT id PK
@@ -56,6 +65,8 @@ erDiagram
         VARCHAR password
         DATETIME open_at
         DATETIME close_at
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     shop_staffs {
         BIGINT id PK
@@ -64,22 +75,30 @@ erDiagram
         VARCHAR email UK
         VARCHAR phone
         BOOLEAN is_active
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     categories {
         BIGINT id PK
         VARCHAR name UK
         BOOLEAN is_active
         TEXT description
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     shop_categories {
         BIGINT id PK
         BIGINT shop_id FK
         BIGINT category_id FK
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     genres {
         BIGINT id PK
         VARCHAR name UK
         BOOLEAN is_active
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     menus {
         BIGINT id PK
@@ -90,6 +109,8 @@ erDiagram
         BOOLEAN is_available
         VARCHAR image
         TEXT description
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     payment_methods {
         BIGINT id PK
@@ -99,14 +120,19 @@ erDiagram
         VARCHAR domain_url
         BOOLEAN is_active
         VARCHAR type
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     payment_accounts {
         BIGINT id PK
+        BIGINT shop_id FK
         BIGINT payment_method_id FK
         VARCHAR account_holder_name
         VARCHAR account_number
         BOOLEAN is_active
         VARCHAR image
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     orders {
         BIGINT id PK
@@ -123,6 +149,8 @@ erDiagram
         DECIMAL tax_fee
         BOOLEAN is_pickup
         VARCHAR delivery_location
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     order_menus {
         BIGINT id PK
@@ -130,10 +158,14 @@ erDiagram
         BIGINT menu_id FK
         BIGINT quantity
         DECIMAL amount
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }
     order_logs {
         BIGINT id PK
         BIGINT order_id FK
         VARCHAR status
         BIGINT user_id FK
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
     }

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import BigInteger, Boolean, DateTime, String, Text, text
+from sqlalchemy import TIMESTAMP, BigInteger, Boolean, DateTime, String, Text, func, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from extensions import db
@@ -20,4 +20,5 @@ class Shop(SerializableMixin, db.Model):
     password: Mapped[str] = mapped_column(String(255), nullable=False)
     open_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     close_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
-
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=func.current_timestamp())
+    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"), onupdate=func.current_timestamp())

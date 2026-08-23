@@ -1,4 +1,6 @@
-from sqlalchemy import BigInteger, ForeignKey, UniqueConstraint
+from datetime import datetime
+
+from sqlalchemy import TIMESTAMP, BigInteger, ForeignKey, UniqueConstraint, func, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from extensions import db
@@ -12,4 +14,5 @@ class ShopCategory(SerializableMixin, db.Model):
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     shop_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("shops.id"), index=True, nullable=False)
     category_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("categories.id"), index=True, nullable=False)
-
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=func.current_timestamp())
+    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"), onupdate=func.current_timestamp())

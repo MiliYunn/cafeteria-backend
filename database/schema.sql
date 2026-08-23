@@ -6,6 +6,8 @@ CREATE TABLE roles (
     id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_roles_name (name)
 ) ENGINE=InnoDB;
 
@@ -19,6 +21,8 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     type VARCHAR(50) NOT NULL DEFAULT 'user',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY uq_users_username (username),
     UNIQUE KEY uq_users_email (email),
@@ -38,6 +42,8 @@ CREATE TABLE shops (
     password VARCHAR(255) NOT NULL,
     open_at DATETIME NULL,
     close_at DATETIME NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_shops_email (email)
 ) ENGINE=InnoDB;
 
@@ -46,6 +52,8 @@ CREATE TABLE categories (
     name VARCHAR(100) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     description TEXT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_categories_name (name)
 ) ENGINE=InnoDB;
 
@@ -53,6 +61,8 @@ CREATE TABLE shop_categories (
     id BIGINT NOT NULL AUTO_INCREMENT,
     shop_id BIGINT NOT NULL,
     category_id BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY uq_shop_categories_pair (shop_id, category_id),
     KEY ix_shop_categories_shop_id (shop_id),
@@ -68,6 +78,8 @@ CREATE TABLE shop_staffs (
     email VARCHAR(255) NULL,
     phone VARCHAR(30) NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_shop_staffs_email (email),
     KEY ix_shop_staffs_shop_id (shop_id),
     CONSTRAINT fk_shop_staffs_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id)
@@ -77,6 +89,8 @@ CREATE TABLE genres (
     id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_genres_name (name)
 ) ENGINE=InnoDB;
 
@@ -89,6 +103,8 @@ CREATE TABLE menus (
     is_available BOOLEAN NOT NULL DEFAULT TRUE,
     image VARCHAR(500) NULL,
     description TEXT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     KEY ix_menus_shop_id (shop_id), KEY ix_menus_genre_id (genre_id),
     CONSTRAINT fk_menus_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id),
@@ -103,17 +119,25 @@ CREATE TABLE payment_methods (
     domain_url VARCHAR(500) NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     type VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_payment_methods_name (name)
 ) ENGINE=InnoDB;
 
 CREATE TABLE payment_accounts (
     id BIGINT NOT NULL AUTO_INCREMENT,
+    shop_id BIGINT NOT NULL,
     payment_method_id BIGINT NOT NULL,
     account_holder_name VARCHAR(255) NOT NULL,
     account_number VARCHAR(100) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     image VARCHAR(500) NULL,
-    PRIMARY KEY (id), KEY ix_payment_accounts_payment_method_id (payment_method_id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY ix_payment_accounts_shop_id (shop_id),
+    KEY ix_payment_accounts_payment_method_id (payment_method_id),
+    CONSTRAINT fk_payment_accounts_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id),
     CONSTRAINT fk_payment_accounts_payment_method_id FOREIGN KEY (payment_method_id) REFERENCES payment_methods (id)
 ) ENGINE=InnoDB;
 
@@ -132,6 +156,8 @@ CREATE TABLE orders (
     tax_fee DECIMAL(12,2) NOT NULL DEFAULT 0.00,
     is_pickup BOOLEAN NOT NULL DEFAULT TRUE,
     delivery_location VARCHAR(500) NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_orders_order_code (order_code),
     KEY ix_orders_shop_id (shop_id), KEY ix_orders_user_id (user_id),
     KEY ix_orders_payment_account_id (payment_account_id),
@@ -146,6 +172,8 @@ CREATE TABLE order_menus (
     menu_id BIGINT NOT NULL,
     quantity BIGINT NOT NULL,
     amount DECIMAL(12,2) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), UNIQUE KEY uq_order_menus_pair (order_id, menu_id),
     KEY ix_order_menus_order_id (order_id), KEY ix_order_menus_menu_id (menu_id),
     CONSTRAINT fk_order_menus_order_id FOREIGN KEY (order_id) REFERENCES orders (id),
@@ -157,6 +185,8 @@ CREATE TABLE order_logs (
     order_id BIGINT NOT NULL,
     status VARCHAR(50) NOT NULL,
     user_id BIGINT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), KEY ix_order_logs_order_id (order_id), KEY ix_order_logs_user_id (user_id),
     CONSTRAINT fk_order_logs_order_id FOREIGN KEY (order_id) REFERENCES orders (id),
     CONSTRAINT fk_order_logs_user_id FOREIGN KEY (user_id) REFERENCES users (id)
@@ -167,6 +197,8 @@ CREATE TABLE user_activities (
     user_id BIGINT NOT NULL,
     activity TEXT NOT NULL,
     active_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id), KEY ix_user_activities_user_id (user_id),
     CONSTRAINT fk_user_activities_user_id FOREIGN KEY (user_id) REFERENCES users (id)
 ) ENGINE=InnoDB;
@@ -177,6 +209,8 @@ CREATE TABLE revoked_tokens (
     user_id BIGINT NOT NULL,
     expires_at DATETIME NOT NULL,
     revoked_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY uq_revoked_tokens_jti (jti),
     KEY ix_revoked_tokens_user_id (user_id),
