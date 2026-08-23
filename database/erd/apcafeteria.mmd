@@ -1,0 +1,139 @@
+erDiagram
+    roles ||--o{ users : assigns
+    users ||--o{ user_activities : performs
+    users ||--o{ revoked_tokens : revokes
+    users ||--o{ orders : places
+    users o|--o{ order_logs : changes
+    shops ||--o{ shop_staffs : employs
+    shops ||--o{ shop_categories : classified_as
+    categories ||--o{ shop_categories : includes
+    shops ||--o{ menus : offers
+    genres ||--o{ menus : groups
+    shops ||--o{ orders : receives
+    payment_methods ||--o{ payment_accounts : provides
+    payment_accounts ||--o{ orders : paid_to
+    orders ||--|{ order_menus : contains
+    menus ||--o{ order_menus : selected_as
+    orders ||--o{ order_logs : tracks
+
+    roles {
+        BIGINT id PK
+        VARCHAR name UK
+        BOOLEAN is_active
+    }
+    users {
+        BIGINT id PK
+        VARCHAR username UK
+        VARCHAR email UK
+        VARCHAR fullname
+        BIGINT role_id FK
+        BIGINT department_id
+        VARCHAR password
+        BOOLEAN is_active
+        VARCHAR type
+    }
+    user_activities {
+        BIGINT id PK
+        BIGINT user_id FK
+        TEXT activity
+        DATETIME active_at
+    }
+    revoked_tokens {
+        BIGINT id PK
+        VARCHAR jti UK
+        BIGINT user_id FK
+        DATETIME expires_at
+        DATETIME revoked_at
+    }
+    shops {
+        BIGINT id PK
+        VARCHAR name
+        TEXT description
+        VARCHAR logo_url
+        VARCHAR location
+        BOOLEAN is_active
+        VARCHAR email UK
+        VARCHAR password
+        DATETIME open_at
+        DATETIME close_at
+    }
+    shop_staffs {
+        BIGINT id PK
+        BIGINT shop_id FK
+        VARCHAR name
+        VARCHAR email UK
+        VARCHAR phone
+        BOOLEAN is_active
+    }
+    categories {
+        BIGINT id PK
+        VARCHAR name UK
+        BOOLEAN is_active
+        TEXT description
+    }
+    shop_categories {
+        BIGINT id PK
+        BIGINT shop_id FK
+        BIGINT category_id FK
+    }
+    genres {
+        BIGINT id PK
+        VARCHAR name UK
+        BOOLEAN is_active
+    }
+    menus {
+        BIGINT id PK
+        BIGINT shop_id FK
+        BIGINT genre_id FK
+        VARCHAR name
+        DECIMAL cost
+        BOOLEAN is_available
+        VARCHAR image
+        TEXT description
+    }
+    payment_methods {
+        BIGINT id PK
+        VARCHAR name UK
+        TEXT description
+        VARCHAR logo
+        VARCHAR domain_url
+        BOOLEAN is_active
+        VARCHAR type
+    }
+    payment_accounts {
+        BIGINT id PK
+        BIGINT payment_method_id FK
+        VARCHAR account_holder_name
+        VARCHAR account_number
+        BOOLEAN is_active
+        VARCHAR image
+    }
+    orders {
+        BIGINT id PK
+        BIGINT shop_id FK
+        BIGINT user_id FK
+        VARCHAR user_email
+        VARCHAR order_code UK
+        VARCHAR status
+        DATETIME order_at
+        DECIMAL subtotal_amount
+        DECIMAL total_amount
+        TEXT remark
+        BIGINT payment_account_id FK
+        DECIMAL tax_fee
+        BOOLEAN is_pickup
+        VARCHAR delivery_location
+    }
+    order_menus {
+        BIGINT id PK
+        BIGINT order_id FK
+        BIGINT menu_id FK
+        BIGINT quantity
+        DECIMAL amount
+    }
+    order_logs {
+        BIGINT id PK
+        BIGINT order_id FK
+        VARCHAR status
+        BIGINT user_id FK
+    }
