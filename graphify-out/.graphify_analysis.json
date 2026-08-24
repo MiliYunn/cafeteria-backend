@@ -1,50 +1,218 @@
 {
   "communities": {
     "0": [
-      "controllers_admin_controller",
-      "controllers_admin_controller_create_category",
-      "controllers_admin_controller_list_categories",
-      "controllers_admin_controller_list_users",
-      "controllers_auth_controller",
-      "controllers_auth_controller_admin_login",
-      "controllers_auth_controller_login",
-      "controllers_auth_controller_logout",
-      "controllers_auth_controller_student_login",
+      "controllers_api_controller",
+      "controllers_api_controller_health",
+      "controllers_api_controller_list_shop_menus",
+      "controllers_api_controller_list_shops",
+      "controllers_category_controller",
+      "controllers_category_controller_category_options",
+      "controllers_category_controller_create_category",
+      "controllers_category_controller_delete_category",
+      "controllers_category_controller_get_category",
+      "controllers_category_controller_list_categories",
+      "controllers_category_controller_update_category",
+      "controllers_common",
+      "controllers_common_pagination_parameters",
+      "controllers_genre_controller",
+      "controllers_genre_controller_create_genre",
+      "controllers_genre_controller_delete_genre",
+      "controllers_genre_controller_genre_options",
+      "controllers_genre_controller_get_genre",
+      "controllers_genre_controller_list_genres",
+      "controllers_genre_controller_update_genre",
+      "controllers_payment_account_controller",
+      "controllers_payment_account_controller_create_payment_account",
+      "controllers_payment_account_controller_delete_payment_account",
+      "controllers_payment_account_controller_get_payment_account",
+      "controllers_payment_account_controller_list_payment_accounts",
+      "controllers_payment_account_controller_update_payment_account",
+      "controllers_payment_method_controller",
+      "controllers_payment_method_controller_create_payment_method",
+      "controllers_payment_method_controller_delete_payment_method",
+      "controllers_payment_method_controller_get_payment_method",
+      "controllers_payment_method_controller_list_payment_methods",
+      "controllers_payment_method_controller_payment_method_options",
+      "controllers_payment_method_controller_update_payment_method",
+      "controllers_role_controller",
+      "controllers_role_controller_create_role",
+      "controllers_role_controller_delete_role",
+      "controllers_role_controller_get_role",
+      "controllers_role_controller_list_roles",
+      "controllers_role_controller_role_options",
+      "controllers_role_controller_update_role",
+      "controllers_shop_controller_list_shops",
+      "controllers_shop_staff_controller",
+      "controllers_shop_staff_controller_create_shop_staff",
+      "controllers_shop_staff_controller_delete_shop_staff",
+      "controllers_shop_staff_controller_get_shop_staff",
+      "controllers_shop_staff_controller_list_shop_staffs",
+      "controllers_user_controller",
+      "controllers_user_controller_delete_user",
+      "controllers_user_controller_get_user",
+      "controllers_user_controller_list_users",
+      "controllers_user_controller_update_user",
       "helpers_response",
-      "helpers_response_error_response",
+      "helpers_response_paginated_response",
       "helpers_response_py_any",
       "helpers_response_rationale_1",
       "helpers_response_success_response",
-      "middlewares_jwt_auth",
-      "middlewares_jwt_auth_jwt_required",
-      "middlewares_jwt_auth_rationale_1",
-      "middlewares_rate_limit",
-      "middlewares_rate_limit_admin_rate_limit",
-      "middlewares_rate_limit_api_rate_limit",
-      "middlewares_rate_limit_rationale_1",
-      "models_category_category",
-      "models_revoked_token_revokedtoken",
       "routes_admin",
       "routes_admin_rationale_1",
-      "routes_api",
-      "routes_api_rationale_1",
-      "services_admin_service",
-      "services_admin_service_adminservice",
-      "services_admin_service_adminservice_create_category",
-      "services_admin_service_adminservice_list_categories",
-      "services_admin_service_adminservice_list_users",
-      "services_admin_service_rationale_1",
-      "services_token_service",
-      "services_token_service_rationale_1",
-      "services_token_service_tokenservice",
-      "services_token_service_tokenservice_is_revoked",
-      "services_token_service_tokenservice_revoke",
+      "routes_health",
+      "routes_health_rationale_1",
+      "services_catalog_service_catalogservice",
+      "services_catalog_service_catalogservice_list_shop_menus",
+      "services_catalog_service_catalogservice_list_shops",
+      "services_category_service_categoryservice",
+      "services_category_service_categoryservice_create",
+      "services_category_service_categoryservice_get",
+      "services_category_service_categoryservice_options",
+      "services_genre_service_genreservice",
+      "services_genre_service_genreservice_create",
+      "services_genre_service_genreservice_get",
+      "services_genre_service_genreservice_list",
+      "services_genre_service_genreservice_options",
+      "services_payment_method_service_paymentmethodservice",
+      "services_payment_method_service_paymentmethodservice_create",
+      "services_payment_method_service_paymentmethodservice_get",
+      "services_payment_method_service_paymentmethodservice_list",
+      "services_payment_method_service_paymentmethodservice_options",
+      "services_role_service_roleservice",
+      "services_role_service_roleservice_create",
+      "services_role_service_roleservice_get",
+      "services_role_service_roleservice_list",
+      "services_role_service_roleservice_options",
+      "services_role_service_roleservice_update",
+      "validations_payment_method_py_any",
+      "validations_payment_method_validate_payment_method"
+    ],
+    "1": [
+      "controllers_shop_staff_controller_update_shop_staff",
+      "controllers_user_controller_create_user",
+      "paymentaccount",
+      "services_catalog_service",
+      "services_catalog_service_rationale_1",
+      "services_category_service",
+      "services_category_service_categoryservice_delete",
+      "services_category_service_categoryservice_list",
+      "services_category_service_categoryservice_update",
+      "services_crud_service",
+      "services_crud_service_commit_record",
+      "services_crud_service_delete_record",
+      "services_crud_service_get_record",
+      "services_crud_service_paginate_records",
+      "services_crud_service_py_any",
+      "services_crud_service_rationale_1",
+      "services_genre_service",
+      "services_genre_service_genreservice_delete",
+      "services_genre_service_genreservice_update",
+      "services_payment_account_service",
+      "services_payment_account_service_paymentaccountservice",
+      "services_payment_account_service_paymentaccountservice_account",
+      "services_payment_account_service_paymentaccountservice_create",
+      "services_payment_account_service_paymentaccountservice_delete",
+      "services_payment_account_service_paymentaccountservice_get",
+      "services_payment_account_service_paymentaccountservice_list",
+      "services_payment_account_service_paymentaccountservice_method",
+      "services_payment_account_service_paymentaccountservice_shop",
+      "services_payment_account_service_paymentaccountservice_update",
+      "services_payment_method_service",
+      "services_payment_method_service_paymentmethodservice_delete",
+      "services_payment_method_service_paymentmethodservice_update",
+      "services_role_service",
+      "services_role_service_roleservice_delete",
+      "services_shop_service",
+      "services_shop_staff_service",
+      "services_shop_staff_service_shopstaffservice",
+      "services_shop_staff_service_shopstaffservice_create",
+      "services_shop_staff_service_shopstaffservice_delete",
+      "services_shop_staff_service_shopstaffservice_get",
+      "services_shop_staff_service_shopstaffservice_list",
+      "services_shop_staff_service_shopstaffservice_shop",
+      "services_shop_staff_service_shopstaffservice_staff",
+      "services_shop_staff_service_shopstaffservice_update",
+      "services_user_service",
+      "services_user_service_serialize",
+      "services_user_service_userservice",
+      "services_user_service_userservice_create",
+      "services_user_service_userservice_delete",
+      "services_user_service_userservice_ensure_role",
+      "services_user_service_userservice_get",
+      "services_user_service_userservice_list",
+      "services_user_service_userservice_update",
+      "shopstaff",
+      "user",
+      "validations_exceptions",
+      "validations_exceptions_rationale_1"
+    ],
+    "2": [
+      "exception",
+      "tests_test_admin_crud",
+      "tests_test_admin_crud_test_all_admin_crud_routes_are_registered",
+      "tests_test_admin_crud_test_nested_shop_crud_routes_are_registered",
+      "tests_test_admin_crud_test_option_routes_are_registered",
+      "tests_test_admin_crud_test_paginated_response_shape",
+      "tests_test_admin_crud_test_pagination_defaults_and_limit",
+      "tests_test_admin_crud_test_role_create_and_update_validation",
+      "tests_test_admin_crud_test_user_password_is_required_only_when_creating",
+      "tests_test_helpers_test_invalid_login_payload_has_field_errors",
+      "validations_auth",
+      "validations_auth_py_any",
+      "validations_auth_rationale_1",
+      "validations_auth_validate_login",
       "validations_category",
       "validations_category_py_any",
       "validations_category_rationale_1",
-      "validations_category_validate_category_create"
+      "validations_category_validate_category",
+      "validations_category_validate_category_create",
+      "validations_common",
+      "validations_common_boolean_value",
+      "validations_common_iso_datetime",
+      "validations_common_nullable_positive_integer",
+      "validations_common_optional_string",
+      "validations_common_positive_integer",
+      "validations_common_py_any",
+      "validations_common_rationale_1",
+      "validations_common_require_json_object",
+      "validations_common_require_update_fields",
+      "validations_common_required_string",
+      "validations_common_valid_email",
+      "validations_common_valid_url",
+      "validations_common_validate_pagination",
+      "validations_common_validate_resource_payload",
+      "validations_exceptions_py_any",
+      "validations_exceptions_validationerror",
+      "validations_exceptions_validationerror_init",
+      "validations_genre",
+      "validations_genre_py_any",
+      "validations_genre_validate_genre",
+      "validations_payment_account",
+      "validations_payment_account_py_any",
+      "validations_payment_account_validate_payment_account",
+      "validations_payment_method",
+      "validations_role",
+      "validations_role_py_any",
+      "validations_role_validate_role",
+      "validations_shop",
+      "validations_shop_staff",
+      "validations_shop_staff_optional_email",
+      "validations_shop_staff_py_any",
+      "validations_shop_staff_validate_shop_staff",
+      "validations_user",
+      "validations_user_py_any",
+      "validations_user_validate_user"
     ],
-    "1": [
+    "3": [
+      "database_seeders_admin_user",
+      "database_seeders_admin_user_seed_admin_user",
+      "database_seeders_payment_methods",
+      "database_seeders_payment_methods_seed_payment_methods",
+      "database_seeders_roles",
+      "database_seeders_roles_seed_roles",
+      "database_seeders_run",
+      "database_seeders_run_rationale_1",
+      "database_seeders_run_run_seeders",
       "datetime",
       "declarativebase",
       "extensions",
@@ -56,6 +224,7 @@
       "models_base_serializablemixin",
       "models_base_serializablemixin_to_dict",
       "models_category",
+      "models_category_category",
       "models_genre",
       "models_genre_genre",
       "models_init",
@@ -71,8 +240,10 @@
       "models_payment_account",
       "models_payment_account_paymentaccount",
       "models_payment_method",
+      "models_payment_method_paymentmethod",
       "models_revoked_token",
       "models_role",
+      "models_role_role",
       "models_shop",
       "models_shop_category",
       "models_shop_category_shopcategory",
@@ -82,11 +253,51 @@
       "models_user",
       "models_user_activity",
       "models_user_activity_useractivity",
+      "models_user_user",
       "serializablemixin",
-      "services_catalog_service",
-      "services_catalog_service_rationale_1"
+      "services_auth_service",
+      "services_auth_service_rationale_1"
     ],
-    "2": [
+    "4": [
+      "controllers_auth_controller",
+      "controllers_auth_controller_admin_login",
+      "controllers_auth_controller_login",
+      "controllers_auth_controller_logout",
+      "controllers_auth_controller_student_login",
+      "helpers_hash",
+      "helpers_hash_hash_password",
+      "helpers_hash_rationale_1",
+      "helpers_hash_verify_password",
+      "helpers_jwt",
+      "helpers_jwt_create_access_token",
+      "helpers_jwt_decode_access_token",
+      "helpers_jwt_py_any",
+      "helpers_jwt_rationale_1",
+      "helpers_response_error_response",
+      "middlewares_jwt_auth",
+      "middlewares_jwt_auth_jwt_required",
+      "middlewares_jwt_auth_rationale_1",
+      "middlewares_rate_limit",
+      "middlewares_rate_limit_admin_rate_limit",
+      "middlewares_rate_limit_api_rate_limit",
+      "middlewares_rate_limit_rationale_1",
+      "models_revoked_token_revokedtoken",
+      "routes_admin_register_admin_route",
+      "routes_api",
+      "routes_api_rationale_1",
+      "services_auth_service_authservice",
+      "services_auth_service_authservice_login",
+      "services_token_service",
+      "services_token_service_rationale_1",
+      "services_token_service_tokenservice",
+      "services_token_service_tokenservice_is_revoked",
+      "services_token_service_tokenservice_revoke",
+      "tests_test_helpers",
+      "tests_test_helpers_test_access_token_round_trip",
+      "tests_test_helpers_test_password_hash_round_trip",
+      "tests_test_helpers_test_token_rejects_wrong_secret"
+    ],
+    "5": [
       "app",
       "app_create_app",
       "app_py_flask",
@@ -121,35 +332,7 @@
       "tests_conftest_app",
       "tests_conftest_client"
     ],
-    "3": [
-      "exception",
-      "helpers_hash",
-      "helpers_hash_rationale_1",
-      "helpers_hash_verify_password",
-      "helpers_jwt",
-      "helpers_jwt_create_access_token",
-      "helpers_jwt_decode_access_token",
-      "helpers_jwt_py_any",
-      "helpers_jwt_rationale_1",
-      "services_auth_service",
-      "services_auth_service_authservice",
-      "services_auth_service_authservice_login",
-      "services_auth_service_rationale_1",
-      "tests_test_helpers",
-      "tests_test_helpers_test_access_token_round_trip",
-      "tests_test_helpers_test_invalid_login_payload_has_field_errors",
-      "tests_test_helpers_test_token_rejects_wrong_secret",
-      "validations_auth",
-      "validations_auth_py_any",
-      "validations_auth_rationale_1",
-      "validations_auth_validate_login",
-      "validations_exceptions",
-      "validations_exceptions_py_any",
-      "validations_exceptions_rationale_1",
-      "validations_exceptions_validationerror",
-      "validations_exceptions_validationerror_init"
-    ],
-    "4": [
+    "6": [
       "database_schema",
       "database_schema_categories",
       "database_schema_genres",
@@ -167,40 +350,24 @@
       "database_schema_user_activities",
       "database_schema_users"
     ],
-    "5": [
-      "controllers_api_controller",
-      "controllers_api_controller_health",
-      "controllers_api_controller_list_shop_menus",
-      "controllers_api_controller_list_shops",
-      "routes_health",
-      "routes_health_rationale_1",
-      "services_catalog_service_catalogservice",
-      "services_catalog_service_catalogservice_list_shop_menus",
-      "services_catalog_service_catalogservice_list_shops",
-      "validations_common",
-      "validations_common_positive_integer",
-      "validations_common_py_any",
-      "validations_common_rationale_1",
-      "validations_common_required_string",
-      "validations_common_valid_email"
-    ],
-    "6": [
-      "database_seeders_admin_user",
-      "database_seeders_admin_user_seed_admin_user",
-      "database_seeders_payment_methods",
-      "database_seeders_payment_methods_seed_payment_methods",
-      "database_seeders_roles",
-      "database_seeders_roles_seed_roles",
-      "database_seeders_run",
-      "database_seeders_run_rationale_1",
-      "database_seeders_run_run_seeders",
-      "helpers_hash_hash_password",
-      "models_payment_method_paymentmethod",
-      "models_role_role",
-      "models_user_user",
-      "tests_test_helpers_test_password_hash_round_trip"
-    ],
     "7": [
+      "controllers_shop_controller",
+      "controllers_shop_controller_create_shop",
+      "controllers_shop_controller_delete_shop",
+      "controllers_shop_controller_get_shop",
+      "controllers_shop_controller_update_shop",
+      "services_shop_service_serialize",
+      "services_shop_service_shopservice",
+      "services_shop_service_shopservice_create",
+      "services_shop_service_shopservice_delete",
+      "services_shop_service_shopservice_get",
+      "services_shop_service_shopservice_list",
+      "services_shop_service_shopservice_update",
+      "shop",
+      "validations_shop_py_any",
+      "validations_shop_validate_shop"
+    ],
+    "8": [
       "tests_test_app",
       "tests_test_app_test_admin_login_validates_payload",
       "tests_test_app_test_admin_logout_requires_token",
@@ -214,7 +381,7 @@
       "tests_test_app_test_student_logout_requires_token",
       "tests_test_app_test_versioned_routes_are_not_registered"
     ],
-    "8": [
+    "9": [
       "argumentparser",
       "manage",
       "manage_build_parser",
@@ -227,202 +394,202 @@
       "tests_test_manage",
       "tests_test_manage_test_command_interrupt_exits_cleanly"
     ],
-    "9": [
+    "10": [
       "database_migrations_versions_001_create_roles",
       "database_migrations_versions_001_create_roles_downgrade",
       "database_migrations_versions_001_create_roles_upgrade"
     ],
-    "10": [
+    "11": [
       "database_migrations_versions_002_create_users",
       "database_migrations_versions_002_create_users_downgrade",
       "database_migrations_versions_002_create_users_upgrade"
     ],
-    "11": [
+    "12": [
       "database_migrations_versions_003_create_shops",
       "database_migrations_versions_003_create_shops_downgrade",
       "database_migrations_versions_003_create_shops_upgrade"
     ],
-    "12": [
+    "13": [
       "database_migrations_versions_004_create_categories",
       "database_migrations_versions_004_create_categories_downgrade",
       "database_migrations_versions_004_create_categories_upgrade"
     ],
-    "13": [
+    "14": [
       "database_migrations_versions_005_create_shop_categories",
       "database_migrations_versions_005_create_shop_categories_downgrade",
       "database_migrations_versions_005_create_shop_categories_upgrade"
     ],
-    "14": [
+    "15": [
       "database_migrations_versions_006_create_shop_staffs",
       "database_migrations_versions_006_create_shop_staffs_downgrade",
       "database_migrations_versions_006_create_shop_staffs_upgrade"
     ],
-    "15": [
+    "16": [
       "database_migrations_versions_007_create_genres",
       "database_migrations_versions_007_create_genres_downgrade",
       "database_migrations_versions_007_create_genres_upgrade"
     ],
-    "16": [
+    "17": [
       "database_migrations_versions_008_create_menus",
       "database_migrations_versions_008_create_menus_downgrade",
       "database_migrations_versions_008_create_menus_upgrade"
     ],
-    "17": [
+    "18": [
       "database_migrations_versions_009_create_payment_methods",
       "database_migrations_versions_009_create_payment_methods_downgrade",
       "database_migrations_versions_009_create_payment_methods_upgrade"
     ],
-    "18": [
+    "19": [
       "database_migrations_versions_010_create_payment_accounts",
       "database_migrations_versions_010_create_payment_accounts_downgrade",
       "database_migrations_versions_010_create_payment_accounts_upgrade"
     ],
-    "19": [
+    "20": [
       "database_migrations_versions_011_create_orders",
       "database_migrations_versions_011_create_orders_downgrade",
       "database_migrations_versions_011_create_orders_upgrade"
     ],
-    "20": [
+    "21": [
       "database_migrations_versions_012_create_order_menus",
       "database_migrations_versions_012_create_order_menus_downgrade",
       "database_migrations_versions_012_create_order_menus_upgrade"
     ],
-    "21": [
+    "22": [
       "database_migrations_versions_013_create_order_logs",
       "database_migrations_versions_013_create_order_logs_downgrade",
       "database_migrations_versions_013_create_order_logs_upgrade"
     ],
-    "22": [
+    "23": [
       "database_migrations_versions_014_create_user_activities",
       "database_migrations_versions_014_create_user_activities_downgrade",
       "database_migrations_versions_014_create_user_activities_upgrade"
     ],
-    "23": [
+    "24": [
       "database_migrations_versions_015_create_revoked_tokens",
       "database_migrations_versions_015_create_revoked_tokens_downgrade",
       "database_migrations_versions_015_create_revoked_tokens_upgrade"
     ],
-    "24": [
+    "25": [
       "database_migrations_versions_016_add_roles_timestamps",
       "database_migrations_versions_016_add_roles_timestamps_downgrade",
       "database_migrations_versions_016_add_roles_timestamps_upgrade"
     ],
-    "25": [
+    "26": [
       "database_migrations_versions_017_add_users_timestamps",
       "database_migrations_versions_017_add_users_timestamps_downgrade",
       "database_migrations_versions_017_add_users_timestamps_upgrade"
     ],
-    "26": [
+    "27": [
       "database_migrations_versions_018_add_shops_timestamps",
       "database_migrations_versions_018_add_shops_timestamps_downgrade",
       "database_migrations_versions_018_add_shops_timestamps_upgrade"
     ],
-    "27": [
+    "28": [
       "database_migrations_versions_019_add_categories_timestamps",
       "database_migrations_versions_019_add_categories_timestamps_downgrade",
       "database_migrations_versions_019_add_categories_timestamps_upgrade"
     ],
-    "28": [
+    "29": [
       "database_migrations_versions_020_add_shop_categories_timestamps",
       "database_migrations_versions_020_add_shop_categories_timestamps_downgrade",
       "database_migrations_versions_020_add_shop_categories_timestamps_upgrade"
     ],
-    "29": [
+    "30": [
       "database_migrations_versions_021_add_shop_staffs_timestamps",
       "database_migrations_versions_021_add_shop_staffs_timestamps_downgrade",
       "database_migrations_versions_021_add_shop_staffs_timestamps_upgrade"
     ],
-    "30": [
+    "31": [
       "database_migrations_versions_022_add_genres_timestamps",
       "database_migrations_versions_022_add_genres_timestamps_downgrade",
       "database_migrations_versions_022_add_genres_timestamps_upgrade"
     ],
-    "31": [
+    "32": [
       "database_migrations_versions_023_add_menus_timestamps",
       "database_migrations_versions_023_add_menus_timestamps_downgrade",
       "database_migrations_versions_023_add_menus_timestamps_upgrade"
     ],
-    "32": [
+    "33": [
       "database_migrations_versions_024_add_payment_methods_timestamps",
       "database_migrations_versions_024_add_payment_methods_timestamps_downgrade",
       "database_migrations_versions_024_add_payment_methods_timestamps_upgrade"
     ],
-    "33": [
+    "34": [
       "database_migrations_versions_025_add_payment_accounts_timestamps",
       "database_migrations_versions_025_add_payment_accounts_timestamps_downgrade",
       "database_migrations_versions_025_add_payment_accounts_timestamps_upgrade"
     ],
-    "34": [
+    "35": [
       "database_migrations_versions_026_add_orders_timestamps",
       "database_migrations_versions_026_add_orders_timestamps_downgrade",
       "database_migrations_versions_026_add_orders_timestamps_upgrade"
     ],
-    "35": [
+    "36": [
       "database_migrations_versions_027_add_order_menus_timestamps",
       "database_migrations_versions_027_add_order_menus_timestamps_downgrade",
       "database_migrations_versions_027_add_order_menus_timestamps_upgrade"
     ],
-    "36": [
+    "37": [
       "database_migrations_versions_028_add_order_logs_timestamps",
       "database_migrations_versions_028_add_order_logs_timestamps_downgrade",
       "database_migrations_versions_028_add_order_logs_timestamps_upgrade"
     ],
-    "37": [
+    "38": [
       "database_migrations_versions_029_add_user_activities_timestamps",
       "database_migrations_versions_029_add_user_activities_timestamps_downgrade",
       "database_migrations_versions_029_add_user_activities_timestamps_upgrade"
     ],
-    "38": [
+    "39": [
       "database_migrations_versions_030_add_revoked_tokens_timestamps",
       "database_migrations_versions_030_add_revoked_tokens_timestamps_downgrade",
       "database_migrations_versions_030_add_revoked_tokens_timestamps_upgrade"
     ],
-    "39": [
+    "40": [
       "database_migrations_versions_031_add_payment_accounts_shop_id",
       "database_migrations_versions_031_add_payment_accounts_shop_id_downgrade",
       "database_migrations_versions_031_add_payment_accounts_shop_id_upgrade"
     ],
-    "40": [
+    "41": [
       "database_init",
       "database_init_rationale_1"
     ],
-    "41": [
+    "42": [
       "database_seeders_init",
       "database_seeders_init_rationale_1"
     ],
-    "42": [
+    "43": [
       "helpers_init",
       "helpers_init_rationale_1"
     ],
-    "43": [
+    "44": [
       "middlewares_init",
       "middlewares_init_rationale_1"
     ],
-    "44": [
+    "45": [
       "validations_init",
       "validations_init_rationale_1"
     ],
-    "45": [
+    "46": [
       "controllers_init"
     ],
-    "46": [
+    "47": [
       "services_init"
     ],
-    "47": [
+    "48": [
       "tests_init"
     ]
   },
   "cohesion": {
-    "0": 0.10220673635307782,
-    "1": 0.15128205128205127,
-    "2": 0.10227272727272728,
-    "3": 0.1476923076923077,
-    "4": 0.26666666666666666,
-    "5": 0.22857142857142856,
-    "6": 0.27472527472527475,
-    "7": 0.16666666666666666,
-    "8": 0.2727272727272727,
-    "9": 0.6666666666666666,
+    "0": 0.0711484593837535,
+    "1": 0.08959899749373433,
+    "2": 0.09158249158249158,
+    "3": 0.11538461538461539,
+    "4": 0.1021021021021021,
+    "5": 0.10227272727272728,
+    "6": 0.26666666666666666,
+    "7": 0.26666666666666666,
+    "8": 0.16666666666666666,
+    "9": 0.2727272727272727,
     "10": 0.6666666666666666,
     "11": 0.6666666666666666,
     "12": 0.6666666666666666,
@@ -453,95 +620,85 @@
     "37": 0.6666666666666666,
     "38": 0.6666666666666666,
     "39": 0.6666666666666666,
-    "40": 1.0,
+    "40": 0.6666666666666666,
     "41": 1.0,
     "42": 1.0,
     "43": 1.0,
     "44": 1.0,
     "45": 1.0,
     "46": 1.0,
-    "47": 1.0
+    "47": 1.0,
+    "48": 1.0
   },
   "gods": [
+    {
+      "id": "helpers_response_success_response",
+      "label": "success_response()",
+      "degree": 51
+    },
+    {
+      "id": "services_crud_service_get_record",
+      "label": "get_record()",
+      "degree": 34
+    },
     {
       "id": "models_base_serializablemixin",
       "label": "SerializableMixin",
       "degree": 30
     },
     {
+      "id": "services_crud_service_commit_record",
+      "label": "commit_record()",
+      "degree": 26
+    },
+    {
       "id": "validations_exceptions_validationerror",
       "label": "ValidationError",
-      "degree": 19
+      "degree": 23
     },
     {
-      "id": "app_create_app",
-      "label": "create_app()",
-      "degree": 14
+      "id": "helpers_response_paginated_response",
+      "label": "paginated_response()",
+      "degree": 23
     },
     {
-      "id": "helpers_response_success_response",
-      "label": "success_response()",
-      "degree": 13
+      "id": "controllers_common_pagination_parameters",
+      "label": "pagination_parameters()",
+      "degree": 21
     },
     {
-      "id": "services_admin_service_adminservice",
-      "label": "AdminService",
-      "degree": 11
+      "id": "services_crud_service_paginate_records",
+      "label": "paginate_records()",
+      "degree": 21
     },
     {
-      "id": "models_role_role",
-      "label": "Role",
-      "degree": 9
+      "id": "validations_common_validate_resource_payload",
+      "label": "validate_resource_payload()",
+      "degree": 21
     },
     {
-      "id": "models_user_user",
-      "label": "User",
-      "degree": 9
-    },
-    {
-      "id": "services_catalog_service_catalogservice",
-      "label": "CatalogService",
-      "degree": 8
-    },
-    {
-      "id": "services_token_service_tokenservice",
-      "label": "TokenService",
-      "degree": 8
-    },
-    {
-      "id": "validations_auth_validate_login",
-      "label": "validate_login()",
-      "degree": 8
+      "id": "services_crud_service_delete_record",
+      "label": "delete_record()",
+      "degree": 18
     }
   ],
   "surprises": [
     {
-      "source": "CatalogService",
-      "target": "Menu",
+      "source": "AuthService",
+      "target": "Role",
       "source_files": [
-        "services/catalog_service.py",
-        "models/menu.py"
+        "services/auth_service.py",
+        "models/role.py"
       ],
       "confidence": "INFERRED",
       "relation": "uses",
       "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "CatalogService",
-      "target": "Shop",
-      "source_files": [
-        "services/catalog_service.py",
-        "models/shop.py"
-      ],
-      "confidence": "INFERRED",
-      "relation": "uses",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
-    },
-    {
-      "source": "AdminService",
+      "source": "AuthService",
       "target": "User",
       "source_files": [
-        "services/admin_service.py",
+        "services/auth_service.py",
         "models/user.py"
       ],
       "confidence": "INFERRED",
@@ -549,10 +706,10 @@
       "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "AdminService",
+      "source": "AuthService",
       "target": "ValidationError",
       "source_files": [
-        "services/admin_service.py",
+        "services/auth_service.py",
         "validations/exceptions.py"
       ],
       "confidence": "INFERRED",
@@ -560,11 +717,22 @@
       "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "_login()",
-      "target": "AuthService",
+      "source": "register_error_handlers()",
+      "target": "ValidationError",
       "source_files": [
-        "controllers/auth_controller.py",
-        "services/auth_service.py"
+        "app.py",
+        "validations/exceptions.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "list_payment_accounts()",
+      "target": "PaymentAccountService",
+      "source_files": [
+        "controllers/payment_account_controller.py",
+        "services/payment_account_service.py"
       ],
       "confidence": "INFERRED",
       "relation": "uses",

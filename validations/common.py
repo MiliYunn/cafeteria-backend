@@ -117,3 +117,36 @@ def require_update_fields(data: dict[str, Any]) -> dict[str, Any]:
         raise ValidationError(errors={"body": "At least one field is required"})
     return data
 
+
+def validate_resource_payload(
+    payload: Any,
+    rules: dict[str, Any],
+    *,
+    required: set[str] | None = None,
+    defaults: dict[str, Any] | None = None,
+    partial: bool = False,
+) -> dict[str, Any]:
+    from validations.exceptions import ValidationError
+
+    body = require_json_object(payload)
+    errors: dict[str, str] = {}
+    data: dict[str, Any] = {}
+    unknown = set(body) - set(rules)
+    for field in sorted(unknown):
+        errors[field] = f"{field} is not allowed"
+    for field, rule in rules.items():
+        if field not in body:
+            if not partial and required and field in required:
+                errors[field] = f"{field} is required"
+            elif not partial and defaults and field in defaults:
+                data[field] = defaults[field]
+            continue
+        try:
+            data[field] = rule(body[field], field)
+        except ValueError as exc:
+            errors[field] = str(exc)
+    if errors:
+        raise ValidationError(errors=errors)
+    if partial:
+        require_update_fields(data)
+    return data

@@ -2,23 +2,22 @@
 
 from sqlalchemy import select
 
-from extensions import db
 from models.menu import Menu
 from models.shop import Shop
+from services.crud_service import paginate_records
 
 
 class CatalogService:
     @staticmethod
-    def list_shops() -> list[dict]:
-        shops = db.session.scalars(select(Shop).where(Shop.is_active.is_(True)).order_by(Shop.name)).all()
-        return [shop.to_dict(exclude={"password"}) for shop in shops]
+    def list_shops(page: int, per_page: int) -> dict:
+        statement = select(Shop).where(Shop.is_active.is_(True)).order_by(Shop.name)
+        return paginate_records(statement, page, per_page, lambda shop: shop.to_dict(exclude={"password"}))
 
     @staticmethod
-    def list_shop_menus(shop_id: int) -> list[dict]:
-        menus = db.session.scalars(
+    def list_shop_menus(shop_id: int, page: int, per_page: int) -> dict:
+        statement = (
             select(Menu)
             .where(Menu.shop_id == shop_id, Menu.is_available.is_(True))
             .order_by(Menu.name)
-        ).all()
-        return [menu.to_dict() for menu in menus]
-
+        )
+        return paginate_records(statement, page, per_page, lambda menu: menu.to_dict())
