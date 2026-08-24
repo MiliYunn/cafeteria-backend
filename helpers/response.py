@@ -14,9 +14,19 @@ def success_response(data: Any = None, message: str = "OK", status_code: int = 2
     return jsonify(payload), status_code
 
 
+def paginated_response(data: list[Any], pagination: dict[str, Any], message: str = "OK"):
+    return jsonify(
+        {
+            "success": True,
+            "message": message,
+            "data": data,
+            "pagination": pagination,
+        }
+    ), 200
+
+
 def error_response(message: str, status_code: int = 400, errors: Any = None):
     payload = {"success": False, "message": message}
     if errors is not None:
         payload["errors"] = errors
     return jsonify(payload), status_code
-
