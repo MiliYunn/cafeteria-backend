@@ -1,10 +1,10 @@
 import pytest
 
 from helpers.response import paginated_response
-from validations.common import validate_pagination
-from validations.exceptions import ValidationError
-from validations.role import validate_role
-from validations.user import validate_user
+from validations.shared.fields import validate_pagination
+from validations.shared.exceptions import ValidationError
+from validations.admin.role import validate_role
+from validations.admin.user import validate_user
 
 
 def test_all_admin_crud_routes_are_registered(app):
@@ -22,7 +22,7 @@ def test_all_admin_crud_routes_are_registered(app):
         "shops": "shop_id",
     }
     for resource, identifier in resources.items():
-        base = f"/api/admin/{resource}"
+        base = f"/cafeteria/admin/{resource}"
         detail = f"{base}/<int:{identifier}>"
         assert (base, "GET") in routes
         assert (base, "POST") in routes
@@ -38,7 +38,7 @@ def test_nested_shop_crud_routes_are_registered(app):
         for method in rule.methods - {"HEAD", "OPTIONS"}
     }
     for resource, identifier in (("staffs", "staff_id"), ("payment-accounts", "account_id")):
-        base = f"/api/admin/shops/<int:shop_id>/{resource}"
+        base = f"/cafeteria/admin/shops/<int:shop_id>/{resource}"
         detail = f"{base}/<int:{identifier}>"
         for method, path in (("GET", base), ("POST", base), ("GET", detail), ("PUT", detail), ("DELETE", detail)):
             assert (path, method) in routes
@@ -47,10 +47,10 @@ def test_nested_shop_crud_routes_are_registered(app):
 def test_option_routes_are_registered(app):
     rules = {rule.rule for rule in app.url_map.iter_rules()}
     assert {
-        "/api/admin/role-options",
-        "/api/admin/category-options",
-        "/api/admin/genre-options",
-        "/api/admin/payment-method-options",
+        "/cafeteria/admin/role-options",
+        "/cafeteria/admin/category-options",
+        "/cafeteria/admin/genre-options",
+        "/cafeteria/admin/payment-method-options",
     } <= rules
 
 

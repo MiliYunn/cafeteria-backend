@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from flask import Flask
 from werkzeug.exceptions import HTTPException
 
@@ -12,7 +14,7 @@ from helpers.response import error_response
 from middlewares.cors import configure_cors
 from middlewares.rate_limit import limiter
 from routes import register_routes
-from validations.exceptions import ValidationError
+from validations.shared.exceptions import ValidationError
 
 
 def create_app(test_config: dict | None = None) -> Flask:
@@ -24,6 +26,8 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.config["SETTINGS"] = settings
     if test_config:
         app.config.update(test_config)
+
+    Path(app.config["UPLOAD_FOLDER"]).mkdir(parents=True, exist_ok=True)
 
     db.init_app(app)
     limiter.init_app(app)
@@ -50,4 +54,3 @@ def register_error_handlers(app: Flask) -> None:
     def handle_unexpected_error(exc: Exception):
         app.logger.exception("Unhandled application error", exc_info=exc)
         return error_response("Internal server error", 500)
-

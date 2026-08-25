@@ -2,22 +2,27 @@
 
 from flask import Blueprint
 
-from controllers.auth_controller import admin_login, logout
-from controllers.category_controller import category_options, create_category, delete_category, get_category, list_categories, update_category
-from controllers.genre_controller import create_genre, delete_genre, genre_options, get_genre, list_genres, update_genre
-from controllers.payment_account_controller import create_payment_account, delete_payment_account, get_payment_account, list_payment_accounts, update_payment_account
-from controllers.payment_method_controller import create_payment_method, delete_payment_method, get_payment_method, list_payment_methods, payment_method_options, update_payment_method
-from controllers.role_controller import create_role, delete_role, get_role, list_roles, role_options, update_role
-from controllers.shop_controller import create_shop, delete_shop, get_shop, list_shops, update_shop
-from controllers.shop_staff_controller import create_shop_staff, delete_shop_staff, get_shop_staff, list_shop_staffs, update_shop_staff
-from controllers.user_controller import create_user, delete_user, get_user, list_users, update_user
-from middlewares.jwt_auth import jwt_required
+from controllers.admin.auth_controller import admin_login, admin_logout, admin_profile, admin_refresh_token, admin_revoke_token
+from controllers.admin.category_controller import category_options, create_category, delete_category, get_category, list_categories, update_category
+from controllers.admin.genre_controller import create_genre, delete_genre, genre_options, get_genre, list_genres, update_genre
+from controllers.admin.payment_account_controller import create_payment_account, delete_payment_account, get_payment_account, list_payment_accounts, update_payment_account
+from controllers.admin.payment_method_controller import create_payment_method, delete_payment_method, get_payment_method, list_payment_methods, payment_method_options, update_payment_method
+from controllers.admin.role_controller import create_role, delete_role, get_role, list_roles, role_options, update_role
+from controllers.admin.shop_controller import create_shop, delete_shop, get_shop, list_shops, update_shop
+from controllers.admin.shop_staff_controller import create_shop_staff, delete_shop_staff, get_shop_staff, list_shop_staffs, update_shop_staff
+from controllers.admin.user_controller import create_user, delete_user, get_user, list_users, update_user
+from helpers.file_uploader import upload_file
+from middlewares.jwt_auth import jwt_required, jwt_revoke_required
 from middlewares.rate_limit import admin_rate_limit, limiter
 
-admin_bp = Blueprint("admin", __name__, url_prefix="/api/admin")
+admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 admin_only = jwt_required({"admin"})
+admin_revoke = jwt_revoke_required({"admin"})
 admin_bp.post("/auth/login")(limiter.limit(admin_rate_limit)(admin_login))
-admin_bp.post("/auth/logout")(limiter.limit(admin_rate_limit)(admin_only(logout)))
+admin_bp.post("/auth/refresh-token")(limiter.limit(admin_rate_limit)(admin_refresh_token))
+admin_bp.post("/auth/logout")(limiter.limit(admin_rate_limit)(admin_only(admin_logout)))
+admin_bp.get("/auth/profile")(limiter.limit(admin_rate_limit)(admin_only(admin_profile)))
+admin_bp.post("/auth/revoke-token")(limiter.limit(admin_rate_limit)(admin_revoke(admin_revoke_token)))
 
 
 def register_admin_route(rule: str, methods: list[str], handler) -> None:
@@ -79,3 +84,5 @@ register_admin_route("/shops/<int:shop_id>/payment-accounts", ["POST"], create_p
 register_admin_route("/shops/<int:shop_id>/payment-accounts/<int:account_id>", ["GET"], get_payment_account)
 register_admin_route("/shops/<int:shop_id>/payment-accounts/<int:account_id>", ["PUT"], update_payment_account)
 register_admin_route("/shops/<int:shop_id>/payment-accounts/<int:account_id>", ["DELETE"], delete_payment_account)
+
+register_admin_route("/uploads", ["POST"], upload_file)

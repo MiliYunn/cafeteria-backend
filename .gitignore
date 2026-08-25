@@ -6,6 +6,7 @@ __pycache__/
 .coverage
 htmlcov/
 *.log
+uploads/*
+!uploads/.gitkeep
 .idea/
 .vscode/
-

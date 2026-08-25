@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import dataclass
+from pathlib import Path
 from urllib.parse import quote_plus
 
 from dotenv import load_dotenv
@@ -34,6 +35,7 @@ class Settings:
     trusted_hosts: list[str]
     jwt_secret: str
     jwt_expires_minutes: int
+    jwt_refresh_expires_days: int
     db_host: str
     db_port: int
     db_name: str
@@ -41,6 +43,10 @@ class Settings:
     db_password: str
     rate_admin_per_min: int
     rate_api_per_min: int
+    storage: str
+    local_storage_path: str
+    max_upload_mb: int
+    allowed_upload_extensions: list[str]
     log_level: str
 
     @property
@@ -62,6 +68,7 @@ class Settings:
             trusted_hosts=_json_list("TRUSTED_HOSTS", ["127.0.0.1", "localhost"]),
             jwt_secret=os.getenv("JWT_SECRET", ""),
             jwt_expires_minutes=int(os.getenv("JWT_EXPIRES_MINUTES", "60")),
+            jwt_refresh_expires_days=int(os.getenv("JWT_REFRESH_EXPIRES_DAYS", "7")),
             db_host=os.getenv("DB_HOST", "127.0.0.1"),
             db_port=int(os.getenv("DB_PORT", "3306")),
             db_name=os.getenv("DB_NAME", "cafeteria"),
@@ -69,10 +76,28 @@ class Settings:
             db_password=os.getenv("DB_PASSWORD", "secret"),
             rate_admin_per_min=int(os.getenv("RATE_ADMIN_PER_MIN", "30")),
             rate_api_per_min=int(os.getenv("RATE_API_PER_MIN", "60")),
+            storage=os.getenv("STORAGE", "local").lower(),
+            local_storage_path=os.getenv("LOCAL_STORAGE_PATH", "uploads"),
+            max_upload_mb=int(os.getenv("MAX_UPLOAD_MB", "5")),
+            allowed_upload_extensions=_json_list(
+                "ALLOWED_UPLOAD_EXTENSIONS",
+                ["jpg", "jpeg", "png", "webp", "gif", "pdf"],
+            ),
             log_level=os.getenv("LOG_LEVEL", "INFO"),
         )
         if len(settings.jwt_secret) < 32:
             raise ValueError("JWT_SECRET must contain at least 32 characters")
+        if settings.jwt_expires_minutes < 1:
+            raise ValueError("JWT_EXPIRES_MINUTES must be at least 1")
+        if settings.jwt_refresh_expires_days < 1:
+            raise ValueError("JWT_REFRESH_EXPIRES_DAYS must be at least 1")
+        if settings.storage != "local":
+            raise ValueError("Only STORAGE=local is currently supported")
+        storage_path = Path(settings.local_storage_path)
+        if storage_path.is_absolute() or ".." in storage_path.parts:
+            raise ValueError("LOCAL_STORAGE_PATH must stay inside the project")
+        if settings.max_upload_mb < 1:
+            raise ValueError("MAX_UPLOAD_MB must be at least 1")
         return settings
 
 
@@ -86,4 +111,12 @@ class FlaskConfig:
         }
         self.TRUSTED_HOSTS = settings.trusted_hosts
         self.JSON_SORT_KEYS = False
-
+        self.STORAGE = settings.storage
+        self.UPLOAD_FOLDER = str(
+            (Path(__file__).resolve().parent / settings.local_storage_path).resolve()
+        )
+        self.MAX_CONTENT_LENGTH = settings.max_upload_mb * 1024 * 1024
+        self.ALLOWED_UPLOAD_EXTENSIONS = {
+            extension.lower().lstrip(".")
+            for extension in settings.allowed_upload_extensions
+        }
