@@ -414,8 +414,8 @@
     "semantic_hash": "37c421b08bf8aad26d4fd07811f2ebaa"
   },
   "routes/admin.py": {
-    "mtime": 1787644709.0778809,
-    "seen": 1787644800.2155845,
+    "mtime": 1787676553.469215,
+    "seen": 1787810094.263314,
     "ast_hash": "e2c5e8ed8884c389388ea30b15e699ca",
     "semantic_hash": "e2c5e8ed8884c389388ea30b15e699ca"
   },
@@ -868,5 +868,23 @@
     "seen": 1787647165.8258524,
     "ast_hash": "e707b08395ff58376ef281f64085f7b9",
     "semantic_hash": "e707b08395ff58376ef281f64085f7b9"
+  },
+  "README.md": {
+    "mtime": 1787647618.24422,
+    "seen": 1787810094.263314,
+    "ast_hash": "3d467477f1b3f9f3e7cc9b32a7ba3e99",
+    "semantic_hash": ""
+  },
+  "SKILLS.md": {
+    "mtime": 1787587129.6280856,
+    "seen": 1787810094.263314,
+    "ast_hash": "f8d331d2e13d6b03deead0952eead0b7",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1787504198.305087,
+    "seen": 1787810094.263314,
+    "ast_hash": "7e78dada52d3c8193f9f5a6614cd8f8e",
+    "semantic_hash": ""
   }
 }
