@@ -2,7 +2,7 @@ from typing import Any
 
 from validations.shared.fields import (
     boolean_value,
-    iso_datetime,
+    clock_time,
     optional_string,
     required_string,
     valid_email,
@@ -18,8 +18,8 @@ RULES = {
     "is_active": boolean_value,
     "email": valid_email,
     "password": lambda value, field: required_string(value, field, min_length=8, max_length=128),
-    "open_at": iso_datetime,
-    "close_at": iso_datetime,
+    "open_at": clock_time,
+    "close_at": clock_time,
 }
 
 

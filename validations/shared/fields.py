@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, time
+import re
 from typing import Any
 from urllib.parse import urlparse
 
@@ -71,6 +72,16 @@ def valid_url(value: Any, field: str) -> str | None:
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError(f"{field} must be a valid HTTP or HTTPS URL")
     return clean
+
+
+def clock_time(value: Any, field: str) -> time | None:
+    """A nullable local clock time, without a date, offset or fractional seconds."""
+    clean = optional_string(value, field, max_length=8)
+    if clean is None:
+        return None
+    if not re.fullmatch(r"(?:[01][0-9]|2[0-3]):[0-5][0-9](?::[0-5][0-9])?", clean):
+        raise ValueError(f"{field} must use 24-hour HH:MM or HH:MM:SS format")
+    return time.fromisoformat(clean)
 
 
 def iso_datetime(value: Any, field: str) -> datetime | None:

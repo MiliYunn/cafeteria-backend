@@ -16,6 +16,25 @@ The API starts at `http://127.0.0.1:8000`. All routes use the `/cafeteria` root 
 
 Access tokens last `JWT_EXPIRES_MINUTES` minutes. Admin refresh tokens last `JWT_REFRESH_EXPIRES_DAYS` days; the defaults are 60 minutes and 7 days.
 
+## Shop opening and closing hours
+
+`shops.open_at` and `shops.close_at` are nullable MySQL `TIME` columns. API requests accept 24-hour `HH:MM` or `HH:MM:SS`; responses always use `HH:MM:SS`. No date, timezone offset, AM/PM suffix, fractional seconds, or duration longer than a day is accepted. Send `null` (or an empty string) to clear a value; omit a field on update to keep it unchanged. An earlier closing time is allowed for overnight shops. `created_at` and `updated_at` remain timestamps.
+
+```json
+{
+  "open_at": "08:30:00",
+  "close_at": "21:00:00"
+}
+```
+
+For an existing database, back up the `shops` table and apply the new revision from the backend folder:
+
+```powershell
+.\.venv\Scripts\python.exe manage.py migrate
+```
+
+Revision `032_shops_time_only` converts the two old `DATETIME` columns to `TIME`, preserving times and NULLs but permanently discarding date portions ([MySQL conversion rules](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-type-conversion.html)). Deploy the backend/frontend together after the migration and restart the backend. The migration does not run automatically on application startup. Downgrade restores the old column types with a placeholder date of `1970-01-01`; restoring the original dates requires your backup.
+
 ## Portal-oriented structure
 
 Portal-owned code is grouped by URL prefix in every layered module. This lets a developer follow an admin request through `routes/admin.py`, `controllers/admin`, `validations/admin`, and `services/admin` without mixing it with student or shop code.

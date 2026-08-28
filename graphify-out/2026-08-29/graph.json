@@ -4,17 +4,17 @@
   "graph": {},
   "nodes": [
     {
-      "id": "services_admin_category_service_categoryservice",
-      "label": "CategoryService",
+      "id": "services_admin_auth_service_adminauthservice",
+      "label": "AdminAuthService",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "categoryservice",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L11"
+      "norm_label": "adminauthservice",
+      "source_file": "services/admin/auth_service.py",
+      "source_location": "L13"
     },
     {
       "id": "services_admin_genre_service_genreservice",
@@ -56,19 +56,6 @@
       "source_location": "L11"
     },
     {
-      "id": "services_api_catalog_service_catalogservice",
-      "label": "CatalogService",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "catalogservice",
-      "source_file": "services/api/catalog_service.py",
-      "source_location": "L11"
-    },
-    {
       "id": "extensions_base",
       "label": "Base",
       "_callable": true,
@@ -92,7 +79,7 @@
       "file_type": "code",
       "norm_label": "serializablemixin",
       "source_file": "models/base.py",
-      "source_location": "L9"
+      "source_location": "L8"
     },
     {
       "id": "models_category_category",
@@ -173,6 +160,19 @@
       "source_location": "L11"
     },
     {
+      "id": "models_payment_account_paymentaccount",
+      "label": "PaymentAccount",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "paymentaccount",
+      "source_file": "models/payment_account.py",
+      "source_location": "L10"
+    },
+    {
       "id": "models_payment_method_paymentmethod",
       "label": "PaymentMethod",
       "_callable": true,
@@ -212,6 +212,32 @@
       "source_location": "L10"
     },
     {
+      "id": "models_shop_shop",
+      "label": "Shop",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "shop",
+      "source_file": "models/shop.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "models_shop_staff_shopstaff",
+      "label": "ShopStaff",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "shopstaff",
+      "source_file": "models/shop_staff.py",
+      "source_location": "L10"
+    },
+    {
       "id": "models_user_activity_useractivity",
       "label": "UserActivity",
       "_callable": true,
@@ -231,24 +257,24 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "userservice",
       "source_file": "services/admin/user_service.py",
       "source_location": "L18"
     },
     {
-      "id": "models_shop_staff_shopstaff",
-      "label": "ShopStaff",
+      "id": "services_api_catalog_service_catalogservice",
+      "label": "CatalogService",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community": 10,
+      "community_name": "paginated_response",
       "file_type": "code",
-      "norm_label": "shopstaff",
-      "source_file": "models/shop_staff.py",
-      "source_location": "L10"
+      "norm_label": "catalogservice",
+      "source_file": "services/api/catalog_service.py",
+      "source_location": "L11"
     },
     {
       "id": "services_admin_shop_staff_service_shopstaffservice",
@@ -257,11 +283,50 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "shopstaffservice",
       "source_file": "services/admin/shop_staff_service.py",
       "source_location": "L13"
+    },
+    {
+      "id": "models_role_role",
+      "label": "Role",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "role",
+      "source_file": "models/role.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "models_user_user",
+      "label": "User",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "user",
+      "source_file": "models/user.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "validations_shared_exceptions_validationerror",
+      "label": "ValidationError",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "ValidationError",
+      "file_type": "code",
+      "norm_label": "validationerror",
+      "source_file": "validations/shared/exceptions.py",
+      "source_location": "L6"
     },
     {
       "id": "config_flaskconfig",
@@ -303,17 +368,17 @@
       "source_location": "L20"
     },
     {
-      "id": "models_shop_shop",
-      "label": "Shop",
+      "id": "services_admin_category_service_categoryservice",
+      "label": "CategoryService",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "shop",
-      "source_file": "models/shop.py",
-      "source_location": "L10"
+      "norm_label": "categoryservice",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L11"
     },
     {
       "id": "services_admin_shop_service_shopservice",
@@ -329,65 +394,13 @@
       "source_location": "L16"
     },
     {
-      "id": "models_role_role",
-      "label": "Role",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "role",
-      "source_file": "models/role.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "models_user_user",
-      "label": "User",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "user",
-      "source_file": "models/user.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "services_admin_auth_service_adminauthservice",
-      "label": "AdminAuthService",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "adminauthservice",
-      "source_file": "services/admin/auth_service.py",
-      "source_location": "L13"
-    },
-    {
-      "id": "services_api_auth_service_apiauthservice",
-      "label": "ApiAuthService",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "apiauthservice",
-      "source_file": "services/api/auth_service.py",
-      "source_location": "L7"
-    },
-    {
       "id": "services_shared_auth_service_authservice",
       "label": "AuthService",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "authservice",
       "source_file": "services/shared/auth_service.py",
@@ -400,50 +413,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "tokenservice",
       "source_file": "services/shared/token_service.py",
       "source_location": "L12"
-    },
-    {
-      "id": "tests_test_auth_service_activeadmin",
-      "label": "ActiveAdmin",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "activeadmin",
-      "source_file": "tests/test_auth_service.py",
-      "source_location": "L11"
-    },
-    {
-      "id": "validations_shared_exceptions_validationerror",
-      "label": "ValidationError",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "validationerror",
-      "source_file": "validations/shared/exceptions.py",
-      "source_location": "L6"
-    },
-    {
-      "id": "models_payment_account_paymentaccount",
-      "label": "PaymentAccount",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "PaymentAccountService",
-      "file_type": "code",
-      "norm_label": "paymentaccount",
-      "source_file": "models/payment_account.py",
-      "source_location": "L10"
     },
     {
       "id": "services_admin_payment_account_service_paymentaccountservice",
@@ -459,76 +433,90 @@
       "source_location": "L14"
     },
     {
-      "id": "controllers_admin_category_controller_category_options",
-      "label": "category_options()",
+      "id": "services_api_auth_service_apiauthservice",
+      "label": "ApiAuthService",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
+      "community": 70,
+      "community_name": "api.py",
       "file_type": "code",
-      "norm_label": "category_options()",
-      "source_file": "controllers/admin/category_controller.py",
-      "source_location": "L15"
+      "norm_label": "apiauthservice",
+      "source_file": "services/api/auth_service.py",
+      "source_location": "L7"
     },
     {
-      "id": "controllers_admin_category_controller_create_category",
-      "label": "create_category()",
+      "id": "tests_test_auth_service_activeadmin",
+      "label": "ActiveAdmin",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
+      "community": 8,
+      "community_name": "jwt.py",
       "file_type": "code",
-      "norm_label": "create_category()",
-      "source_file": "controllers/admin/category_controller.py",
-      "source_location": "L23"
+      "norm_label": "activeadmin",
+      "source_file": "tests/test_auth_service.py",
+      "source_location": "L11"
     },
     {
-      "id": "controllers_admin_category_controller_delete_category",
-      "label": "delete_category()",
+      "id": "controllers_admin_auth_controller_admin_login",
+      "label": "admin_login()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "delete_category()",
-      "source_file": "controllers/admin/category_controller.py",
-      "source_location": "L31"
-    },
-    {
-      "id": "controllers_admin_category_controller_get_category",
-      "label": "get_category()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "get_category()",
-      "source_file": "controllers/admin/category_controller.py",
-      "source_location": "L19"
-    },
-    {
-      "id": "controllers_admin_category_controller_list_categories",
-      "label": "list_categories()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_categories()",
-      "source_file": "controllers/admin/category_controller.py",
+      "norm_label": "admin_login()",
+      "source_file": "controllers/admin/auth_controller.py",
       "source_location": "L10"
     },
     {
-      "id": "controllers_admin_category_controller_update_category",
-      "label": "update_category()",
+      "id": "controllers_admin_auth_controller_admin_logout",
+      "label": "admin_logout()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "update_category()",
-      "source_file": "controllers/admin/category_controller.py",
-      "source_location": "L27"
+      "norm_label": "admin_logout()",
+      "source_file": "controllers/admin/auth_controller.py",
+      "source_location": "L23"
+    },
+    {
+      "id": "controllers_admin_auth_controller_admin_profile",
+      "label": "admin_profile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "admin.py",
+      "file_type": "code",
+      "norm_label": "admin_profile()",
+      "source_file": "controllers/admin/auth_controller.py",
+      "source_location": "L33"
+    },
+    {
+      "id": "controllers_admin_auth_controller_admin_refresh_token",
+      "label": "admin_refresh_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "admin.py",
+      "file_type": "code",
+      "norm_label": "admin_refresh_token()",
+      "source_file": "controllers/admin/auth_controller.py",
+      "source_location": "L48"
+    },
+    {
+      "id": "controllers_admin_auth_controller_admin_revoke_token",
+      "label": "admin_revoke_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "admin.py",
+      "file_type": "code",
+      "norm_label": "admin_revoke_token()",
+      "source_file": "controllers/admin/auth_controller.py",
+      "source_location": "L38"
     },
     {
       "id": "controllers_admin_genre_controller_create_genre",
@@ -601,18 +589,6 @@
       "norm_label": "update_genre()",
       "source_file": "controllers/admin/genre_controller.py",
       "source_location": "L27"
-    },
-    {
-      "id": "controllers_admin_payment_account_controller_list_payment_accounts",
-      "label": "list_payment_accounts()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_payment_accounts()",
-      "source_file": "controllers/admin/payment_account_controller.py",
-      "source_location": "L10"
     },
     {
       "id": "controllers_admin_payment_method_controller_create_payment_method",
@@ -759,88 +735,16 @@
       "source_location": "L29"
     },
     {
-      "id": "controllers_admin_shop_controller_list_shops",
-      "label": "list_shops()",
+      "id": "controllers_api_health_controller_health",
+      "label": "health()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "list_shops()",
-      "source_file": "controllers/admin/shop_controller.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "controllers_admin_shop_staff_controller_list_shop_staffs",
-      "label": "list_shop_staffs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_shop_staffs()",
-      "source_file": "controllers/admin/shop_staff_controller.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "controllers_admin_user_controller_list_users",
-      "label": "list_users()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_users()",
-      "source_file": "controllers/admin/user_controller.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "controllers_api_catalog_controller_list_shop_menus",
-      "label": "list_shop_menus()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_shop_menus()",
-      "source_file": "controllers/api/catalog_controller.py",
-      "source_location": "L19"
-    },
-    {
-      "id": "controllers_api_catalog_controller_list_shops",
-      "label": "list_shops()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "list_shops()",
-      "source_file": "controllers/api/catalog_controller.py",
-      "source_location": "L11"
-    },
-    {
-      "id": "controllers_shared_pagination_pagination_parameters",
-      "label": "pagination_parameters()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "pagination_parameters()",
-      "source_file": "controllers/shared/pagination.py",
-      "source_location": "L6"
-    },
-    {
-      "id": "helpers_response_paginated_response",
-      "label": "paginated_response()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "paginated_response()",
-      "source_file": "helpers/response.py",
-      "source_location": "L17"
+      "norm_label": "health()",
+      "source_file": "controllers/api/health_controller.py",
+      "source_location": "L4"
     },
     {
       "id": "helpers_response_success_response",
@@ -879,64 +783,40 @@
       "source_location": "L28"
     },
     {
-      "id": "services_admin_category_service_categoryservice_create",
-      "label": ".create()",
+      "id": "services_admin_auth_service_adminauthservice_login",
+      "label": ".login()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": ".create()",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L32"
+      "norm_label": ".login()",
+      "source_file": "services/admin/auth_service.py",
+      "source_location": "L15"
     },
     {
-      "id": "services_admin_category_service_categoryservice_delete",
-      "label": ".delete()",
+      "id": "services_admin_auth_service_adminauthservice_logout",
+      "label": ".logout()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": ".delete()",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L45"
+      "norm_label": ".logout()",
+      "source_file": "services/admin/auth_service.py",
+      "source_location": "L34"
     },
     {
-      "id": "services_admin_category_service_categoryservice_get",
-      "label": ".get()",
+      "id": "services_admin_auth_service_adminauthservice_profile",
+      "label": ".profile()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": ".get()",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L28"
-    },
-    {
-      "id": "services_admin_category_service_categoryservice_options",
-      "label": ".options()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": ".options()",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L23"
-    },
-    {
-      "id": "services_admin_category_service_categoryservice_update",
-      "label": ".update()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": ".update()",
-      "source_file": "services/admin/category_service.py",
-      "source_location": "L38"
+      "norm_label": ".profile()",
+      "source_file": "services/admin/auth_service.py",
+      "source_location": "L54"
     },
     {
       "id": "services_admin_genre_service_genreservice_create",
@@ -1119,52 +999,28 @@
       "source_location": "L38"
     },
     {
-      "id": "services_api_catalog_service_catalogservice_list_shop_menus",
-      "label": ".list_shop_menus()",
+      "id": "validations_admin_auth_validate_admin_login",
+      "label": "validate_admin_login()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": ".list_shop_menus()",
-      "source_file": "services/api/catalog_service.py",
-      "source_location": "L22"
+      "norm_label": "validate_admin_login()",
+      "source_file": "validations/admin/auth.py",
+      "source_location": "L9"
     },
     {
-      "id": "services_api_catalog_service_catalogservice_list_shops",
-      "label": ".list_shops()",
+      "id": "validations_admin_auth_validate_refresh_token",
+      "label": "validate_refresh_token()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": ".list_shops()",
-      "source_file": "services/api/catalog_service.py",
+      "norm_label": "validate_refresh_token()",
+      "source_file": "validations/admin/auth.py",
       "source_location": "L13"
-    },
-    {
-      "id": "validations_admin_category_validate_category",
-      "label": "validate_category()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "validate_category()",
-      "source_file": "validations/admin/category.py",
-      "source_location": "L14"
-    },
-    {
-      "id": "validations_admin_category_validate_category_create",
-      "label": "validate_category_create()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "validate_category_create()",
-      "source_file": "validations/admin/category.py",
-      "source_location": "L18"
     },
     {
       "id": "validations_admin_genre_validate_genre",
@@ -1203,42 +1059,6 @@
       "source_location": "L11"
     },
     {
-      "id": "database_seeders_payment_methods_seed_payment_methods",
-      "label": "seed_payment_methods()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "extensions.py",
-      "file_type": "code",
-      "norm_label": "seed_payment_methods()",
-      "source_file": "database/seeders/payment_methods.py",
-      "source_location": "L7"
-    },
-    {
-      "id": "database_seeders_roles_seed_roles",
-      "label": "seed_roles()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "extensions.py",
-      "file_type": "code",
-      "norm_label": "seed_roles()",
-      "source_file": "database/seeders/roles.py",
-      "source_location": "L7"
-    },
-    {
-      "id": "database_seeders_run_run_seeders",
-      "label": "run_seeders()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "extensions.py",
-      "file_type": "code",
-      "norm_label": "run_seeders()",
-      "source_file": "database/seeders/run.py",
-      "source_location": "L9"
-    },
-    {
       "id": "models_base_serializablemixin_to_dict",
       "label": ".to_dict()",
       "_callable": true,
@@ -1248,6 +1068,18 @@
       "file_type": "code",
       "norm_label": ".to_dict()",
       "source_file": "models/base.py",
+      "source_location": "L9"
+    },
+    {
+      "id": "controllers_admin_shop_staff_controller_list_shop_staffs",
+      "label": "list_shop_staffs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "list_shop_staffs()",
+      "source_file": "controllers/admin/shop_staff_controller.py",
       "source_location": "L10"
     },
     {
@@ -1256,7 +1088,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "create_user()",
       "source_file": "controllers/admin/user_controller.py",
@@ -1268,7 +1100,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "delete_user()",
       "source_file": "controllers/admin/user_controller.py",
@@ -1280,11 +1112,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "get_user()",
       "source_file": "controllers/admin/user_controller.py",
       "source_location": "L15"
+    },
+    {
+      "id": "controllers_admin_user_controller_list_users",
+      "label": "list_users()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "list_users()",
+      "source_file": "controllers/admin/user_controller.py",
+      "source_location": "L10"
     },
     {
       "id": "controllers_admin_user_controller_update_user",
@@ -1292,11 +1136,71 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "update_user()",
       "source_file": "controllers/admin/user_controller.py",
       "source_location": "L23"
+    },
+    {
+      "id": "controllers_api_catalog_controller_list_shop_menus",
+      "label": "list_shop_menus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "list_shop_menus()",
+      "source_file": "controllers/api/catalog_controller.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "controllers_api_catalog_controller_list_shops",
+      "label": "list_shops()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "list_shops()",
+      "source_file": "controllers/api/catalog_controller.py",
+      "source_location": "L11"
+    },
+    {
+      "id": "controllers_shared_pagination_pagination_parameters",
+      "label": "pagination_parameters()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "pagination_parameters()",
+      "source_file": "controllers/shared/pagination.py",
+      "source_location": "L6"
+    },
+    {
+      "id": "helpers_response_error_response",
+      "label": "error_response()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "error_response()",
+      "source_file": "helpers/response.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "helpers_response_paginated_response",
+      "label": "paginated_response()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "paginated_response()",
+      "source_file": "helpers/response.py",
+      "source_location": "L17"
     },
     {
       "id": "services_admin_user_service_serialize",
@@ -1304,7 +1208,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "_serialize()",
       "source_file": "services/admin/user_service.py",
@@ -1316,7 +1220,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": ".create()",
       "source_file": "services/admin/user_service.py",
@@ -1328,7 +1232,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": ".delete()",
       "source_file": "services/admin/user_service.py",
@@ -1340,7 +1244,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "._ensure_role()",
       "source_file": "services/admin/user_service.py",
@@ -1352,7 +1256,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": ".get()",
       "source_file": "services/admin/user_service.py",
@@ -1364,7 +1268,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": ".list()",
       "source_file": "services/admin/user_service.py",
@@ -1376,11 +1280,119 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": ".update()",
       "source_file": "services/admin/user_service.py",
       "source_location": "L51"
+    },
+    {
+      "id": "services_api_catalog_service_catalogservice_list_shop_menus",
+      "label": ".list_shop_menus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": ".list_shop_menus()",
+      "source_file": "services/api/catalog_service.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "services_api_catalog_service_catalogservice_list_shops",
+      "label": ".list_shops()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": ".list_shops()",
+      "source_file": "services/api/catalog_service.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "tests_test_admin_crud_test_all_admin_crud_routes_are_registered",
+      "label": "test_all_admin_crud_routes_are_registered()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_all_admin_crud_routes_are_registered()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "tests_test_admin_crud_test_nested_shop_crud_routes_are_registered",
+      "label": "test_nested_shop_crud_routes_are_registered()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_nested_shop_crud_routes_are_registered()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L34"
+    },
+    {
+      "id": "tests_test_admin_crud_test_option_routes_are_registered",
+      "label": "test_option_routes_are_registered()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_option_routes_are_registered()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L47"
+    },
+    {
+      "id": "tests_test_admin_crud_test_paginated_response_shape",
+      "label": "test_paginated_response_shape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_paginated_response_shape()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L57"
+    },
+    {
+      "id": "tests_test_admin_crud_test_pagination_defaults_and_limit",
+      "label": "test_pagination_defaults_and_limit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_pagination_defaults_and_limit()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "tests_test_admin_crud_test_role_create_and_update_validation",
+      "label": "test_role_create_and_update_validation()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_role_create_and_update_validation()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L76"
+    },
+    {
+      "id": "tests_test_admin_crud_test_user_password_is_required_only_when_creating",
+      "label": "test_user_password_is_required_only_when_creating()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_user_password_is_required_only_when_creating()",
+      "source_file": "tests/test_admin_crud.py",
+      "source_location": "L81"
     },
     {
       "id": "validations_admin_user_validate_user",
@@ -1388,11 +1400,119 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "validate_user()",
       "source_file": "validations/admin/user.py",
       "source_location": "L24"
+    },
+    {
+      "id": "validations_api_filters_validate_shop_filters",
+      "label": "validate_shop_filters()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "validate_shop_filters()",
+      "source_file": "validations/api/filters.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "helpers_hash_hash_password",
+      "label": "hash_password()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "hash_password()",
+      "source_file": "helpers/hash.py",
+      "source_location": "L6"
+    },
+    {
+      "id": "helpers_hash_verify_password",
+      "label": "verify_password()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "verify_password()",
+      "source_file": "helpers/hash.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "helpers_jwt_create_access_token",
+      "label": "create_access_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "create_access_token()",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L12"
+    },
+    {
+      "id": "tests_test_app_test_admin_revoke_accepts_its_expired_bearer_token",
+      "label": "test_admin_revoke_accepts_its_expired_bearer_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_admin_revoke_accepts_its_expired_bearer_token()",
+      "source_file": "tests/test_app.py",
+      "source_location": "L101"
+    },
+    {
+      "id": "tests_test_helpers_test_access_token_round_trip",
+      "label": "test_access_token_round_trip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_access_token_round_trip()",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "tests_test_helpers_test_invalid_login_payload_has_field_errors",
+      "label": "test_invalid_login_payload_has_field_errors()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_invalid_login_payload_has_field_errors()",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L42"
+    },
+    {
+      "id": "tests_test_helpers_test_password_hash_round_trip",
+      "label": "test_password_hash_round_trip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_password_hash_round_trip()",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L15"
+    },
+    {
+      "id": "tests_test_helpers_test_token_rejects_wrong_secret",
+      "label": "test_token_rejects_wrong_secret()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_token_rejects_wrong_secret()",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L48"
     },
     {
       "id": "controllers_admin_shop_staff_controller_create_shop_staff",
@@ -1400,7 +1520,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "create_shop_staff()",
       "source_file": "controllers/admin/shop_staff_controller.py",
@@ -1412,7 +1532,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "delete_shop_staff()",
       "source_file": "controllers/admin/shop_staff_controller.py",
@@ -1424,7 +1544,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "get_shop_staff()",
       "source_file": "controllers/admin/shop_staff_controller.py",
@@ -1436,7 +1556,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "update_shop_staff()",
       "source_file": "controllers/admin/shop_staff_controller.py",
@@ -1448,7 +1568,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": ".create()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1460,7 +1580,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": ".delete()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1472,7 +1592,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": ".get()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1484,7 +1604,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": ".list()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1496,7 +1616,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "._shop()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1508,7 +1628,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": "._staff()",
       "source_file": "services/admin/shop_staff_service.py",
@@ -1520,23 +1640,83 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community_name": "ShopStaffService",
       "file_type": "code",
       "norm_label": ".update()",
       "source_file": "services/admin/shop_staff_service.py",
       "source_location": "L48"
     },
     {
-      "id": "validations_admin_shop_staff_validate_shop_staff",
-      "label": "validate_shop_staff()",
+      "id": "database_seeders_admin_user_seed_admin_user",
+      "label": "seed_admin_user()",
       "_callable": true,
       "_origin": "ast",
-      "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community": 13,
+      "community_name": "Role",
       "file_type": "code",
-      "norm_label": "validate_shop_staff()",
-      "source_file": "validations/admin/shop_staff.py",
-      "source_location": "L20"
+      "norm_label": "seed_admin_user()",
+      "source_file": "database/seeders/admin_user.py",
+      "source_location": "L11"
+    },
+    {
+      "id": "database_seeders_payment_methods_seed_payment_methods",
+      "label": "seed_payment_methods()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "seed_payment_methods()",
+      "source_file": "database/seeders/payment_methods.py",
+      "source_location": "L7"
+    },
+    {
+      "id": "database_seeders_roles_seed_roles",
+      "label": "seed_roles()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "seed_roles()",
+      "source_file": "database/seeders/roles.py",
+      "source_location": "L7"
+    },
+    {
+      "id": "database_seeders_run_run_seeders",
+      "label": "run_seeders()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "run_seeders()",
+      "source_file": "database/seeders/run.py",
+      "source_location": "L9"
+    },
+    {
+      "id": "middlewares_jwt_auth_jwt_required",
+      "label": "_jwt_required()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "code",
+      "norm_label": "_jwt_required()",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L15"
+    },
+    {
+      "id": "middlewares_jwt_auth_jwt_revoke_required",
+      "label": "jwt_revoke_required()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "code",
+      "norm_label": "jwt_revoke_required()",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L54"
     },
     {
       "id": "manage_build_parser",
@@ -1671,114 +1851,6 @@
       "source_location": "L11"
     },
     {
-      "id": "tests_test_admin_crud_test_all_admin_crud_routes_are_registered",
-      "label": "test_all_admin_crud_routes_are_registered()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_all_admin_crud_routes_are_registered()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "tests_test_admin_crud_test_nested_shop_crud_routes_are_registered",
-      "label": "test_nested_shop_crud_routes_are_registered()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_nested_shop_crud_routes_are_registered()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L34"
-    },
-    {
-      "id": "tests_test_admin_crud_test_option_routes_are_registered",
-      "label": "test_option_routes_are_registered()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_option_routes_are_registered()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L47"
-    },
-    {
-      "id": "tests_test_admin_crud_test_paginated_response_shape",
-      "label": "test_paginated_response_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_paginated_response_shape()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L57"
-    },
-    {
-      "id": "tests_test_admin_crud_test_pagination_defaults_and_limit",
-      "label": "test_pagination_defaults_and_limit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_pagination_defaults_and_limit()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L69"
-    },
-    {
-      "id": "tests_test_admin_crud_test_role_create_and_update_validation",
-      "label": "test_role_create_and_update_validation()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_role_create_and_update_validation()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L76"
-    },
-    {
-      "id": "tests_test_admin_crud_test_user_password_is_required_only_when_creating",
-      "label": "test_user_password_is_required_only_when_creating()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_user_password_is_required_only_when_creating()",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L81"
-    },
-    {
-      "id": "validations_admin_auth_validate_admin_login",
-      "label": "validate_admin_login()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "validate_admin_login()",
-      "source_file": "validations/admin/auth.py",
-      "source_location": "L9"
-    },
-    {
-      "id": "validations_admin_auth_validate_refresh_token",
-      "label": "validate_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "validate_refresh_token()",
-      "source_file": "validations/admin/auth.py",
-      "source_location": "L13"
-    },
-    {
       "id": "validations_admin_shop_staff_optional_email",
       "label": "_optional_email()",
       "_callable": true,
@@ -1789,6 +1861,30 @@
       "norm_label": "_optional_email()",
       "source_file": "validations/admin/shop_staff.py",
       "source_location": "L6"
+    },
+    {
+      "id": "validations_admin_shop_staff_validate_shop_staff",
+      "label": "validate_shop_staff()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "code",
+      "norm_label": "validate_shop_staff()",
+      "source_file": "validations/admin/shop_staff.py",
+      "source_location": "L20"
+    },
+    {
+      "id": "validations_api_auth_validate_api_login",
+      "label": "validate_api_login()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "code",
+      "norm_label": "validate_api_login()",
+      "source_file": "validations/api/auth.py",
+      "source_location": "L8"
     },
     {
       "id": "validations_shared_auth_validate_email_login",
@@ -1812,19 +1908,7 @@
       "file_type": "code",
       "norm_label": "boolean_value()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L53"
-    },
-    {
-      "id": "validations_shared_fields_clock_time",
-      "label": "clock_time()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "clock_time()",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L77"
+      "source_location": "L52"
     },
     {
       "id": "validations_shared_fields_iso_datetime",
@@ -1836,7 +1920,7 @@
       "file_type": "code",
       "norm_label": "iso_datetime()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L87"
+      "source_location": "L76"
     },
     {
       "id": "validations_shared_fields_nullable_positive_integer",
@@ -1848,7 +1932,7 @@
       "file_type": "code",
       "norm_label": "nullable_positive_integer()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L59"
+      "source_location": "L58"
     },
     {
       "id": "validations_shared_fields_optional_string",
@@ -1860,7 +1944,7 @@
       "file_type": "code",
       "norm_label": "optional_string()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L42"
+      "source_location": "L41"
     },
     {
       "id": "validations_shared_fields_positive_integer",
@@ -1872,7 +1956,7 @@
       "file_type": "code",
       "norm_label": "positive_integer()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L30"
+      "source_location": "L29"
     },
     {
       "id": "validations_shared_fields_require_json_object",
@@ -1884,7 +1968,7 @@
       "file_type": "code",
       "norm_label": "require_json_object()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L118"
+      "source_location": "L107"
     },
     {
       "id": "validations_shared_fields_require_update_fields",
@@ -1896,7 +1980,7 @@
       "file_type": "code",
       "norm_label": "require_update_fields()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L126"
+      "source_location": "L115"
     },
     {
       "id": "validations_shared_fields_required_string",
@@ -1908,7 +1992,7 @@
       "file_type": "code",
       "norm_label": "required_string()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "validations_shared_fields_valid_email",
@@ -1920,7 +2004,7 @@
       "file_type": "code",
       "norm_label": "valid_email()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "validations_shared_fields_valid_url",
@@ -1932,7 +2016,7 @@
       "file_type": "code",
       "norm_label": "valid_url()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L65"
+      "source_location": "L64"
     },
     {
       "id": "validations_shared_fields_validate_pagination",
@@ -1944,7 +2028,7 @@
       "file_type": "code",
       "norm_label": "validate_pagination()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L97"
+      "source_location": "L86"
     },
     {
       "id": "validations_shared_fields_validate_resource_payload",
@@ -1956,7 +2040,7 @@
       "file_type": "code",
       "norm_label": "validate_resource_payload()",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L134"
+      "source_location": "L123"
     },
     {
       "id": "database_migrations_versions_004_create_categories_downgrade",
@@ -2204,23 +2288,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "test_admin_filters_convert_query_values()",
       "source_file": "tests/test_filters.py",
       "source_location": "L14"
-    },
-    {
-      "id": "tests_test_filters_test_collection_filters_use_bound_sql_parameters",
-      "label": "test_collection_filters_use_bound_sql_parameters()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "admin/filters.py",
-      "file_type": "code",
-      "norm_label": "test_collection_filters_use_bound_sql_parameters()",
-      "source_file": "tests/test_filters.py",
-      "source_location": "L54"
     },
     {
       "id": "tests_test_filters_test_menu_price_filters_are_validated",
@@ -2228,7 +2300,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "test_menu_price_filters_are_validated()",
       "source_file": "tests/test_filters.py",
@@ -2240,7 +2312,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "test_unknown_and_invalid_filters_return_field_errors()",
       "source_file": "tests/test_filters.py",
@@ -2252,7 +2324,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_category_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2264,7 +2336,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_genre_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2276,7 +2348,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_payment_account_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2288,7 +2360,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_payment_method_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2300,7 +2372,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_role_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2312,7 +2384,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_shop_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2324,7 +2396,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_shop_staff_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2336,7 +2408,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_user_filters()",
       "source_file": "validations/admin/filters.py",
@@ -2348,23 +2420,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_menu_filters()",
       "source_file": "validations/api/filters.py",
       "source_location": "L17"
     },
     {
-      "id": "validations_api_filters_validate_shop_filters",
-      "label": "validate_shop_filters()",
+      "id": "validations_shared_exceptions_validationerror_init",
+      "label": ".__init__()",
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
-      "norm_label": "validate_shop_filters()",
-      "source_file": "validations/api/filters.py",
-      "source_location": "L13"
+      "norm_label": ".__init__()",
+      "source_file": "validations/shared/exceptions.py",
+      "source_location": "L7"
     },
     {
       "id": "validations_shared_filters_query_boolean",
@@ -2372,7 +2444,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "query_boolean()",
       "source_file": "validations/shared/filters.py",
@@ -2384,7 +2456,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "query_decimal()",
       "source_file": "validations/shared/filters.py",
@@ -2396,7 +2468,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "query_string()",
       "source_file": "validations/shared/filters.py",
@@ -2408,7 +2480,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "validate_query_filters()",
       "source_file": "validations/shared/filters.py",
@@ -3123,18 +3195,6 @@
       "source_location": "L62"
     },
     {
-      "id": "controllers_api_health_controller_health",
-      "label": "health()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "app.py",
-      "file_type": "code",
-      "norm_label": "health()",
-      "source_file": "controllers/api/health_controller.py",
-      "source_location": "L4"
-    },
-    {
       "id": "database_migrations_env_run_migrations_offline",
       "label": "run_migrations_offline()",
       "_callable": true,
@@ -3351,6 +3411,78 @@
       "source_location": "L21"
     },
     {
+      "id": "controllers_admin_category_controller_category_options",
+      "label": "category_options()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "category_options()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L15"
+    },
+    {
+      "id": "controllers_admin_category_controller_create_category",
+      "label": "create_category()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "create_category()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L23"
+    },
+    {
+      "id": "controllers_admin_category_controller_delete_category",
+      "label": "delete_category()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "delete_category()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "controllers_admin_category_controller_get_category",
+      "label": "get_category()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "get_category()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "controllers_admin_category_controller_list_categories",
+      "label": "list_categories()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "list_categories()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L10"
+    },
+    {
+      "id": "controllers_admin_category_controller_update_category",
+      "label": "update_category()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "update_category()",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L27"
+    },
+    {
       "id": "controllers_admin_shop_controller_create_shop",
       "label": "create_shop()",
       "_callable": true,
@@ -3387,6 +3519,18 @@
       "source_location": "L15"
     },
     {
+      "id": "controllers_admin_shop_controller_list_shops",
+      "label": "list_shops()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "list_shops()",
+      "source_file": "controllers/admin/shop_controller.py",
+      "source_location": "L10"
+    },
+    {
       "id": "controllers_admin_shop_controller_update_shop",
       "label": "update_shop()",
       "_callable": true,
@@ -3399,6 +3543,42 @@
       "source_location": "L23"
     },
     {
+      "id": "services_admin_category_service_categoryservice_create",
+      "label": ".create()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": ".create()",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "services_admin_category_service_categoryservice_delete",
+      "label": ".delete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": ".delete()",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L45"
+    },
+    {
+      "id": "services_admin_category_service_categoryservice_get",
+      "label": ".get()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": ".get()",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L28"
+    },
+    {
       "id": "services_admin_category_service_categoryservice_list",
       "label": ".list()",
       "_callable": true,
@@ -3409,6 +3589,30 @@
       "norm_label": ".list()",
       "source_file": "services/admin/category_service.py",
       "source_location": "L13"
+    },
+    {
+      "id": "services_admin_category_service_categoryservice_options",
+      "label": ".options()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": ".options()",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L23"
+    },
+    {
+      "id": "services_admin_category_service_categoryservice_update",
+      "label": ".update()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": ".update()",
+      "source_file": "services/admin/category_service.py",
+      "source_location": "L38"
     },
     {
       "id": "services_admin_genre_service_genreservice_list",
@@ -3579,88 +3783,40 @@
       "source_location": "L12"
     },
     {
-      "id": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "label": "test_admin_shop_update_returns_time_only_json()",
+      "id": "tests_test_filters_test_collection_filters_use_bound_sql_parameters",
+      "label": "test_collection_filters_use_bound_sql_parameters()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "test_admin_shop_update_returns_time_only_json()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L74"
+      "norm_label": "test_collection_filters_use_bound_sql_parameters()",
+      "source_file": "tests/test_filters.py",
+      "source_location": "L54"
     },
     {
-      "id": "tests_test_shop_times_test_clock_time_accepts_valid_local_times",
-      "label": "test_clock_time_accepts_valid_local_times()",
+      "id": "validations_admin_category_validate_category",
+      "label": "validate_category()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "test_clock_time_accepts_valid_local_times()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L25"
+      "norm_label": "validate_category()",
+      "source_file": "validations/admin/category.py",
+      "source_location": "L14"
     },
     {
-      "id": "tests_test_shop_times_test_overnight_hours_and_partial_updates",
-      "label": "test_overnight_hours_and_partial_updates()",
+      "id": "validations_admin_category_validate_category_create",
+      "label": "validate_category_create()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "test_overnight_hours_and_partial_updates()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L39"
-    },
-    {
-      "id": "tests_test_shop_times_test_shop_migration_sql_is_focused_and_documents_lossy_downgrade",
-      "label": "test_shop_migration_sql_is_focused_and_documents_lossy_downgrade()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "test_shop_migration_sql_is_focused_and_documents_lossy_downgrade()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L87"
-    },
-    {
-      "id": "tests_test_shop_times_test_shop_serialization_handles_time_and_keeps_timestamps",
-      "label": "test_shop_serialization_handles_time_and_keeps_timestamps()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "test_shop_serialization_handles_time_and_keeps_timestamps()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L47"
-    },
-    {
-      "id": "tests_test_shop_times_test_shop_time_invalid_values_have_field_errors",
-      "label": "test_shop_time_invalid_values_have_field_errors()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "test_shop_time_invalid_values_have_field_errors()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L33"
-    },
-    {
-      "id": "tests_test_shop_times_test_time_storage_round_trip_and_mysql_driver_conversion",
-      "label": "test_time_storage_round_trip_and_mysql_driver_conversion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "test_time_storage_round_trip_and_mysql_driver_conversion()",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L58"
+      "norm_label": "validate_category_create()",
+      "source_file": "validations/admin/category.py",
+      "source_location": "L18"
     },
     {
       "id": "validations_admin_shop_validate_shop",
@@ -3675,276 +3831,12 @@
       "source_location": "L26"
     },
     {
-      "id": "controllers_admin_auth_controller_admin_login",
-      "label": "admin_login()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_login()",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "controllers_admin_auth_controller_admin_logout",
-      "label": "admin_logout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_logout()",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L23"
-    },
-    {
-      "id": "controllers_admin_auth_controller_admin_profile",
-      "label": "admin_profile()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_profile()",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L33"
-    },
-    {
-      "id": "controllers_admin_auth_controller_admin_refresh_token",
-      "label": "admin_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_refresh_token()",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L48"
-    },
-    {
-      "id": "controllers_admin_auth_controller_admin_revoke_token",
-      "label": "admin_revoke_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_revoke_token()",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L38"
-    },
-    {
-      "id": "database_seeders_admin_user_seed_admin_user",
-      "label": "seed_admin_user()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "seed_admin_user()",
-      "source_file": "database/seeders/admin_user.py",
-      "source_location": "L11"
-    },
-    {
-      "id": "helpers_hash_hash_password",
-      "label": "hash_password()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "hash_password()",
-      "source_file": "helpers/hash.py",
-      "source_location": "L6"
-    },
-    {
-      "id": "helpers_hash_verify_password",
-      "label": "verify_password()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "verify_password()",
-      "source_file": "helpers/hash.py",
-      "source_location": "L10"
-    },
-    {
-      "id": "helpers_jwt_create_access_token",
-      "label": "create_access_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "create_access_token()",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L12"
-    },
-    {
-      "id": "helpers_jwt_create_refresh_token",
-      "label": "create_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "create_refresh_token()",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L25"
-    },
-    {
-      "id": "helpers_jwt_decode_access_token",
-      "label": "decode_access_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "decode_access_token()",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L58"
-    },
-    {
-      "id": "helpers_jwt_decode_refresh_token",
-      "label": "decode_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "decode_refresh_token()",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L72"
-    },
-    {
-      "id": "helpers_jwt_decode_token",
-      "label": "_decode_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "_decode_token()",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L38"
-    },
-    {
-      "id": "helpers_response_error_response",
-      "label": "error_response()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "error_response()",
-      "source_file": "helpers/response.py",
-      "source_location": "L28"
-    },
-    {
-      "id": "middlewares_jwt_auth_jwt_required",
-      "label": "_jwt_required()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "_jwt_required()",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L15"
-    },
-    {
-      "id": "middlewares_jwt_auth_jwt_revoke_required",
-      "label": "jwt_revoke_required()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "jwt_revoke_required()",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L54"
-    },
-    {
-      "id": "services_admin_auth_service_adminauthservice_login",
-      "label": ".login()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".login()",
-      "source_file": "services/admin/auth_service.py",
-      "source_location": "L15"
-    },
-    {
-      "id": "services_admin_auth_service_adminauthservice_logout",
-      "label": ".logout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".logout()",
-      "source_file": "services/admin/auth_service.py",
-      "source_location": "L34"
-    },
-    {
-      "id": "services_admin_auth_service_adminauthservice_profile",
-      "label": ".profile()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".profile()",
-      "source_file": "services/admin/auth_service.py",
-      "source_location": "L54"
-    },
-    {
-      "id": "services_admin_auth_service_adminauthservice_refresh",
-      "label": ".refresh()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".refresh()",
-      "source_file": "services/admin/auth_service.py",
-      "source_location": "L38"
-    },
-    {
-      "id": "services_api_auth_service_apiauthservice_login",
-      "label": ".login()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".login()",
-      "source_file": "services/api/auth_service.py",
-      "source_location": "L9"
-    },
-    {
-      "id": "services_shared_auth_service_authservice_login",
-      "label": ".login()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".login()",
-      "source_file": "services/shared/auth_service.py",
-      "source_location": "L46"
-    },
-    {
       "id": "services_shared_auth_service_authservice_refresh",
       "label": ".refresh()",
       "_callable": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": ".refresh()",
       "source_file": "services/shared/auth_service.py",
@@ -3956,7 +3848,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "_create_token_pair()",
       "source_file": "services/shared/auth_service.py",
@@ -3968,7 +3860,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": ".is_revoked()",
       "source_file": "services/shared/token_service.py",
@@ -3980,119 +3872,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": ".revoke()",
       "source_file": "services/shared/token_service.py",
       "source_location": "L20"
-    },
-    {
-      "id": "tests_test_app_test_admin_revoke_accepts_its_expired_bearer_token",
-      "label": "test_admin_revoke_accepts_its_expired_bearer_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_admin_revoke_accepts_its_expired_bearer_token()",
-      "source_file": "tests/test_app.py",
-      "source_location": "L101"
-    },
-    {
-      "id": "tests_test_auth_service_test_admin_refresh_rejects_revoked_refresh_token",
-      "label": "test_admin_refresh_rejects_revoked_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_admin_refresh_rejects_revoked_refresh_token()",
-      "source_file": "tests/test_auth_service.py",
-      "source_location": "L54"
-    },
-    {
-      "id": "tests_test_auth_service_test_admin_refresh_rotates_refresh_token",
-      "label": "test_admin_refresh_rotates_refresh_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_admin_refresh_rotates_refresh_token()",
-      "source_file": "tests/test_auth_service.py",
-      "source_location": "L16"
-    },
-    {
-      "id": "tests_test_helpers_test_access_token_round_trip",
-      "label": "test_access_token_round_trip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_access_token_round_trip()",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L21"
-    },
-    {
-      "id": "tests_test_helpers_test_invalid_login_payload_has_field_errors",
-      "label": "test_invalid_login_payload_has_field_errors()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_invalid_login_payload_has_field_errors()",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L42"
-    },
-    {
-      "id": "tests_test_helpers_test_password_hash_round_trip",
-      "label": "test_password_hash_round_trip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_password_hash_round_trip()",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L15"
-    },
-    {
-      "id": "tests_test_helpers_test_refresh_token_round_trip",
-      "label": "test_refresh_token_round_trip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_refresh_token_round_trip()",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L30"
-    },
-    {
-      "id": "tests_test_helpers_test_token_rejects_wrong_secret",
-      "label": "test_token_rejects_wrong_secret()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_token_rejects_wrong_secret()",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L48"
-    },
-    {
-      "id": "validations_shared_exceptions_validationerror_init",
-      "label": ".__init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "validations/shared/exceptions.py",
-      "source_location": "L7"
     },
     {
       "id": "controllers_admin_payment_account_controller_create_payment_account",
@@ -4129,6 +3913,18 @@
       "norm_label": "get_payment_account()",
       "source_file": "controllers/admin/payment_account_controller.py",
       "source_location": "L19"
+    },
+    {
+      "id": "controllers_admin_payment_account_controller_list_payment_accounts",
+      "label": "list_payment_accounts()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PaymentAccountService",
+      "file_type": "code",
+      "norm_label": "list_payment_accounts()",
+      "source_file": "controllers/admin/payment_account_controller.py",
+      "source_location": "L10"
     },
     {
       "id": "controllers_admin_payment_account_controller_update_payment_account",
@@ -4287,6 +4083,18 @@
       "source_location": "L10"
     },
     {
+      "id": "services_api_auth_service_apiauthservice_login",
+      "label": ".login()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 70,
+      "community_name": "api.py",
+      "file_type": "code",
+      "norm_label": ".login()",
+      "source_file": "services/api/auth_service.py",
+      "source_location": "L9"
+    },
+    {
       "id": "services_api_auth_service_apiauthservice_logout",
       "label": ".logout()",
       "_callable": true,
@@ -4299,50 +4107,122 @@
       "source_location": "L20"
     },
     {
-      "id": "validations_api_auth_validate_api_login",
-      "label": "validate_api_login()",
+      "id": "services_shared_auth_service_authservice_login",
+      "label": ".login()",
       "_callable": true,
       "_origin": "ast",
       "community": 70,
       "community_name": "api.py",
       "file_type": "code",
-      "norm_label": "validate_api_login()",
-      "source_file": "validations/api/auth.py",
-      "source_location": "L8"
+      "norm_label": ".login()",
+      "source_file": "services/shared/auth_service.py",
+      "source_location": "L46"
     },
     {
-      "id": "database_migrations_versions_032_shops_time_only_downgrade",
-      "label": "downgrade()",
+      "id": "helpers_jwt_create_refresh_token",
+      "label": "create_refresh_token()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "032_shops_time_only.py",
+      "community_name": "jwt.py",
       "file_type": "code",
-      "norm_label": "downgrade()",
-      "source_file": "database/migrations/versions/032_shops_time_only.py",
-      "source_location": "L27"
+      "norm_label": "create_refresh_token()",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L25"
     },
     {
-      "id": "database_migrations_versions_032_shops_time_only_upgrade",
-      "label": "upgrade()",
+      "id": "helpers_jwt_decode_access_token",
+      "label": "decode_access_token()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "032_shops_time_only.py",
+      "community_name": "jwt.py",
       "file_type": "code",
-      "norm_label": "upgrade()",
-      "source_file": "database/migrations/versions/032_shops_time_only.py",
-      "source_location": "L18"
+      "norm_label": "decode_access_token()",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L58"
     },
     {
-      "id": "controllers_admin_category_controller",
-      "label": "category_controller.py",
+      "id": "helpers_jwt_decode_refresh_token",
+      "label": "decode_refresh_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "decode_refresh_token()",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L72"
+    },
+    {
+      "id": "helpers_jwt_decode_token",
+      "label": "_decode_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "_decode_token()",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L38"
+    },
+    {
+      "id": "services_admin_auth_service_adminauthservice_refresh",
+      "label": ".refresh()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": ".refresh()",
+      "source_file": "services/admin/auth_service.py",
+      "source_location": "L38"
+    },
+    {
+      "id": "tests_test_auth_service_test_admin_refresh_rejects_revoked_refresh_token",
+      "label": "test_admin_refresh_rejects_revoked_refresh_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "test_admin_refresh_rejects_revoked_refresh_token()",
+      "source_file": "tests/test_auth_service.py",
+      "source_location": "L54"
+    },
+    {
+      "id": "tests_test_auth_service_test_admin_refresh_rotates_refresh_token",
+      "label": "test_admin_refresh_rotates_refresh_token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "test_admin_refresh_rotates_refresh_token()",
+      "source_file": "tests/test_auth_service.py",
+      "source_location": "L16"
+    },
+    {
+      "id": "tests_test_helpers_test_refresh_token_round_trip",
+      "label": "test_refresh_token_round_trip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "test_refresh_token_round_trip()",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "controllers_admin_auth_controller",
+      "label": "admin/auth_controller.py",
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "category_controller.py",
-      "source_file": "controllers/admin/category_controller.py",
+      "norm_label": "admin/auth_controller.py",
+      "source_file": "controllers/admin/auth_controller.py",
       "source_location": "L1"
     },
     {
@@ -4379,25 +4259,14 @@
       "source_location": "L1"
     },
     {
-      "id": "controllers_api_catalog_controller",
-      "label": "catalog_controller.py",
+      "id": "controllers_api_health_controller",
+      "label": "health_controller.py",
       "_origin": "ast",
       "community": 0,
       "community_name": "admin.py",
       "file_type": "code",
-      "norm_label": "catalog_controller.py",
-      "source_file": "controllers/api/catalog_controller.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "controllers_shared_pagination",
-      "label": "pagination.py",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "admin.py",
-      "file_type": "code",
-      "norm_label": "pagination.py",
-      "source_file": "controllers/shared/pagination.py",
+      "norm_label": "health_controller.py",
+      "source_file": "controllers/api/health_controller.py",
       "source_location": "L1"
     },
     {
@@ -4412,7 +4281,18 @@
       "source_location": "L1"
     },
     {
-      "id": "validations_admin_category_py_any",
+      "id": "routes_health",
+      "label": "health.py",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "admin.py",
+      "file_type": "code",
+      "norm_label": "health.py",
+      "source_file": "routes/health.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "validations_admin_auth_py_any",
       "label": "Any",
       "_origin": "ast",
       "community": 0,
@@ -4478,6 +4358,17 @@
       "source_location": "L1"
     },
     {
+      "id": "routes_health_rationale_1",
+      "label": "Health-check endpoint registration only.",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "admin.py",
+      "file_type": "rationale",
+      "norm_label": "health-check endpoint registration only.",
+      "source_file": "routes/health.py",
+      "source_location": "L1"
+    },
+    {
       "id": "database_seeders_payment_methods",
       "label": "payment_methods.py",
       "_origin": "ast",
@@ -4486,28 +4377,6 @@
       "file_type": "code",
       "norm_label": "payment_methods.py",
       "source_file": "database/seeders/payment_methods.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "database_seeders_roles",
-      "label": "roles.py",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "extensions.py",
-      "file_type": "code",
-      "norm_label": "roles.py",
-      "source_file": "database/seeders/roles.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "database_seeders_run",
-      "label": "seeders/run.py",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "extensions.py",
-      "file_type": "code",
-      "norm_label": "seeders/run.py",
-      "source_file": "database/seeders/run.py",
       "source_location": "L1"
     },
     {
@@ -4676,6 +4545,28 @@
       "source_location": "L1"
     },
     {
+      "id": "models_role",
+      "label": "models/role.py",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "models/role.py",
+      "source_file": "models/role.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "models_shop",
+      "label": "models/shop.py",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "models/shop.py",
+      "source_file": "models/shop.py",
+      "source_location": "L1"
+    },
+    {
       "id": "models_shop_category",
       "label": "shop_category.py",
       "_origin": "ast",
@@ -4698,6 +4589,17 @@
       "source_location": "L1"
     },
     {
+      "id": "models_user",
+      "label": "models/user.py",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "models/user.py",
+      "source_file": "models/user.py",
+      "source_location": "L1"
+    },
+    {
       "id": "models_user_activity",
       "label": "user_activity.py",
       "_origin": "ast",
@@ -4709,14 +4611,25 @@
       "source_location": "L1"
     },
     {
-      "id": "database_seeders_run_rationale_1",
-      "label": "Run all idempotent seeders in dependency order.",
+      "id": "services_admin_payment_account_service",
+      "label": "payment_account_service.py",
       "_origin": "ast",
       "community": 1,
       "community_name": "extensions.py",
-      "file_type": "rationale",
-      "norm_label": "run all idempotent seeders in dependency order.",
-      "source_file": "database/seeders/run.py",
+      "file_type": "code",
+      "norm_label": "payment_account_service.py",
+      "source_file": "services/admin/payment_account_service.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_api_catalog_service",
+      "label": "catalog_service.py",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "code",
+      "norm_label": "catalog_service.py",
+      "source_file": "services/api/catalog_service.py",
       "source_location": "L1"
     },
     {
@@ -4753,14 +4666,91 @@
       "source_location": "L1"
     },
     {
+      "id": "services_api_catalog_service_rationale_1",
+      "label": "Public cafeteria catalog workflows.",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "extensions.py",
+      "file_type": "rationale",
+      "norm_label": "public cafeteria catalog workflows.",
+      "source_file": "services/api/catalog_service.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "controllers_admin_shop_staff_controller",
+      "label": "shop_staff_controller.py",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "shop_staff_controller.py",
+      "source_file": "controllers/admin/shop_staff_controller.py",
+      "source_location": "L1"
+    },
+    {
       "id": "controllers_admin_user_controller",
       "label": "user_controller.py",
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "user_controller.py",
       "source_file": "controllers/admin/user_controller.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "controllers_api_catalog_controller",
+      "label": "catalog_controller.py",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "catalog_controller.py",
+      "source_file": "controllers/api/catalog_controller.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "controllers_shared_pagination",
+      "label": "pagination.py",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "pagination.py",
+      "source_file": "controllers/shared/pagination.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_response",
+      "label": "response.py",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "response.py",
+      "source_file": "helpers/response.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_response_py_any",
+      "label": "Any",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "any",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_test_admin_crud",
+      "label": "test_admin_crud.py",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "code",
+      "norm_label": "test_admin_crud.py",
+      "source_file": "tests/test_admin_crud.py",
       "source_location": "L1"
     },
     {
@@ -4768,33 +4758,110 @@
       "label": "Any",
       "_origin": "ast",
       "community": 10,
-      "community_name": "user_controller.py",
+      "community_name": "paginated_response",
       "file_type": "code",
       "norm_label": "any",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "controllers_admin_shop_staff_controller",
-      "label": "shop_staff_controller.py",
+      "id": "validations_api_filters_py_any",
+      "label": "Any",
       "_origin": "ast",
-      "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community": 10,
+      "community_name": "paginated_response",
       "file_type": "code",
-      "norm_label": "shop_staff_controller.py",
-      "source_file": "controllers/admin/shop_staff_controller.py",
+      "norm_label": "any",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "helpers_response_rationale_1",
+      "label": "Consistent JSON response helpers.",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "paginated_response",
+      "file_type": "rationale",
+      "norm_label": "consistent json response helpers.",
+      "source_file": "helpers/response.py",
       "source_location": "L1"
     },
     {
-      "id": "validations_admin_shop_staff_py_any",
-      "label": "Any",
+      "id": "helpers_hash",
+      "label": "hash.py",
       "_origin": "ast",
-      "community": 12,
-      "community_name": "shop_staff_controller.py",
+      "community": 11,
+      "community_name": "test_helpers.py",
       "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "hash.py",
+      "source_file": "helpers/hash.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_helpers",
+      "label": "test_helpers.py",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "code",
+      "norm_label": "test_helpers.py",
+      "source_file": "tests/test_helpers.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_hash_rationale_1",
+      "label": "Password hashing helpers.",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "test_helpers.py",
+      "file_type": "rationale",
+      "norm_label": "password hashing helpers.",
+      "source_file": "helpers/hash.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_admin_user",
+      "label": "admin_user.py",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "admin_user.py",
+      "source_file": "database/seeders/admin_user.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_roles",
+      "label": "roles.py",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "roles.py",
+      "source_file": "database/seeders/roles.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_run",
+      "label": "seeders/run.py",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "code",
+      "norm_label": "seeders/run.py",
+      "source_file": "database/seeders/run.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "database_seeders_run_rationale_1",
+      "label": "Run all idempotent seeders in dependency order.",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "Role",
+      "file_type": "rationale",
+      "norm_label": "run all idempotent seeders in dependency order.",
+      "source_file": "database/seeders/run.py",
+      "source_location": "L1"
     },
     {
       "id": "readme",
@@ -4830,7 +4897,7 @@
       "node_kind": "heading",
       "norm_label": "endpoints",
       "source_file": "README.md",
-      "source_location": "L161"
+      "source_location": "L142"
     },
     {
       "id": "readme_list_filters",
@@ -4842,7 +4909,7 @@
       "node_kind": "heading",
       "norm_label": "list filters",
       "source_file": "README.md",
-      "source_location": "L97"
+      "source_location": "L78"
     },
     {
       "id": "readme_local_file_storage",
@@ -4854,7 +4921,7 @@
       "node_kind": "heading",
       "norm_label": "local file storage",
       "source_file": "README.md",
-      "source_location": "L142"
+      "source_location": "L123"
     },
     {
       "id": "readme_pagination",
@@ -4866,7 +4933,7 @@
       "node_kind": "heading",
       "norm_label": "pagination",
       "source_file": "README.md",
-      "source_location": "L87"
+      "source_location": "L68"
     },
     {
       "id": "readme_portal_oriented_structure",
@@ -4878,7 +4945,7 @@
       "node_kind": "heading",
       "norm_label": "portal-oriented structure",
       "source_file": "README.md",
-      "source_location": "L38"
+      "source_location": "L19"
     },
     {
       "id": "readme_project_commands",
@@ -4890,7 +4957,7 @@
       "node_kind": "heading",
       "norm_label": "project commands",
       "source_file": "README.md",
-      "source_location": "L66"
+      "source_location": "L47"
     },
     {
       "id": "readme_roles_list_parameters",
@@ -4902,7 +4969,7 @@
       "node_kind": "heading",
       "norm_label": "roles list parameters",
       "source_file": "README.md",
-      "source_location": "L122"
+      "source_location": "L103"
     },
     {
       "id": "readme_setup",
@@ -4917,16 +4984,48 @@
       "source_location": "L5"
     },
     {
-      "id": "readme_shop_opening_and_closing_hours",
-      "label": "Shop opening and closing hours",
+      "id": "middlewares_jwt_auth",
+      "label": "jwt_auth.py",
       "_origin": "ast",
-      "community": 14,
-      "community_name": "APCafeteria Backend",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "shop opening and closing hours",
-      "source_file": "README.md",
-      "source_location": "L19"
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "code",
+      "norm_label": "jwt_auth.py",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "middlewares_jwt_auth_rationale_1",
+      "label": "JWT authentication and role authorization decorators.",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "rationale",
+      "norm_label": "jwt authentication and role authorization decorators.",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "middlewares_jwt_auth_rationale_49",
+      "label": "Require a valid, unexpired access token.",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "rationale",
+      "norm_label": "require a valid, unexpired access token.",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L49"
+    },
+    {
+      "id": "middlewares_jwt_auth_rationale_55",
+      "label": "Require a signed access token while allowing it to be expired.",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "jwt_auth.py",
+      "file_type": "rationale",
+      "norm_label": "require a signed access token while allowing it to be expired.",
+      "source_file": "middlewares/jwt_auth.py",
+      "source_location": "L55"
     },
     {
       "id": "argumentparser",
@@ -5028,17 +5127,6 @@
       "source_location": "L1"
     },
     {
-      "id": "tests_test_admin_crud",
-      "label": "test_admin_crud.py",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "test_admin_crud.py",
-      "source_file": "tests/test_admin_crud.py",
-      "source_location": "L1"
-    },
-    {
       "id": "validations_admin_auth",
       "label": "admin/auth.py",
       "_origin": "ast",
@@ -5048,17 +5136,6 @@
       "norm_label": "admin/auth.py",
       "source_file": "validations/admin/auth.py",
       "source_location": "L1"
-    },
-    {
-      "id": "validations_admin_auth_py_any",
-      "label": "Any",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
     },
     {
       "id": "validations_admin_category",
@@ -5138,6 +5215,17 @@
       "source_location": "L1"
     },
     {
+      "id": "validations_admin_shop_staff_py_any",
+      "label": "Any",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "code",
+      "norm_label": "any",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "validations_admin_user",
       "label": "admin/user.py",
       "_origin": "ast",
@@ -5147,6 +5235,28 @@
       "norm_label": "admin/user.py",
       "source_file": "validations/admin/user.py",
       "source_location": "L1"
+    },
+    {
+      "id": "validations_api_auth",
+      "label": "api/auth.py",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "code",
+      "norm_label": "api/auth.py",
+      "source_file": "validations/api/auth.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "validations_api_auth_py_any",
+      "label": "Any",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "code",
+      "norm_label": "any",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "validations_shared_auth",
@@ -5226,6 +5336,17 @@
       "source_location": "L1"
     },
     {
+      "id": "validations_api_auth_rationale_1",
+      "label": "Student API authentication payload validation.",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "fields.py",
+      "file_type": "rationale",
+      "norm_label": "student api authentication payload validation.",
+      "source_file": "validations/api/auth.py",
+      "source_location": "L1"
+    },
+    {
       "id": "validations_shared_auth_rationale_1",
       "label": "Shared email-and-password authentication payload validation.",
       "_origin": "ast",
@@ -5246,17 +5367,6 @@
       "norm_label": "reusable parameter-level validators.",
       "source_file": "validations/shared/fields.py",
       "source_location": "L1"
-    },
-    {
-      "id": "validations_shared_fields_rationale_78",
-      "label": "A nullable local clock time, without a date, offset or fractional seconds.",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "fields.py",
-      "file_type": "rationale",
-      "norm_label": "a nullable local clock time, without a date, offset or fractional seconds.",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L78"
     },
     {
       "id": "database_migrations_versions_004_create_categories",
@@ -5369,11 +5479,22 @@
       "source_location": "L1"
     },
     {
+      "id": "exception",
+      "label": "Exception",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "ValidationError",
+      "file_type": "code",
+      "norm_label": "exception",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "filterrule",
       "label": "FilterRule",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "filterrule",
       "source_file": "",
@@ -5384,7 +5505,7 @@
       "label": "test_filters.py",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "test_filters.py",
       "source_file": "tests/test_filters.py",
@@ -5395,7 +5516,7 @@
       "label": "admin/filters.py",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "admin/filters.py",
       "source_file": "validations/admin/filters.py",
@@ -5406,7 +5527,7 @@
       "label": "Any",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "any",
       "source_file": "",
@@ -5417,18 +5538,18 @@
       "label": "api/filters.py",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "api/filters.py",
       "source_file": "validations/api/filters.py",
       "source_location": "L1"
     },
     {
-      "id": "validations_api_filters_py_any",
+      "id": "validations_shared_exceptions_py_any",
       "label": "Any",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "any",
       "source_file": "",
@@ -5439,7 +5560,7 @@
       "label": "shared/filters.py",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "shared/filters.py",
       "source_file": "validations/shared/filters.py",
@@ -5450,7 +5571,7 @@
       "label": "Any",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "code",
       "norm_label": "any",
       "source_file": "",
@@ -5461,7 +5582,7 @@
       "label": "Validated filter parameters for admin collection endpoints.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "validated filter parameters for admin collection endpoints.",
       "source_file": "validations/admin/filters.py",
@@ -5472,7 +5593,7 @@
       "label": "Roles support: search (name) and is_active (boolean).",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "roles support: search (name) and is_active (boolean).",
       "source_file": "validations/admin/filters.py",
@@ -5483,7 +5604,7 @@
       "label": "Categories support: search (name/description) and is_active.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "categories support: search (name/description) and is_active.",
       "source_file": "validations/admin/filters.py",
@@ -5494,7 +5615,7 @@
       "label": "Genres support: search (name) and is_active.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "genres support: search (name) and is_active.",
       "source_file": "validations/admin/filters.py",
@@ -5505,7 +5626,7 @@
       "label": "Shops support: search (name/email/location/description) and is_active.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "shops support: search (name/email/location/description) and is_active.",
       "source_file": "validations/admin/filters.py",
@@ -5516,7 +5637,7 @@
       "label": "Shop staff support: search (name/email/phone) and is_active.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "shop staff support: search (name/email/phone) and is_active.",
       "source_file": "validations/admin/filters.py",
@@ -5527,7 +5648,7 @@
       "label": "Users support search, status, role, department, and type filters.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "users support search, status, role, department, and type filters.",
       "source_file": "validations/admin/filters.py",
@@ -5538,7 +5659,7 @@
       "label": "Payment methods support search, status, and type filters.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "payment methods support search, status, and type filters.",
       "source_file": "validations/admin/filters.py",
@@ -5549,7 +5670,7 @@
       "label": "Payment accounts support search, status, and payment-method filters.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "payment accounts support search, status, and payment-method filters.",
       "source_file": "validations/admin/filters.py",
@@ -5560,7 +5681,7 @@
       "label": "Validated filters for public API collection endpoints.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "validated filters for public api collection endpoints.",
       "source_file": "validations/api/filters.py",
@@ -5571,7 +5692,7 @@
       "label": "Reusable validation for collection query-string filters.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "admin/filters.py",
+      "community_name": "ValidationError",
       "file_type": "rationale",
       "norm_label": "reusable validation for collection query-string filters.",
       "source_file": "validations/shared/filters.py",
@@ -5864,17 +5985,6 @@
       "source_location": "L1"
     },
     {
-      "id": "controllers_api_health_controller",
-      "label": "health_controller.py",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "app.py",
-      "file_type": "code",
-      "norm_label": "health_controller.py",
-      "source_file": "controllers/api/health_controller.py",
-      "source_location": "L1"
-    },
-    {
       "id": "database_migrations_env",
       "label": "env.py",
       "_origin": "ast",
@@ -5963,17 +6073,6 @@
       "source_location": ""
     },
     {
-      "id": "routes_health",
-      "label": "health.py",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "app.py",
-      "file_type": "code",
-      "norm_label": "health.py",
-      "source_file": "routes/health.py",
-      "source_location": "L1"
-    },
-    {
       "id": "routes_init",
       "label": "routes/__init__.py",
       "_origin": "ast",
@@ -6048,6 +6147,17 @@
       "file_type": "code",
       "norm_label": "test_uploads.py",
       "source_file": "tests/test_uploads.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "validations_shared_exceptions",
+      "label": "exceptions.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "app.py",
+      "file_type": "code",
+      "norm_label": "exceptions.py",
+      "source_file": "validations/shared/exceptions.py",
       "source_location": "L1"
     },
     {
@@ -6139,17 +6249,6 @@
       "source_location": "L1"
     },
     {
-      "id": "routes_health_rationale_1",
-      "label": "Health-check endpoint registration only.",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "app.py",
-      "file_type": "rationale",
-      "norm_label": "health-check endpoint registration only.",
-      "source_file": "routes/health.py",
-      "source_location": "L1"
-    },
-    {
       "id": "routes_init_rationale_1",
       "label": "Blueprint registration.",
       "_origin": "ast",
@@ -6191,6 +6290,17 @@
       "file_type": "rationale",
       "norm_label": "development entry point with concise startup logging.",
       "source_file": "run.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "validations_shared_exceptions_rationale_1",
+      "label": "Validation exception translated to JSON by the application layer.",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "app.py",
+      "file_type": "rationale",
+      "norm_label": "validation exception translated to json by the application layer.",
+      "source_file": "validations/shared/exceptions.py",
       "source_location": "L1"
     },
     {
@@ -6425,6 +6535,17 @@
       "source_location": ""
     },
     {
+      "id": "controllers_admin_category_controller",
+      "label": "category_controller.py",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "get_record",
+      "file_type": "code",
+      "norm_label": "category_controller.py",
+      "source_file": "controllers/admin/category_controller.py",
+      "source_location": "L1"
+    },
+    {
       "id": "controllers_admin_shop_controller",
       "label": "shop_controller.py",
       "_origin": "ast",
@@ -6434,28 +6555,6 @@
       "norm_label": "shop_controller.py",
       "source_file": "controllers/admin/shop_controller.py",
       "source_location": "L1"
-    },
-    {
-      "id": "models_shop",
-      "label": "models/shop.py",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "models/shop.py",
-      "source_file": "models/shop.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "parametrize",
-      "label": "parametrize",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "parametrize",
-      "source_file": "",
-      "source_location": ""
     },
     {
       "id": "select",
@@ -6488,17 +6587,6 @@
       "file_type": "code",
       "norm_label": "genre_service.py",
       "source_file": "services/admin/genre_service.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "services_admin_payment_account_service",
-      "label": "payment_account_service.py",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "payment_account_service.py",
-      "source_file": "services/admin/payment_account_service.py",
       "source_location": "L1"
     },
     {
@@ -6546,14 +6634,14 @@
       "source_location": "L1"
     },
     {
-      "id": "services_api_catalog_service",
-      "label": "catalog_service.py",
+      "id": "services_admin_user_service",
+      "label": "user_service.py",
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "catalog_service.py",
-      "source_file": "services/api/catalog_service.py",
+      "norm_label": "user_service.py",
+      "source_file": "services/admin/user_service.py",
       "source_location": "L1"
     },
     {
@@ -6601,24 +6689,13 @@
       "source_location": ""
     },
     {
-      "id": "tests_test_shop_times",
-      "label": "test_shop_times.py",
+      "id": "validations_admin_category_py_any",
+      "label": "Any",
       "_origin": "ast",
       "community": 6,
       "community_name": "get_record",
       "file_type": "code",
-      "norm_label": "test_shop_times.py",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "time",
-      "label": "time",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "code",
-      "norm_label": "time",
+      "norm_label": "any",
       "source_file": "",
       "source_location": ""
     },
@@ -6632,17 +6709,6 @@
       "norm_label": "any",
       "source_file": "",
       "source_location": ""
-    },
-    {
-      "id": "services_api_catalog_service_rationale_1",
-      "label": "Public cafeteria catalog workflows.",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "get_record",
-      "file_type": "rationale",
-      "norm_label": "public cafeteria catalog workflows.",
-      "source_file": "services/api/catalog_service.py",
-      "source_location": "L1"
     },
     {
       "id": "services_shared_crud_service_rationale_1",
@@ -6852,132 +6918,11 @@
       "source_location": "L1"
     },
     {
-      "id": "controllers_admin_auth_controller",
-      "label": "admin/auth_controller.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin/auth_controller.py",
-      "source_file": "controllers/admin/auth_controller.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "database_seeders_admin_user",
-      "label": "admin_user.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "admin_user.py",
-      "source_file": "database/seeders/admin_user.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "exception",
-      "label": "Exception",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "exception",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "helpers_hash",
-      "label": "hash.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "hash.py",
-      "source_file": "helpers/hash.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "helpers_jwt",
-      "label": "jwt.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "jwt.py",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "helpers_jwt_py_any",
-      "label": "Any",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "helpers_response",
-      "label": "response.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "response.py",
-      "source_file": "helpers/response.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "helpers_response_py_any",
-      "label": "Any",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "middlewares_jwt_auth",
-      "label": "jwt_auth.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "jwt_auth.py",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "models_role",
-      "label": "models/role.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "models/role.py",
-      "source_file": "models/role.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "models_user",
-      "label": "models/user.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "models/user.py",
-      "source_file": "models/user.py",
-      "source_location": "L1"
-    },
-    {
       "id": "services_admin_auth_service",
       "label": "admin/auth_service.py",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "admin/auth_service.py",
       "source_file": "services/admin/auth_service.py",
@@ -6988,29 +6933,18 @@
       "label": "datetime",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "datetime",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "services_admin_user_service",
-      "label": "user_service.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "user_service.py",
-      "source_file": "services/admin/user_service.py",
-      "source_location": "L1"
-    },
-    {
       "id": "services_api_auth_service",
       "label": "api/auth_service.py",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "api/auth_service.py",
       "source_file": "services/api/auth_service.py",
@@ -7021,7 +6955,7 @@
       "label": "shared/auth_service.py",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "shared/auth_service.py",
       "source_file": "services/shared/auth_service.py",
@@ -7032,7 +6966,7 @@
       "label": "token_service.py",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "token_service.py",
       "source_file": "services/shared/token_service.py",
@@ -7043,128 +6977,18 @@
       "label": "datetime",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "code",
       "norm_label": "datetime",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "tests_test_auth_service",
-      "label": "test_auth_service.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_auth_service.py",
-      "source_file": "tests/test_auth_service.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_test_helpers",
-      "label": "test_helpers.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "test_helpers.py",
-      "source_file": "tests/test_helpers.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "validations_shared_exceptions",
-      "label": "exceptions.py",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "exceptions.py",
-      "source_file": "validations/shared/exceptions.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "validations_shared_exceptions_py_any",
-      "label": "Any",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "helpers_hash_rationale_1",
-      "label": "Password hashing helpers.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "password hashing helpers.",
-      "source_file": "helpers/hash.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "helpers_jwt_rationale_1",
-      "label": "JWT encoding and decoding.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "jwt encoding and decoding.",
-      "source_file": "helpers/jwt.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "helpers_response_rationale_1",
-      "label": "Consistent JSON response helpers.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "consistent json response helpers.",
-      "source_file": "helpers/response.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "middlewares_jwt_auth_rationale_1",
-      "label": "JWT authentication and role authorization decorators.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "jwt authentication and role authorization decorators.",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "middlewares_jwt_auth_rationale_49",
-      "label": "Require a valid, unexpired access token.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "require a valid, unexpired access token.",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L49"
-    },
-    {
-      "id": "middlewares_jwt_auth_rationale_55",
-      "label": "Require a signed access token while allowing it to be expired.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "require a signed access token while allowing it to be expired.",
-      "source_file": "middlewares/jwt_auth.py",
-      "source_location": "L55"
-    },
-    {
       "id": "services_shared_auth_service_rationale_1",
       "label": "Authentication and refresh-token workflows.",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "rationale",
       "norm_label": "authentication and refresh-token workflows.",
       "source_file": "services/shared/auth_service.py",
@@ -7175,21 +6999,10 @@
       "label": "JWT revocation workflows.",
       "_origin": "ast",
       "community": 69,
-      "community_name": "ValidationError",
+      "community_name": "shared/auth_service.py",
       "file_type": "rationale",
       "norm_label": "jwt revocation workflows.",
       "source_file": "services/shared/token_service.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "validations_shared_exceptions_rationale_1",
-      "label": "Validation exception translated to JSON by the application layer.",
-      "_origin": "ast",
-      "community": 69,
-      "community_name": "ValidationError",
-      "file_type": "rationale",
-      "norm_label": "validation exception translated to json by the application layer.",
-      "source_file": "validations/shared/exceptions.py",
       "source_location": "L1"
     },
     {
@@ -7259,28 +7072,6 @@
       "source_location": ""
     },
     {
-      "id": "validations_api_auth",
-      "label": "api/auth.py",
-      "_origin": "ast",
-      "community": 70,
-      "community_name": "api.py",
-      "file_type": "code",
-      "norm_label": "api/auth.py",
-      "source_file": "validations/api/auth.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "validations_api_auth_py_any",
-      "label": "Any",
-      "_origin": "ast",
-      "community": 70,
-      "community_name": "api.py",
-      "file_type": "code",
-      "norm_label": "any",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "middlewares_rate_limit_rationale_1",
       "label": "Central rate-limit extension and named policies.",
       "_origin": "ast",
@@ -7300,17 +7091,6 @@
       "file_type": "rationale",
       "norm_label": "public api endpoint registration only.",
       "source_file": "routes/api.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "validations_api_auth_rationale_1",
-      "label": "Student API authentication payload validation.",
-      "_origin": "ast",
-      "community": 70,
-      "community_name": "api.py",
-      "file_type": "rationale",
-      "norm_label": "student api authentication payload validation.",
-      "source_file": "validations/api/auth.py",
       "source_location": "L1"
     },
     {
@@ -7336,14 +7116,47 @@
       "source_location": "L1"
     },
     {
-      "id": "database_migrations_versions_032_shops_time_only",
-      "label": "032_shops_time_only.py",
+      "id": "helpers_jwt",
+      "label": "jwt.py",
       "_origin": "ast",
       "community": 8,
-      "community_name": "032_shops_time_only.py",
+      "community_name": "jwt.py",
       "file_type": "code",
-      "norm_label": "032_shops_time_only.py",
-      "source_file": "database/migrations/versions/032_shops_time_only.py",
+      "norm_label": "jwt.py",
+      "source_file": "helpers/jwt.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_jwt_py_any",
+      "label": "Any",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "any",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tests_test_auth_service",
+      "label": "test_auth_service.py",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "code",
+      "norm_label": "test_auth_service.py",
+      "source_file": "tests/test_auth_service.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_jwt_rationale_1",
+      "label": "JWT encoding and decoding.",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "jwt.py",
+      "file_type": "rationale",
+      "norm_label": "jwt encoding and decoding.",
+      "source_file": "helpers/jwt.py",
       "source_location": "L1"
     },
     {
@@ -11449,78 +11262,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "target": "models_shop_shop",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L78",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "target": "helpers_jwt_create_access_token",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L80",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_clock_time_accepts_valid_local_times",
-      "target": "validations_shared_fields_clock_time",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_overnight_hours_and_partial_updates",
-      "target": "validations_admin_shop_validate_shop",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L40",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_shop_serialization_handles_time_and_keeps_timestamps",
-      "target": "models_shop_shop",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L49",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_shop_time_invalid_values_have_field_errors",
-      "target": "validations_admin_shop_validate_shop",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
       "source": "tests_test_uploads_test_local_storage_saves_with_safe_random_name",
       "target": "helpers_file_uploader_localstorage",
       "relation": "calls",
@@ -11893,18 +11634,6 @@
       "weight": 1.0
     },
     {
-      "source": "validations_shared_fields_clock_time",
-      "target": "validations_shared_fields_optional_string",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L79",
-      "weight": 1.0
-    },
-    {
       "source": "validations_shared_fields_iso_datetime",
       "target": "validations_shared_fields_optional_string",
       "relation": "calls",
@@ -11913,7 +11642,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L88",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -11925,7 +11654,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L62",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -11937,7 +11666,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L122",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -11949,7 +11678,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L130",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -11961,7 +11690,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -11973,7 +11702,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L66",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "validations_shared_fields_validate_pagination",
+      "target": "validations_shared_exceptions_validationerror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "validations/shared/fields.py",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -11985,19 +11726,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L100",
-      "weight": 1.0
-    },
-    {
-      "source": "validations_shared_fields_validate_pagination",
-      "target": "validations_shared_exceptions_validationerror",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L114",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -12009,7 +11738,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L144",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -12021,7 +11750,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L162",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -12033,7 +11762,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L164",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -12082,30 +11811,6 @@
       "context": "decorator",
       "source_file": "tests/conftest.py",
       "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_clock_time_accepts_valid_local_times",
-      "target": "parametrize",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "decorator",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_shop_time_invalid_values_have_field_errors",
-      "target": "parametrize",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "decorator",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -12405,7 +12110,7 @@
       "confidence_score": 1.0,
       "context": "generic_arg",
       "source_file": "models/base.py",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -12489,7 +12194,7 @@
       "confidence_score": 1.0,
       "context": "generic_arg",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L118",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -12501,7 +12206,7 @@
       "confidence_score": 1.0,
       "context": "generic_arg",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L126",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -12513,7 +12218,7 @@
       "confidence_score": 1.0,
       "context": "generic_arg",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L134",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -15937,90 +15642,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_test_shop_times",
-      "target": "helpers_jwt_create_access_token",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "models_shop_shop",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "services_admin_shop_service_shopservice",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "services_shared_token_service_tokenservice",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_admin_shop_validate_shop",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_shared_exceptions_validationerror",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_shared_fields_clock_time",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
       "source": "tests_test_uploads",
       "target": "app_create_app",
       "relation": "imports",
@@ -16509,7 +16130,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L112",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -19189,90 +18810,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_test_shop_times",
-      "target": "helpers_jwt",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "models_shop",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "services_admin_shop_service",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "services_shared_token_service",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_admin_shop",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_shared_exceptions",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "validations_shared_fields",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
       "source": "tests_test_uploads",
       "target": "app",
       "relation": "imports_from",
@@ -19941,19 +19478,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L53",
-      "weight": 1.0
-    },
-    {
-      "source": "validations_shared_fields_clock_time",
-      "target": "validations_shared_fields_py_any",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "parameter_type",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L77",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -19965,7 +19490,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L87",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -19977,7 +19502,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L59",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -19989,7 +19514,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L42",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -20001,7 +19526,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -20013,7 +19538,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -20025,7 +19550,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -20037,7 +19562,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L65",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -20049,7 +19574,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L97",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -20149,18 +19674,6 @@
       "weight": 1.0
     },
     {
-      "source": "validations_shared_fields_clock_time",
-      "target": "time",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "return_type",
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L77",
-      "weight": 1.0
-    },
-    {
       "source": "validations_shared_fields_iso_datetime",
       "target": "validations_shared_fields_py_datetime",
       "relation": "references",
@@ -20169,7 +19682,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "validations/shared/fields.py",
-      "source_location": "L87",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -21549,28 +21062,6 @@
       "weight": 1.0
     },
     {
-      "source": "database_migrations_versions_032_shops_time_only",
-      "target": "database_migrations_versions_032_shops_time_only_upgrade",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "database/migrations/versions/032_shops_time_only.py",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "database_migrations_versions_032_shops_time_only",
-      "target": "database_migrations_versions_032_shops_time_only_downgrade",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "database/migrations/versions/032_shops_time_only.py",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
       "source": "database_schema",
       "target": "database_schema_payment_methods",
       "relation": "contains",
@@ -22073,7 +21564,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "models/base.py",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -22260,7 +21751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L142",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -22271,18 +21762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L161",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_apcafeteria_backend",
-      "target": "readme_shop_opening_and_closing_hours",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L19",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -22293,7 +21773,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L38",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_apcafeteria_backend",
+      "target": "readme_project_commands",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -22309,24 +21800,13 @@
     },
     {
       "source": "readme_apcafeteria_backend",
-      "target": "readme_project_commands",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L66",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_apcafeteria_backend",
       "target": "readme_pagination",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L87",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -22337,7 +21817,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L97",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -22348,7 +21828,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L122",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -23089,83 +22569,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_clock_time_accepts_valid_local_times",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_shop_time_invalid_values_have_field_errors",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_overnight_hours_and_partial_updates",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L39",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_shop_serialization_handles_time_and_keeps_timestamps",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L47",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_time_storage_round_trip_and_mysql_driver_conversion",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L58",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L74",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times",
-      "target": "tests_test_shop_times_test_shop_migration_sql_is_focused_and_documents_lossy_downgrade",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L87",
-      "weight": 1.0
-    },
-    {
       "source": "tests_test_uploads",
       "target": "tests_test_uploads_test_local_storage_saves_with_safe_random_name",
       "relation": "contains",
@@ -23492,7 +22895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L118",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -23503,7 +22906,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L126",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -23514,7 +22917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -23525,7 +22928,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L134",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -23536,7 +22939,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -23547,7 +22950,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -23558,7 +22961,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L42",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -23569,7 +22972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L53",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -23580,7 +22983,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L59",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -23591,18 +22994,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L65",
-      "weight": 1.0
-    },
-    {
-      "source": "validations_shared_fields",
-      "target": "validations_shared_fields_clock_time",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L77",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -23613,7 +23005,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L87",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -23624,7 +23016,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "validations/shared/fields.py",
-      "source_location": "L97",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -23921,7 +23313,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "models/base.py",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -25333,17 +24725,6 @@
       "weight": 1.0
     },
     {
-      "source": "validations_shared_fields_rationale_78",
-      "target": "validations_shared_fields_clock_time",
-      "relation": "rationale_for",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "validations/shared/fields.py",
-      "source_location": "L78",
-      "weight": 1.0
-    },
-    {
       "source": "validations_shared_filters_rationale_1",
       "target": "validations_shared_filters",
       "relation": "rationale_for",
@@ -25600,18 +24981,6 @@
       "weight": 1.0
     },
     {
-      "source": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "target": "services_admin_shop_service_shopservice_update",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L79",
-      "weight": 1.0
-    },
-    {
       "source": "validations_shared_filters",
       "target": "validations_shared_fields_positive_integer",
       "relation": "indirect_call",
@@ -25657,42 +25026,6 @@
       "context": "call",
       "source_file": "config.py",
       "source_location": "L96",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_overnight_hours_and_partial_updates",
-      "target": "time",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L41",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_shop_serialization_handles_time_and_keeps_timestamps",
-      "target": "time",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L49",
-      "weight": 1.0
-    },
-    {
-      "source": "tests_test_shop_times_test_time_storage_round_trip_and_mysql_driver_conversion",
-      "target": "time",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -26045,7 +25378,7 @@
     },
     {
       "source": "validations_admin_shop",
-      "target": "validations_shared_fields_clock_time",
+      "target": "validations_shared_fields_iso_datetime",
       "relation": "indirect_call",
       "_origin": "ast",
       "confidence": "INFERRED",
@@ -27201,50 +26534,6 @@
       "weight": 0.8
     },
     {
-      "source": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "target": "services_shared_token_service_tokenservice",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L75",
-      "weight": 0.8
-    },
-    {
-      "source": "tests_test_shop_times_test_admin_shop_update_returns_time_only_json",
-      "target": "services_admin_shop_service_shopservice",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L79",
-      "weight": 0.8
-    },
-    {
-      "source": "tests_test_shop_times_test_shop_time_invalid_values_have_field_errors",
-      "target": "validations_shared_exceptions_validationerror",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L34",
-      "weight": 0.8
-    },
-    {
-      "source": "tests_test_shop_times_test_time_storage_round_trip_and_mysql_driver_conversion",
-      "target": "models_shop_shop",
-      "relation": "uses",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "tests/test_shop_times.py",
-      "source_location": "L59",
-      "weight": 0.8
-    },
-    {
       "source": "tests_test_uploads_test_only_local_storage_is_supported",
       "target": "helpers_file_uploader_localstorage",
       "relation": "uses",
@@ -27268,5 +26557,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b193524594db491d4ade01386a0e394bb58fe306"
+  "built_at_commit": "0d4323b1c3a225dd87727bb8afc6029d7a2934d1"
 }

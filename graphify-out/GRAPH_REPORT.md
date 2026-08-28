@@ -1,16 +1,16 @@
-# Graph Report - apcafeteria-backend  (2026-08-27)
+# Graph Report - apcafeteria-backend  (2026-08-29)
 
 ## Corpus Check
-- 147 files · ~13,796 words
+- 149 files · ~14,558 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 630 nodes · 1649 edges · 71 communities (54 shown, 17 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 142 edges (avg confidence: 0.92)
+- 646 nodes · 1694 edges · 68 communities (51 shown, 17 thin omitted)
+- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 150 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0d4323b1`
+- Built from commit: `b1935245`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,18 +18,14 @@
 - admin.py
 - extensions.py
 - fields.py
-- ValidationError
+- admin/filters.py
 - app.py
 - get_record
 - PaymentAccountService
-- jwt.py
 - schema.sql
-- paginated_response
-- test_helpers.py
-- ShopStaffService
-- Role
+- user_controller.py
+- shop_staff_controller.py
 - APCafeteria Backend
-- jwt_auth.py
 - manage.py
 - controllers/admin/__init__.py
 - controllers/api/__init__.py
@@ -49,12 +45,12 @@
 - validations/shared/__init__.py
 - validations/shop/__init__.py
 - APCafeteria Backend
-- shared/auth_service.py
+- ValidationError
 - api.py
 
 ## God Nodes (most connected - your core abstractions)
 1. `success_response()` - 59 edges
-2. `ValidationError` - 50 edges
+2. `ValidationError` - 52 edges
 3. `get_record()` - 34 edges
 4. `SerializableMixin` - 32 edges
 5. `commit_record()` - 26 edges
@@ -67,79 +63,63 @@
 ## Surprising Connections (you probably didn't know these)
 - `register_error_handlers()` --uses--> `ValidationError`  [INFERRED]
   app.py → validations/shared/exceptions.py
+- `list_payment_accounts()` --uses--> `PaymentAccountService`  [INFERRED]
+  controllers/admin/payment_account_controller.py → services/admin/payment_account_service.py
+- `list_shops()` --uses--> `ShopService`  [INFERRED]
+  controllers/admin/shop_controller.py → services/admin/shop_service.py
 - `list_shop_staffs()` --uses--> `ShopStaffService`  [INFERRED]
   controllers/admin/shop_staff_controller.py → services/admin/shop_staff_service.py
-- `_jwt_required()` --uses--> `TokenService`  [INFERRED]
-  middlewares/jwt_auth.py → services/shared/token_service.py
-- `CategoryService` --uses--> `Category`  [INFERRED]
-  services/admin/category_service.py → models/category.py
-- `GenreService` --uses--> `Genre`  [INFERRED]
-  services/admin/genre_service.py → models/genre.py
+- `list_users()` --uses--> `UserService`  [INFERRED]
+  controllers/admin/user_controller.py → services/admin/user_service.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (71 total, 17 thin omitted)
+## Communities (68 total, 17 thin omitted)
 
 ### Community 0 - "admin.py"
 Cohesion: 0.07
-Nodes (43): admin_login(), admin_logout(), admin_profile(), admin_refresh_token(), admin_revoke_token(), create_genre(), delete_genre(), genre_options() (+35 more)
+Nodes (51): category_options(), create_category(), delete_category(), get_category(), list_categories(), update_category(), create_genre(), delete_genre() (+43 more)
 
 ### Community 1 - "extensions.py"
 Cohesion: 0.13
-Nodes (22): Decimal, DeclarativeBase, Base, Shared Flask extension instances., Any, Common model serialization helpers., SerializableMixin, Category (+14 more)
+Nodes (22): seed_payment_methods(), seed_roles(), Run all idempotent seeders in dependency order., run_seeders(), Decimal, DeclarativeBase, Base, Shared Flask extension instances. (+14 more)
 
 ### Community 2 - "fields.py"
-Cohesion: 0.16
-Nodes (26): Admin authentication payload validation., Category payload validation., _optional_email(), Any, validate_shop_staff(), Any, Student API authentication payload validation., validate_api_login() (+18 more)
+Cohesion: 0.12
+Nodes (30): test_paginated_response_shape(), test_pagination_defaults_and_limit(), test_role_create_and_update_validation(), test_user_password_is_required_only_when_creating(), Any, Admin authentication payload validation., validate_admin_login(), validate_refresh_token() (+22 more)
 
-### Community 3 - "ValidationError"
+### Community 3 - "admin/filters.py"
 Cohesion: 0.13
-Nodes (33): Exception, FilterRule, test_admin_filters_convert_query_values(), test_menu_price_filters_are_validated(), test_unknown_and_invalid_filters_return_field_errors(), Any, Validated filter parameters for admin collection endpoints., Roles support: search (name) and is_active (boolean). (+25 more)
+Nodes (33): FilterRule, test_admin_filters_convert_query_values(), test_collection_filters_use_bound_sql_parameters(), test_menu_price_filters_are_validated(), test_unknown_and_invalid_filters_return_field_errors(), Any, Validated filter parameters for admin collection endpoints., Roles support: search (name) and is_active (boolean). (+25 more)
 
 ### Community 5 - "app.py"
 Cohesion: 0.06
-Nodes (38): create_app(), Flask, Flask application factory., register_error_handlers(), FlaskConfig, _json_list(), Environment-backed application configuration., Settings (+30 more)
+Nodes (39): create_app(), Flask, Flask application factory., register_error_handlers(), FlaskConfig, _json_list(), Environment-backed application configuration., Settings (+31 more)
 
 ### Community 6 - "get_record"
-Cohesion: 0.09
-Nodes (31): ColumnElement, category_options(), create_category(), delete_category(), get_category(), list_categories(), update_category(), create_shop() (+23 more)
+Cohesion: 0.11
+Nodes (29): ColumnElement, create_shop(), delete_shop(), get_shop(), update_shop(), Shop, parametrize, Select (+21 more)
 
 ### Community 7 - "PaymentAccountService"
-Cohesion: 0.25
-Nodes (8): create_payment_account(), delete_payment_account(), get_payment_account(), list_payment_accounts(), update_payment_account(), PaymentAccountService, Any, validate_payment_account()
-
-### Community 8 - "jwt.py"
-Cohesion: 0.35
-Nodes (10): create_refresh_token(), decode_access_token(), decode_refresh_token(), _decode_token(), Any, JWT encoding and decoding., ActiveAdmin, test_admin_refresh_rejects_revoked_refresh_token() (+2 more)
+Cohesion: 0.26
+Nodes (8): create_payment_account(), delete_payment_account(), get_payment_account(), update_payment_account(), PaymentAccount, PaymentAccountService, Any, validate_payment_account()
 
 ### Community 9 - "schema.sql"
 Cohesion: 0.27
 Nodes (15): categories, genres, menus, order_logs, order_menus, orders, payment_accounts, payment_methods (+7 more)
 
-### Community 10 - "paginated_response"
-Cohesion: 0.10
-Nodes (24): list_shop_staffs(), create_user(), delete_user(), get_user(), list_users(), update_user(), list_shop_menus(), list_shops() (+16 more)
+### Community 10 - "user_controller.py"
+Cohesion: 0.28
+Nodes (8): create_user(), delete_user(), get_user(), update_user(), _serialize(), UserService, Any, validate_user()
 
-### Community 11 - "test_helpers.py"
-Cohesion: 0.29
-Nodes (9): hash_password(), Password hashing helpers., verify_password(), create_access_token(), test_admin_revoke_accepts_its_expired_bearer_token(), test_access_token_round_trip(), test_invalid_login_payload_has_field_errors(), test_password_hash_round_trip() (+1 more)
-
-### Community 12 - "ShopStaffService"
-Cohesion: 0.30
-Nodes (5): create_shop_staff(), delete_shop_staff(), get_shop_staff(), update_shop_staff(), ShopStaffService
-
-### Community 13 - "Role"
-Cohesion: 0.40
-Nodes (7): seed_admin_user(), seed_payment_methods(), seed_roles(), Run all idempotent seeders in dependency order., run_seeders(), Role, User
+### Community 12 - "shop_staff_controller.py"
+Cohesion: 0.27
+Nodes (8): create_shop_staff(), delete_shop_staff(), get_shop_staff(), update_shop_staff(), ShopStaff, ShopStaffService, Any, validate_shop_staff()
 
 ### Community 14 - "APCafeteria Backend"
-Cohesion: 0.20
-Nodes (9): APCafeteria Backend, Endpoints, List filters, Local file storage, Pagination, Portal-oriented structure, Project commands, Roles list parameters (+1 more)
-
-### Community 15 - "jwt_auth.py"
-Cohesion: 0.40
-Nodes (5): _jwt_required(), jwt_revoke_required(), JWT authentication and role authorization decorators., Require a valid, unexpired access token., Require a signed access token while allowing it to be expired.
+Cohesion: 0.18
+Nodes (10): APCafeteria Backend, Endpoints, List filters, Local file storage, Pagination, Portal-oriented structure, Project commands, Roles list parameters (+2 more)
 
 ### Community 16 - "manage.py"
 Cohesion: 0.27
@@ -149,33 +129,33 @@ Nodes (9): ArgumentParser, build_parser(), dispatch(), main(), Unified command r
 Cohesion: 0.40
 Nodes (4): APCafeteria Backend, Architecture invariants, Database synchronization, Security and verification
 
-### Community 69 - "shared/auth_service.py"
-Cohesion: 0.29
-Nodes (7): datetime, AuthService, _create_token_pair(), Authentication and refresh-token workflows., datetime, JWT revocation workflows., TokenService
+### Community 69 - "ValidationError"
+Cohesion: 0.07
+Nodes (48): admin_login(), admin_logout(), admin_profile(), admin_refresh_token(), admin_revoke_token(), seed_admin_user(), Exception, hash_password() (+40 more)
 
 ### Community 70 - "api.py"
-Cohesion: 0.22
-Nodes (7): student_login(), student_logout(), api_rate_limit(), Central rate-limit extension and named policies., Public API endpoint registration only., ApiAuthService, datetime
+Cohesion: 0.20
+Nodes (9): student_login(), student_logout(), api_rate_limit(), Central rate-limit extension and named policies., Public API endpoint registration only., datetime, Any, Student API authentication payload validation. (+1 more)
 
 ## Knowledge Gaps
-- **10 isolated node(s):** `Setup`, `Portal-oriented structure`, `Project commands`, `Pagination`, `Roles list parameters` (+5 more)
+- **11 isolated node(s):** `Setup`, `Shop opening and closing hours`, `Portal-oriented structure`, `Project commands`, `Pagination` (+6 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ValidationError` connect `ValidationError` to `admin.py`, `extensions.py`, `fields.py`, `shared/auth_service.py`, `app.py`, `PaymentAccountService`, `get_record`, `api.py`, `paginated_response`, `jwt.py`, `ShopStaffService`, `test_helpers.py`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
-- **Why does `success_response()` connect `admin.py` to `app.py`, `api.py`, `get_record`, `PaymentAccountService`, `paginated_response`, `ShopStaffService`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
-- **Why does `get_record()` connect `get_record` to `admin.py`, `extensions.py`, `ValidationError`, `PaymentAccountService`, `paginated_response`, `ShopStaffService`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Are the 13 inferred relationships involving `ValidationError` (e.g. with `register_error_handlers()` and `AdminAuthService`) actually correct?**
-  _`ValidationError` has 13 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Setup`, `Portal-oriented structure`, `Project commands` to the rest of the system?**
-  _10 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `ValidationError` connect `ValidationError` to `admin.py`, `fields.py`, `admin/filters.py`, `app.py`, `get_record`, `PaymentAccountService`, `user_controller.py`, `shop_staff_controller.py`?**
+  _High betweenness centrality (0.125) - this node is a cross-community bridge._
+- **Why does `success_response()` connect `admin.py` to `ValidationError`, `get_record`, `PaymentAccountService`, `api.py`, `app.py`, `user_controller.py`, `shop_staff_controller.py`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Why does `get_record()` connect `get_record` to `admin.py`, `ValidationError`, `PaymentAccountService`, `user_controller.py`, `shop_staff_controller.py`?**
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Are the 14 inferred relationships involving `ValidationError` (e.g. with `register_error_handlers()` and `AdminAuthService`) actually correct?**
+  _`ValidationError` has 14 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Setup`, `Shop opening and closing hours`, `Portal-oriented structure` to the rest of the system?**
+  _11 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `admin.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.0733099209833187 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06835443037974684 - nodes in this community are weakly interconnected._
 - **Should `extensions.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.1321353065539112 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12682926829268293 - nodes in this community are weakly interconnected._

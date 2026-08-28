@@ -312,10 +312,10 @@
     "semantic_hash": "98fbcce54c892ce6122d44d5f0f0cbc4"
   },
   "models/base.py": {
-    "mtime": 1787936797.0829012,
-    "seen": 1787936990.632414,
-    "ast_hash": "659d4c5c522c02df35c153d3deb64c3c",
-    "semantic_hash": ""
+    "mtime": 1787504284.040507,
+    "seen": 1787509056.9208438,
+    "ast_hash": "bc3ec61bbf1a80b7528e4d4ef7b92286",
+    "semantic_hash": "bc3ec61bbf1a80b7528e4d4ef7b92286"
   },
   "models/category.py": {
     "mtime": 1787508274.156532,
@@ -378,10 +378,10 @@
     "semantic_hash": "ec8eec2ebfeea36e5ca41378cff4ec38"
   },
   "models/shop.py": {
-    "mtime": 1787936797.08138,
-    "seen": 1787936990.632414,
-    "ast_hash": "c35f5d7bcc13f449698dcba809b495fa",
-    "semantic_hash": ""
+    "mtime": 1787508274.1479135,
+    "seen": 1787509056.9208438,
+    "ast_hash": "a89f36ae3e6e98494e8a9895c0c6f993",
+    "semantic_hash": "a89f36ae3e6e98494e8a9895c0c6f993"
   },
   "models/shop_category.py": {
     "mtime": 1787508274.159215,
@@ -480,10 +480,10 @@
     "semantic_hash": "8159eb0c06d6dbe2fb2c1cdbe48caf43"
   },
   "database/schema.sql": {
-    "mtime": 1787936797.0914671,
-    "seen": 1787936990.632414,
-    "ast_hash": "845b609bb0b026b47ba64f9945706226",
-    "semantic_hash": ""
+    "mtime": 1787509347.7872832,
+    "seen": 1787509371.1015396,
+    "ast_hash": "6a06ddc275296fd7f56986715df4a45c",
+    "semantic_hash": "6a06ddc275296fd7f56986715df4a45c"
   },
   "database/migrations/versions/031_add_payment_accounts_shop_id.py": {
     "mtime": 1787509347.7862847,
@@ -768,10 +768,10 @@
     "semantic_hash": "0a019ab7270345fd49ed5133ae5a0700"
   },
   "validations/admin/shop.py": {
-    "mtime": 1787936797.0889237,
-    "seen": 1787936990.632414,
-    "ast_hash": "496500f7d9d650121ab639ed409ceafd",
-    "semantic_hash": ""
+    "mtime": 1787586606.5476658,
+    "seen": 1787586660.402758,
+    "ast_hash": "a46ae2e8b50483018058a839ade91166",
+    "semantic_hash": "a46ae2e8b50483018058a839ade91166"
   },
   "validations/admin/shop_staff.py": {
     "mtime": 1787586567.9408433,
@@ -816,10 +816,10 @@
     "semantic_hash": "d3e672492e4d9a81fbbcc5009908b949"
   },
   "validations/shared/fields.py": {
-    "mtime": 1787936797.0869236,
-    "seen": 1787936990.632414,
-    "ast_hash": "f1774895caa36f6320ce2c00d2861994",
-    "semantic_hash": ""
+    "mtime": 1787586567.9188259,
+    "seen": 1787586660.402758,
+    "ast_hash": "b7bfffe9d8007cf2bf631b5a2e2ed066",
+    "semantic_hash": "b7bfffe9d8007cf2bf631b5a2e2ed066"
   },
   "validations/shop/__init__.py": {
     "mtime": 1787586478.5566566,
@@ -870,9 +870,9 @@
     "semantic_hash": "e707b08395ff58376ef281f64085f7b9"
   },
   "README.md": {
-    "mtime": 1787936890.8109422,
-    "seen": 1787936990.632414,
-    "ast_hash": "4ed89520fbdc2edc688e2a7a2e782323",
+    "mtime": 1787647618.24422,
+    "seen": 1787810094.263314,
+    "ast_hash": "3d467477f1b3f9f3e7cc9b32a7ba3e99",
     "semantic_hash": ""
   },
   "SKILLS.md": {
@@ -885,18 +885,6 @@
     "mtime": 1787504198.305087,
     "seen": 1787810094.263314,
     "ast_hash": "7e78dada52d3c8193f9f5a6614cd8f8e",
-    "semantic_hash": ""
-  },
-  "database/migrations/versions/032_shops_time_only.py": {
-    "mtime": 1787936797.0960097,
-    "seen": 1787936990.632414,
-    "ast_hash": "e0d4199a6da05415c72c96e1c4b92719",
-    "semantic_hash": ""
-  },
-  "tests/test_shop_times.py": {
-    "mtime": 1787936938.7590878,
-    "seen": 1787936990.632414,
-    "ast_hash": "389126652219f928a58b559e191a3f8c",
     "semantic_hash": ""
   }
 }
