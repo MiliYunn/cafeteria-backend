@@ -13,6 +13,7 @@ class ShopStaff(SerializableMixin, db.Model):
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     shop_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("shops.id"), index=True, nullable=False)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
+    role: Mapped[str] = mapped_column(String(50), nullable=False, server_default="staff")
     email: Mapped[str | None] = mapped_column(String(255), unique=True, nullable=True)
     phone: Mapped[str | None] = mapped_column(String(30), nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("1"))

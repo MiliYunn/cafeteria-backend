@@ -8,6 +8,9 @@ from validations.shared.filters import (
     query_string,
     validate_query_filters,
 )
+from validations.shared.fields import one_of
+from validations.admin.payment_method import PAYMENT_METHOD_TYPES
+from validations.admin.shop_staff import SHOP_STAFF_ROLES
 
 
 def validate_role_filters(query: Any) -> dict:
@@ -47,11 +50,15 @@ def validate_shop_filters(query: Any) -> dict:
 
 
 def validate_shop_staff_filters(query: Any) -> dict:
-    """Shop staff support: search (name/email/phone) and is_active."""
+    """Shop staff support: search (name/email/phone), status, and role."""
 
     return validate_query_filters(
         query,
-        {"search": query_string, "is_active": query_boolean},
+        {
+            "search": query_string,
+            "is_active": query_boolean,
+            "role": lambda value, field: one_of(value, field, SHOP_STAFF_ROLES),
+        },
     )
 
 
@@ -78,7 +85,7 @@ def validate_payment_method_filters(query: Any) -> dict:
         {
             "search": query_string,
             "is_active": query_boolean,
-            "type": query_string,
+            "type": lambda value, field: one_of(value, field, PAYMENT_METHOD_TYPES),
         },
     )
 

@@ -36,6 +36,7 @@ class Settings:
     jwt_secret: str
     jwt_expires_minutes: int
     jwt_refresh_expires_days: int
+    shop_login_secret: str
     db_host: str
     db_port: int
     db_name: str
@@ -69,6 +70,7 @@ class Settings:
             jwt_secret=os.getenv("JWT_SECRET", ""),
             jwt_expires_minutes=int(os.getenv("JWT_EXPIRES_MINUTES", "60")),
             jwt_refresh_expires_days=int(os.getenv("JWT_REFRESH_EXPIRES_DAYS", "7")),
+            shop_login_secret=os.getenv("SHOP_LOGIN_SECRET", ""),
             db_host=os.getenv("DB_HOST", "127.0.0.1"),
             db_port=int(os.getenv("DB_PORT", "3306")),
             db_name=os.getenv("DB_NAME", "cafeteria"),
@@ -91,6 +93,8 @@ class Settings:
             raise ValueError("JWT_EXPIRES_MINUTES must be at least 1")
         if settings.jwt_refresh_expires_days < 1:
             raise ValueError("JWT_REFRESH_EXPIRES_DAYS must be at least 1")
+        if len(settings.shop_login_secret) < 32:
+            raise ValueError("SHOP_LOGIN_SECRET must contain at least 32 characters")
         if settings.storage != "local":
             raise ValueError("Only STORAGE=local is currently supported")
         storage_path = Path(settings.local_storage_path)

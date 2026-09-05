@@ -4,6 +4,7 @@ from helpers.response import paginated_response
 from validations.shared.fields import validate_pagination
 from validations.shared.exceptions import ValidationError
 from validations.admin.role import validate_role
+from validations.admin.payment_method import validate_payment_method
 from validations.admin.user import validate_user
 
 
@@ -76,6 +77,15 @@ def test_pagination_defaults_and_limit():
 def test_role_create_and_update_validation():
     assert validate_role({"name": "Manager"}) == {"name": "Manager", "is_active": True}
     assert validate_role({"is_active": False}, partial=True) == {"is_active": False}
+
+
+def test_payment_method_type_is_limited_to_supported_values():
+    for method_type in ("bank", "wallet", "card", "cash"):
+        result = validate_payment_method({"name": "Payment", "type": method_type})
+        assert result["type"] == method_type
+    with pytest.raises(ValidationError) as caught:
+        validate_payment_method({"name": "Crypto", "type": "crypto"})
+    assert "bank, card, cash, wallet" in caught.value.errors["type"]
 
 
 def test_user_password_is_required_only_when_creating():

@@ -36,6 +36,8 @@ CREATE TABLE shops (
     name VARCHAR(150) NOT NULL,
     description TEXT NULL,
     logo_url VARCHAR(500) NULL,
+    domain_url VARCHAR(500) NOT NULL,
+    login_url TEXT NOT NULL,
     location VARCHAR(255) NOT NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     email VARCHAR(255) NOT NULL,
@@ -75,6 +77,7 @@ CREATE TABLE shop_staffs (
     id BIGINT NOT NULL AUTO_INCREMENT,
     shop_id BIGINT NOT NULL,
     name VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL DEFAULT 'staff',
     email VARCHAR(255) NULL,
     phone VARCHAR(30) NULL,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
@@ -97,7 +100,6 @@ CREATE TABLE genres (
 CREATE TABLE menus (
     id BIGINT NOT NULL AUTO_INCREMENT,
     shop_id BIGINT NOT NULL,
-    genre_id BIGINT NOT NULL,
     name VARCHAR(150) NOT NULL,
     cost DECIMAL(12,2) NOT NULL,
     is_available BOOLEAN NOT NULL DEFAULT TRUE,
@@ -106,9 +108,22 @@ CREATE TABLE menus (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    KEY ix_menus_shop_id (shop_id), KEY ix_menus_genre_id (genre_id),
-    CONSTRAINT fk_menus_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id),
-    CONSTRAINT fk_menus_genre_id FOREIGN KEY (genre_id) REFERENCES genres (id)
+    KEY ix_menus_shop_id (shop_id),
+    CONSTRAINT fk_menus_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE menu_genres (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    menu_id BIGINT NOT NULL,
+    genre_id BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_menu_genres_pair (menu_id, genre_id),
+    KEY ix_menu_genres_menu_id (menu_id),
+    KEY ix_menu_genres_genre_id (genre_id),
+    CONSTRAINT fk_menu_genres_menu_id FOREIGN KEY (menu_id) REFERENCES menus (id),
+    CONSTRAINT fk_menu_genres_genre_id FOREIGN KEY (genre_id) REFERENCES genres (id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE payment_methods (
@@ -144,7 +159,8 @@ CREATE TABLE payment_accounts (
 CREATE TABLE orders (
     id BIGINT NOT NULL AUTO_INCREMENT,
     shop_id BIGINT NOT NULL,
-    user_id BIGINT NOT NULL,
+    user_id BIGINT NULL,
+    shop_id BIGINT NULL,
     user_email VARCHAR(255) NOT NULL,
     order_code VARCHAR(50) NOT NULL,
     status VARCHAR(50) NOT NULL DEFAULT 'pending',
@@ -214,6 +230,8 @@ CREATE TABLE revoked_tokens (
     PRIMARY KEY (id),
     UNIQUE KEY uq_revoked_tokens_jti (jti),
     KEY ix_revoked_tokens_user_id (user_id),
+    KEY ix_revoked_tokens_shop_id (shop_id),
     KEY ix_revoked_tokens_expires_at (expires_at),
-    CONSTRAINT fk_revoked_tokens_user_id FOREIGN KEY (user_id) REFERENCES users (id)
+    CONSTRAINT fk_revoked_tokens_user_id FOREIGN KEY (user_id) REFERENCES users (id),
+    CONSTRAINT fk_revoked_tokens_shop_id FOREIGN KEY (shop_id) REFERENCES shops (id)
 ) ENGINE=InnoDB;

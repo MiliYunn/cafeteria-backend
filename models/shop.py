@@ -14,6 +14,8 @@ class Shop(SerializableMixin, db.Model):
     name: Mapped[str] = mapped_column(String(150), nullable=False)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     logo_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    domain_url: Mapped[str] = mapped_column(String(500), nullable=False)
+    login_url: Mapped[str] = mapped_column(Text, nullable=False)
     location: Mapped[str] = mapped_column(String(255), nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("1"))
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)

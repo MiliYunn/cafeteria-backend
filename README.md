@@ -9,7 +9,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 Copy-Item .env.example .env  # only if .env does not already exist
-python run.py
+python manage.py run
 ```
 
 The API starts at `http://127.0.0.1:8000`. All routes use the `/cafeteria` root prefix. Check it with `GET /cafeteria/health`.
@@ -171,6 +171,10 @@ The response returns a URL such as `/cafeteria/uploads/abc123.png`. Local files 
 - `GET /cafeteria/api/shops`
 - `GET /cafeteria/api/shops/{shop_id}/menus`
 
+Shop menu create/update payloads use `genre_ids`, allowing one item to belong to
+multiple genres, for example `{ "name": "Nasi Lemak", "cost": 8.50,
+"genre_ids": [1, 3, 7] }`.
+
 All endpoints below require an admin bearer token:
 
 - Roles: `GET|POST /cafeteria/admin/roles`, `GET|PUT|DELETE /cafeteria/admin/roles/{role_id}`
@@ -187,12 +191,27 @@ All endpoints below require an admin bearer token:
 - Shop payment accounts: `GET|POST /cafeteria/admin/shops/{shop_id}/payment-accounts`, `GET|PUT|DELETE /cafeteria/admin/shops/{shop_id}/payment-accounts/{account_id}`
 - File upload: `POST /cafeteria/admin/uploads` using `multipart/form-data`
 
+All endpoints below require a shop bearer token and are automatically scoped to
+that authenticated shop:
+
+- Menu: `GET|POST /cafeteria/shop/menus`, `GET|PUT|DELETE /cafeteria/shop/menus/{menu_id}`
+- Menu genre options: `GET /cafeteria/shop/genre-options`
+- Staff: `GET|POST /cafeteria/shop/staffs`, `GET|PUT|DELETE /cafeteria/shop/staffs/{staff_id}`
+- Payment accounts: `GET|POST /cafeteria/shop/payment-accounts`, `GET|PUT|DELETE /cafeteria/shop/payment-accounts/{account_id}`
+- Payment method options: `GET /cafeteria/shop/payment-method-options`
+- Shop settings: `GET|PUT /cafeteria/shop/settings` for `open_at` and `close_at`
+
+Shop staff payloads require a `role`. Supported values are `manager`,
+`supervisor`, `cashier`, `cook`, `server`, `cleaner`, `delivery`,
+`kitchen_helper`, `inventory_clerk`, and `staff`. Staff lists can be filtered
+with the `role` query parameter.
+
 Portal prefixes are organized as:
 
 ```text
 /cafeteria/admin  Admin portal
 /cafeteria/api    Student/public API
-/cafeteria/shop   Shop portal (ready for future shop endpoints)
+/cafeteria/shop   Shop portal authentication and shop-scoped management
 ```
 
 Run `python manage.py test` for the test suite and `python manage.py migrate --sql` to validate offline migration generation.

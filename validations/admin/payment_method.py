@@ -1,6 +1,8 @@
 from typing import Any
 
-from validations.shared.fields import boolean_value, optional_string, required_string, valid_url, validate_resource_payload
+from validations.shared.fields import boolean_value, one_of, optional_string, required_string, valid_url, validate_resource_payload
+
+PAYMENT_METHOD_TYPES = {"bank", "wallet", "card", "cash"}
 
 RULES = {
     "name": lambda value, field: required_string(value, field, max_length=100),
@@ -8,7 +10,7 @@ RULES = {
     "logo": valid_url,
     "domain_url": valid_url,
     "is_active": boolean_value,
-    "type": lambda value, field: required_string(value, field, max_length=50),
+    "type": lambda value, field: one_of(value, field, PAYMENT_METHOD_TYPES),
 }
 
 

@@ -17,13 +17,20 @@ class TokenService:
         ) is not None
 
     @staticmethod
-    def revoke(*, jti: str, user_id: int, expires_at: datetime) -> None:
+    def revoke(
+        *,
+        jti: str,
+        expires_at: datetime,
+        user_id: int | None = None,
+        shop_id: int | None = None,
+    ) -> None:
         if TokenService.is_revoked(jti):
             return
         db.session.add(
             RevokedToken(
                 jti=jti,
                 user_id=user_id,
+                shop_id=shop_id,
                 expires_at=expires_at.astimezone(UTC).replace(tzinfo=None),
             )
         )
@@ -31,4 +38,3 @@ class TokenService:
             db.session.commit()
         except IntegrityError:
             db.session.rollback()
-

@@ -29,7 +29,7 @@ class ShopStaffService:
             select(ShopStaff).where(ShopStaff.shop_id == shop_id),
             filters,
             search_columns=(ShopStaff.name, ShopStaff.email, ShopStaff.phone),
-            exact_columns={"is_active": ShopStaff.is_active},
+            exact_columns={"is_active": ShopStaff.is_active, "role": ShopStaff.role},
         ).order_by(ShopStaff.id.desc())
         return paginate_records(statement, page, per_page, lambda item: item.to_dict())
 

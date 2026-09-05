@@ -2,13 +2,15 @@ erDiagram
     roles ||--o{ users : assigns
     users ||--o{ user_activities : performs
     users ||--o{ revoked_tokens : revokes
+    shops ||--o{ revoked_tokens : revokes
     users ||--o{ orders : places
     users o|--o{ order_logs : changes
     shops ||--o{ shop_staffs : employs
     shops ||--o{ shop_categories : classified_as
     categories ||--o{ shop_categories : includes
     shops ||--o{ menus : offers
-    genres ||--o{ menus : groups
+    menus ||--|{ menu_genres : classified_as
+    genres ||--o{ menu_genres : groups
     shops ||--o{ orders : receives
     shops ||--o{ payment_accounts : owns
     payment_methods ||--o{ payment_accounts : provides
@@ -40,6 +42,7 @@ erDiagram
     user_activities {
         BIGINT id PK
         BIGINT user_id FK
+        BIGINT shop_id FK
         TEXT activity
         DATETIME active_at
         TIMESTAMP created_at
@@ -59,6 +62,8 @@ erDiagram
         VARCHAR name
         TEXT description
         VARCHAR logo_url
+        VARCHAR domain_url
+        TEXT login_url
         VARCHAR location
         BOOLEAN is_active
         VARCHAR email UK
@@ -72,6 +77,7 @@ erDiagram
         BIGINT id PK
         BIGINT shop_id FK
         VARCHAR name
+        VARCHAR role
         VARCHAR email UK
         VARCHAR phone
         BOOLEAN is_active
@@ -103,12 +109,18 @@ erDiagram
     menus {
         BIGINT id PK
         BIGINT shop_id FK
-        BIGINT genre_id FK
         VARCHAR name
         DECIMAL cost
         BOOLEAN is_available
         VARCHAR image
         TEXT description
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+    menu_genres {
+        BIGINT id PK
+        BIGINT menu_id FK
+        BIGINT genre_id FK
         TIMESTAMP created_at
         TIMESTAMP updated_at
     }

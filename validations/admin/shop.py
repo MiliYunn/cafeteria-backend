@@ -4,6 +4,7 @@ from validations.shared.fields import (
     boolean_value,
     clock_time,
     optional_string,
+    positive_integer_list,
     required_string,
     valid_email,
     valid_url,
@@ -14,12 +15,14 @@ RULES = {
     "name": lambda value, field: required_string(value, field, max_length=150),
     "description": lambda value, field: optional_string(value, field, max_length=5000),
     "logo_url": valid_url,
+    "domain_url": valid_url,
     "location": lambda value, field: required_string(value, field, max_length=255),
     "is_active": boolean_value,
     "email": valid_email,
     "password": lambda value, field: required_string(value, field, min_length=8, max_length=128),
     "open_at": clock_time,
     "close_at": clock_time,
+    "category_ids": positive_integer_list,
 }
 
 
@@ -27,7 +30,7 @@ def validate_shop(payload: Any, *, partial: bool = False) -> dict:
     return validate_resource_payload(
         payload,
         RULES,
-        required={"name", "location", "email", "password"},
-        defaults={"description": None, "logo_url": None, "is_active": True, "open_at": None, "close_at": None},
+        required={"name", "location", "email", "password", "domain_url"},
+        defaults={"description": None, "logo_url": None, "is_active": True, "open_at": None, "close_at": None, "category_ids": []},
         partial=partial,
     )

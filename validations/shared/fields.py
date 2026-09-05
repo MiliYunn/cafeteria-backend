@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime, time
+from decimal import Decimal, InvalidOperation
 import re
 from typing import Any
 from urllib.parse import urlparse
@@ -30,6 +31,8 @@ def valid_email(value: Any, field: str = "email") -> str:
 def positive_integer(value: Any, field: str) -> int:
     if isinstance(value, bool):
         raise ValueError(f"{field} must be a positive integer")
+    if isinstance(value, float) and not value.is_integer():
+        raise ValueError(f"{field} must be a positive integer")
     try:
         number = int(value)
     except (TypeError, ValueError) as exc:
@@ -37,6 +40,29 @@ def positive_integer(value: Any, field: str) -> int:
     if number < 1:
         raise ValueError(f"{field} must be a positive integer")
     return number
+
+
+def non_negative_decimal(value: Any, field: str) -> Decimal:
+    if isinstance(value, bool):
+        raise ValueError(f"{field} must be a non-negative number")
+    try:
+        number = Decimal(str(value))
+    except (InvalidOperation, TypeError, ValueError) as exc:
+        raise ValueError(f"{field} must be a non-negative number") from exc
+    if not number.is_finite() or number < 0:
+        raise ValueError(f"{field} must be a non-negative number")
+    return number.quantize(Decimal("0.01"))
+
+
+def positive_integer_list(value: Any, field: str) -> list[int]:
+    if not isinstance(value, list):
+        raise ValueError(f"{field} must be a list")
+    result: list[int] = []
+    for item in value:
+        number = positive_integer(item, field)
+        if number not in result:
+            result.append(number)
+    return result
 
 
 def optional_string(value: Any, field: str, *, max_length: int = 255) -> str | None:
@@ -54,6 +80,14 @@ def boolean_value(value: Any, field: str) -> bool:
     if not isinstance(value, bool):
         raise ValueError(f"{field} must be a boolean")
     return value
+
+
+def one_of(value: Any, field: str, choices: set[str]) -> str:
+    clean = required_string(value, field, max_length=50).lower()
+    if clean not in choices:
+        allowed = ", ".join(sorted(choices))
+        raise ValueError(f"{field} must be one of: {allowed}")
+    return clean
 
 
 def nullable_positive_integer(value: Any, field: str) -> int | None:

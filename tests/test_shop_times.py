@@ -44,6 +44,15 @@ def test_overnight_hours_and_partial_updates():
     assert "open_at" not in validate_shop({"name": "New name"}, partial=True)
 
 
+def test_shop_category_ids_are_validated_and_deduplicated():
+    assert validate_shop({"category_ids": [3, "2", 3]}, partial=True) == {
+        "category_ids": [3, 2]
+    }
+    for invalid in ("1,2", [0], [True], [1.5]):
+        with pytest.raises(ValidationError):
+            validate_shop({"category_ids": invalid}, partial=True)
+
+
 def test_shop_serialization_handles_time_and_keeps_timestamps(app):
     created = datetime(2026, 8, 29, 12, 0)
     shop = Shop(id=1, open_at=time(0), close_at=time(23, 59, 59), created_at=created, password="hash")

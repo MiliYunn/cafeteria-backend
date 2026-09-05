@@ -14,7 +14,7 @@ def test_all_erd_tables_are_registered(app):
     with app.app_context():
         assert set(db.metadata.tables) == {
             "roles", "users", "shops", "shop_staffs", "categories", "shop_categories",
-            "genres", "menus", "payment_methods", "payment_accounts", "orders",
+            "genres", "menus", "menu_genres", "payment_methods", "payment_accounts", "orders",
             "order_menus", "order_logs", "user_activities", "revoked_tokens",
         }
 

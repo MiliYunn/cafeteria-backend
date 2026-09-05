@@ -12,11 +12,17 @@ class RevokedToken(SerializableMixin, db.Model):
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     jti: Mapped[str] = mapped_column(String(36), unique=True, nullable=False)
-    user_id: Mapped[int] = mapped_column(
+    user_id: Mapped[int | None] = mapped_column(
         BigInteger,
         ForeignKey("users.id"),
         index=True,
-        nullable=False,
+        nullable=True,
+    )
+    shop_id: Mapped[int | None] = mapped_column(
+        BigInteger,
+        ForeignKey("shops.id"),
+        index=True,
+        nullable=True,
     )
     expires_at: Mapped[datetime] = mapped_column(DateTime, index=True, nullable=False)
     revoked_at: Mapped[datetime] = mapped_column(
