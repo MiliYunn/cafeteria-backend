@@ -14,7 +14,7 @@ def student_login():
         data["email"],
         data["password"],
         jwt_secret=settings.jwt_secret,
-        expires_minutes=settings.jwt_expires_minutes,
+        expires_minutes=settings.api_jwt_expires_minutes,
     )
     return success_response(result, "Login successful")
 

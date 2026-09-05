@@ -1,6 +1,6 @@
-# APCafeteria Backend
+# Cafeteria Backend
 
-Flask 3 / Python 3.13 API for APCafeteria, backed by MySQL and Alembic.
+Flask 3 / Python 3.13 API for Cafeteria, backed by MySQL and Alembic.
 
 ## Setup
 

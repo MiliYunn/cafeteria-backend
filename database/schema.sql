@@ -1,4 +1,4 @@
--- APCafeteria MySQL schema. Keep synchronized with models and Alembic revisions.
+-- Cafeteria MySQL schema. Keep synchronized with models and Alembic revisions.
 CREATE DATABASE IF NOT EXISTS cafeteria CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE cafeteria;
 

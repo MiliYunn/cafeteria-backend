@@ -35,6 +35,7 @@ class Settings:
     trusted_hosts: list[str]
     jwt_secret: str
     jwt_expires_minutes: int
+    api_jwt_expires_minutes: int
     jwt_refresh_expires_days: int
     shop_login_secret: str
     db_host: str
@@ -62,13 +63,14 @@ class Settings:
     @classmethod
     def from_env(cls) -> "Settings":
         settings = cls(
-            app_name=os.getenv("APP_NAME", "APCafeteria"),
+            app_name=os.getenv("APP_NAME", "Cafeteria"),
             app_env=os.getenv("APP_ENV", "dev"),
             app_port=int(os.getenv("APP_PORT", "8000")),
             allow_origins=_json_list("ALLOW_ORIGINS", ["http://localhost:5173"]),
             trusted_hosts=_json_list("TRUSTED_HOSTS", ["127.0.0.1", "localhost"]),
             jwt_secret=os.getenv("JWT_SECRET", ""),
             jwt_expires_minutes=int(os.getenv("JWT_EXPIRES_MINUTES", "60")),
+            api_jwt_expires_minutes=int(os.getenv("API_JWT_EXPIRES_MINUTES", "1440")),
             jwt_refresh_expires_days=int(os.getenv("JWT_REFRESH_EXPIRES_DAYS", "7")),
             shop_login_secret=os.getenv("SHOP_LOGIN_SECRET", ""),
             db_host=os.getenv("DB_HOST", "127.0.0.1"),
@@ -91,6 +93,8 @@ class Settings:
             raise ValueError("JWT_SECRET must contain at least 32 characters")
         if settings.jwt_expires_minutes < 1:
             raise ValueError("JWT_EXPIRES_MINUTES must be at least 1")
+        if settings.api_jwt_expires_minutes < 1:
+            raise ValueError("API_JWT_EXPIRES_MINUTES must be at least 1")
         if settings.jwt_refresh_expires_days < 1:
             raise ValueError("JWT_REFRESH_EXPIRES_DAYS must be at least 1")
         if len(settings.shop_login_secret) < 32:

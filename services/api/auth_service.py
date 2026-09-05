@@ -12,7 +12,7 @@ class ApiAuthService:
             password,
             jwt_secret=jwt_secret,
             expires_minutes=expires_minutes,
-            allowed_roles={"student"},
+            allowed_roles={"student", "staff"},
             email_only=True,
         )
 

@@ -1,4 +1,4 @@
-"""Unified command runner for APCafeteria backend development tasks."""
+"""Unified command runner for Cafeteria backend development tasks."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ def run_command(arguments: Sequence[str]) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Manage the APCafeteria API, database migrations, and seed data.",
+        description="Manage the Cafeteria API, database migrations, and seed data.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
