@@ -17,10 +17,12 @@ def test_website_routes_are_registered(app):
         ("/cafeteria/api/auth/profile", "GET"),
         ("/cafeteria/api/auth/profile", "PUT"),
         ("/cafeteria/api/shops", "GET"),
+        ("/cafeteria/api/category-options", "GET"),
         ("/cafeteria/api/shops/<int:shop_id>/menus", "GET"),
         ("/cafeteria/api/shops/<int:shop_id>/payment-accounts", "GET"),
         ("/cafeteria/api/orders", "GET"),
         ("/cafeteria/api/orders", "POST"),
+        ("/cafeteria/api/order-fees", "GET"),
         ("/cafeteria/api/orders/<int:order_id>", "GET"),
     }
     assert expected <= routes
@@ -31,10 +33,12 @@ def test_website_routes_are_registered(app):
     [
         ("get", "/cafeteria/api/auth/profile"),
         ("get", "/cafeteria/api/shops"),
+        ("get", "/cafeteria/api/category-options"),
         ("get", "/cafeteria/api/shops/1/menus"),
         ("get", "/cafeteria/api/shops/1/payment-accounts"),
         ("get", "/cafeteria/api/orders"),
         ("post", "/cafeteria/api/orders"),
+        ("get", "/cafeteria/api/order-fees"),
     ],
 )
 def test_website_routes_require_login(client, method, url):

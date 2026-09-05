@@ -1,7 +1,7 @@
 from flask import request
 
 from controllers.shared.pagination import pagination_parameters
-from helpers.response import paginated_response
+from helpers.response import paginated_response, success_response
 from services.api.catalog_service import CatalogService
 from validations.shared.exceptions import ValidationError
 from validations.shared.fields import positive_integer
@@ -14,6 +14,12 @@ def list_shops():
         validate_shop_filters(request.args),
     )
     return paginated_response(result["items"], result["pagination"])
+
+
+def list_shop_categories():
+    return success_response(
+        CatalogService.list_categories(), "Shop categories retrieved"
+    )
 
 
 def list_shop_menus(shop_id: int):

@@ -16,12 +16,13 @@ from models.payment_method import PaymentMethod
 from models.shop import Shop
 from models.user import User
 from services.shared.crud_service import paginate_records
+from services.shared.order_fee_service import OrderFeeService
 from validations.shared.exceptions import ValidationError
 
 
 class OrderService:
     @staticmethod
-    def _serialize(order: Order) -> dict:
+    def _serialize(order: Order, *, include_history: bool = False) -> dict:
         data = order.to_dict()
         items = db.session.execute(
             select(OrderMenu, Menu.name)
@@ -48,6 +49,15 @@ class OrderService:
                 **payment.PaymentAccount.to_dict(),
                 "payment_method": payment.PaymentMethod.to_dict(),
             }
+        if include_history:
+            history = db.session.scalars(
+                select(OrderLog)
+                .where(OrderLog.order_id == order.id)
+                .order_by(OrderLog.created_at, OrderLog.id)
+            ).all()
+            data["status_history"] = [
+                log.to_dict(exclude={"user_id", "updated_at"}) for log in history
+            ]
         return data
 
     @staticmethod
@@ -92,17 +102,19 @@ class OrderService:
         subtotal = sum(
             (menu.cost * requested[menu.id] for menu in menus), Decimal("0.00")
         ).quantize(Decimal("0.01"))
+        fees = OrderFeeService.calculate(subtotal, data["fulfillment"])
         order = Order(
             shop_id=shop.id,
             user_id=user.id,
             user_email=user.email,
             order_code=f"APC-{datetime.now(UTC):%Y%m%d}-{uuid4().hex[:8].upper()}",
             status="pending",
-            subtotal_amount=subtotal,
-            total_amount=subtotal,
+            subtotal_amount=fees.subtotal_amount,
+            total_amount=fees.total_amount,
             remark=data.get("remark"),
             payment_account_id=payment.PaymentAccount.id,
-            tax_fee=Decimal("0.00"),
+            tax_fee=fees.tax_fee,
+            service_fee=fees.service_fee,
             is_pickup=data["fulfillment"] == "pickup",
             delivery_location=(
                 None if data["fulfillment"] == "pickup" else data["delivery_location"]
@@ -122,7 +134,7 @@ class OrderService:
         db.session.add(OrderLog(order_id=order.id, status="pending", user_id=user.id))
         db.session.commit()
         db.session.refresh(order)
-        return OrderService._serialize(order)
+        return OrderService._serialize(order, include_history=True)
 
     @staticmethod
     def list(user_id: int, page: int, per_page: int) -> dict:
@@ -138,4 +150,4 @@ class OrderService:
         order = db.session.get(Order, order_id)
         if order is None or order.user_id != user_id:
             raise ValidationError("Order not found", status_code=404)
-        return OrderService._serialize(order)
+        return OrderService._serialize(order, include_history=True)

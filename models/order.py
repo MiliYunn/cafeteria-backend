@@ -23,6 +23,7 @@ class Order(SerializableMixin, db.Model):
     remark: Mapped[str | None] = mapped_column(Text, nullable=True)
     payment_account_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("payment_accounts.id"), index=True, nullable=False)
     tax_fee: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False, server_default="0.00")
+    service_fee: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False, server_default="0.00")
     is_pickup: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("1"))
     delivery_location: Mapped[str | None] = mapped_column(String(500), nullable=True)
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP, nullable=False, server_default=func.current_timestamp())

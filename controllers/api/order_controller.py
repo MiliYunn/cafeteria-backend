@@ -5,6 +5,7 @@ from flask import g, request
 from controllers.shared.pagination import pagination_parameters
 from helpers.response import paginated_response, success_response
 from services.api.order_service import OrderService
+from services.shared.order_fee_service import OrderFeeService
 from validations.api.order import validate_order
 from validations.shared.exceptions import ValidationError
 from validations.shared.fields import positive_integer
@@ -14,6 +15,12 @@ def create_order():
     data = validate_order(request.get_json(silent=True))
     return success_response(
         OrderService.create(int(g.auth["sub"]), data), "Order placed", 201
+    )
+
+
+def get_order_fees():
+    return success_response(
+        OrderFeeService.configuration(), "Order fee configuration retrieved"
     )
 
 

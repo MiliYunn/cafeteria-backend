@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.parse import quote_plus
 
@@ -23,6 +24,16 @@ def _json_list(name: str, default: list[str]) -> list[str]:
         raise ValueError(f"{name} must be a JSON array") from exc
     if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
         raise ValueError(f"{name} must be a JSON array of strings")
+    return value
+
+
+def _decimal(name: str, default: str) -> Decimal:
+    try:
+        value = Decimal(os.getenv(name, default)).quantize(Decimal("0.01"))
+    except InvalidOperation as exc:
+        raise ValueError(f"{name} must be a valid amount") from exc
+    if value < 0:
+        raise ValueError(f"{name} must be zero or greater")
     return value
 
 
@@ -45,6 +56,8 @@ class Settings:
     db_password: str
     rate_admin_per_min: int
     rate_api_per_min: int
+    order_tax_fee: Decimal
+    order_delivery_service_fee: Decimal
     storage: str
     local_storage_path: str
     max_upload_mb: int
@@ -80,6 +93,10 @@ class Settings:
             db_password=os.getenv("DB_PASSWORD", "secret"),
             rate_admin_per_min=int(os.getenv("RATE_ADMIN_PER_MIN", "30")),
             rate_api_per_min=int(os.getenv("RATE_API_PER_MIN", "60")),
+            order_tax_fee=_decimal("ORDER_TAX_FEE", "1.00"),
+            order_delivery_service_fee=_decimal(
+                "ORDER_DELIVERY_SERVICE_FEE", "1.00"
+            ),
             storage=os.getenv("STORAGE", "local").lower(),
             local_storage_path=os.getenv("LOCAL_STORAGE_PATH", "uploads"),
             max_upload_mb=int(os.getenv("MAX_UPLOAD_MB", "5")),

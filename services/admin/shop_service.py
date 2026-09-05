@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 
 from extensions import db
 from helpers.hash import hash_password
-from helpers.shop_login import build_login_url, rebase_login_url
+from helpers.shop_login import build_login_url, rebase_login_url, refresh_login_email
 from models.shop import Shop
 from models.category import Category
 from models.shop_category import ShopCategory
@@ -83,6 +83,13 @@ class ShopService:
         settings = current_app.config["SETTINGS"]
         if "password" in data:
             data["login_url"] = build_login_url(data.get("domain_url", shop.domain_url), data.get("email", shop.email), data["password"], settings.shop_login_secret)
+        elif "email" in data:
+            data["login_url"] = refresh_login_email(
+                data.get("domain_url", shop.domain_url),
+                data["email"],
+                shop.login_url,
+                settings.shop_login_secret,
+            )
         elif "domain_url" in data:
             data["login_url"] = rebase_login_url(data["domain_url"], shop.login_url)
         if "password" in data:

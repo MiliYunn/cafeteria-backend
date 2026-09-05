@@ -30,12 +30,27 @@ class CatalogService:
 
     @staticmethod
     def list_shops(page: int, per_page: int, filters: dict) -> dict:
+        category_id = filters.pop("category_id", None)
+        statement = select(Shop).where(Shop.is_active.is_(True))
+        if category_id is not None:
+            statement = statement.join(
+                ShopCategory, ShopCategory.shop_id == Shop.id
+            ).where(ShopCategory.category_id == category_id)
         statement = apply_collection_filters(
-            select(Shop).where(Shop.is_active.is_(True)),
+            statement,
             filters,
-            search_columns=(Shop.name, Shop.location, Shop.description),
+            search_columns=(Shop.name,),
         ).order_by(Shop.name)
         return paginate_records(statement, page, per_page, CatalogService._serialize_shop)
+
+    @staticmethod
+    def list_categories() -> list[dict]:
+        categories = db.session.scalars(
+            select(Category)
+            .where(Category.is_active.is_(True))
+            .order_by(Category.name)
+        ).all()
+        return [{"id": category.id, "name": category.name} for category in categories]
 
     @staticmethod
     def list_shop_menus(

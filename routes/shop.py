@@ -9,6 +9,7 @@ from controllers.shop.management_controller import (
     update_account, update_staff,
 )
 from controllers.shop.menu_controller import create_menu, delete_menu, get_menu, list_menus, update_menu
+from controllers.shop.order_controller import get_order, get_order_fees, list_orders, update_order_status
 from controllers.shop.settings_controller import get_settings, update_settings
 from helpers.file_uploader import upload_file
 from middlewares.jwt_auth import jwt_required
@@ -44,3 +45,7 @@ register_shop_route("/menus/<int:menu_id>", ["DELETE"], delete_menu)
 register_shop_route("/uploads", ["POST"], upload_file)
 register_shop_route("/settings", ["GET"], get_settings)
 register_shop_route("/settings", ["PUT"], update_settings)
+register_shop_route("/order-fees", ["GET"], get_order_fees)
+register_shop_route("/orders", ["GET"], list_orders)
+register_shop_route("/orders/<int:order_id>", ["GET"], get_order)
+register_shop_route("/orders/<int:order_id>/status", ["PUT"], update_order_status)

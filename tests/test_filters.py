@@ -7,7 +7,7 @@ from werkzeug.datastructures import MultiDict
 from models.user import User
 from services.shared.filter_service import apply_collection_filters
 from validations.admin.filters import validate_user_filters
-from validations.api.filters import validate_menu_filters
+from validations.api.filters import validate_menu_filters, validate_shop_filters
 from validations.shared.exceptions import ValidationError
 
 
@@ -49,6 +49,12 @@ def test_menu_price_filters_are_validated():
     with pytest.raises(ValidationError) as caught:
         validate_menu_filters(MultiDict({"min_cost": "20", "max_cost": "10"}))
     assert "max_cost" in caught.value.errors
+
+
+def test_public_shop_filters_support_name_search_and_category():
+    assert validate_shop_filters(
+        MultiDict({"search": "cafe", "category_id": "4"})
+    ) == {"search": "cafe", "category_id": 4}
 
 
 def test_collection_filters_use_bound_sql_parameters():

@@ -11,7 +11,13 @@ from validations.shared.filters import (
 
 
 def validate_shop_filters(query: Any) -> dict:
-    return validate_query_filters(query, {"search": query_string})
+    return validate_query_filters(
+        query,
+        {
+            "search": query_string,
+            "category_id": POSITIVE_INTEGER_FILTER,
+        },
+    )
 
 
 def validate_menu_filters(query: Any) -> dict:

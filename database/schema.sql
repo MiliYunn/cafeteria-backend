@@ -159,8 +159,7 @@ CREATE TABLE payment_accounts (
 CREATE TABLE orders (
     id BIGINT NOT NULL AUTO_INCREMENT,
     shop_id BIGINT NOT NULL,
-    user_id BIGINT NULL,
-    shop_id BIGINT NULL,
+    user_id BIGINT NOT NULL,
     user_email VARCHAR(255) NOT NULL,
     order_code VARCHAR(50) NOT NULL,
     status VARCHAR(50) NOT NULL DEFAULT 'pending',
@@ -170,6 +169,7 @@ CREATE TABLE orders (
     remark TEXT NULL,
     payment_account_id BIGINT NOT NULL,
     tax_fee DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+    service_fee DECIMAL(12,2) NOT NULL DEFAULT 0.00,
     is_pickup BOOLEAN NOT NULL DEFAULT TRUE,
     delivery_location VARCHAR(500) NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
