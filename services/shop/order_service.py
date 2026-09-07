@@ -1,6 +1,6 @@
 """Shop-scoped customer order management."""
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from extensions import db
 from models.menu import Menu
@@ -11,7 +11,6 @@ from models.payment_account import PaymentAccount
 from models.payment_method import PaymentMethod
 from models.user import User
 from services.shared.crud_service import paginate_records
-from services.shared.filter_service import apply_collection_filters
 from validations.shared.exceptions import ValidationError
 
 
@@ -81,15 +80,15 @@ class ShopOrderService:
 
     @staticmethod
     def list(shop_id: int, page: int, per_page: int, filters: dict) -> dict:
-        fulfillment = filters.pop("fulfillment", None)
-        statement = apply_collection_filters(
-            select(Order).where(Order.shop_id == shop_id),
-            filters,
-            search_columns=(Order.order_code, Order.user_email),
-            exact_columns={"status": Order.status},
-        )
-        if fulfillment:
-            statement = statement.where(Order.is_pickup.is_(fulfillment == "pickup"))
+        statement = select(Order).join(User, User.id == Order.user_id).where(Order.shop_id == shop_id)
+        if order_code := filters.get("order_code"):
+            statement = statement.where(Order.order_code.ilike(f"%{order_code}%"))
+        if customer_name := filters.get("customer_name"):
+            statement = statement.where(User.fullname.ilike(f"%{customer_name}%"))
+        if order_date := filters.get("order_date"):
+            statement = statement.where(func.date(Order.order_at) == order_date)
+        if status := filters.get("status"):
+            statement = statement.where(Order.status == status)
         statement = statement.order_by(Order.order_at.desc(), Order.id.desc())
         return paginate_records(statement, page, per_page, ShopOrderService._serialize)
 

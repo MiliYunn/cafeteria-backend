@@ -1,5 +1,6 @@
 """Validated list filters for the shop portal."""
 
+from datetime import date
 from typing import Any
 
 from validations.shared.filters import POSITIVE_INTEGER_FILTER, query_boolean, query_string, validate_query_filters
@@ -21,6 +22,14 @@ def _fulfillment(value: Any, field: str) -> str:
     return clean
 
 
+def _order_date(value: Any, field: str) -> date:
+    clean = query_string(value, field)
+    try:
+        return date.fromisoformat(clean or "")
+    except ValueError as exc:
+        raise ValueError(f"{field} must use YYYY-MM-DD format") from exc
+
+
 def validate_menu_filters(query: Any) -> dict:
     """Menus support search, availability, and genre filters."""
     return validate_query_filters(
@@ -34,12 +43,13 @@ def validate_menu_filters(query: Any) -> dict:
 
 
 def validate_order_filters(query: Any) -> dict:
-    """Orders support search, status, and fulfilment filters."""
+    """Order history supports explicit, developer-visible filter keys."""
     return validate_query_filters(
         query,
         {
-            "search": query_string,
+            "order_code": query_string,
+            "customer_name": query_string,
+            "order_date": _order_date,
             "status": _order_status,
-            "fulfillment": _fulfillment,
         },
     )

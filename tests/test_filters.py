@@ -8,6 +8,7 @@ from models.user import User
 from services.shared.filter_service import apply_collection_filters
 from validations.admin.filters import validate_user_filters
 from validations.api.filters import validate_menu_filters, validate_shop_filters
+from validations.shop.filters import validate_order_filters
 from validations.shared.exceptions import ValidationError
 
 
@@ -68,3 +69,24 @@ def test_collection_filters_use_bound_sql_parameters():
     assert "WHERE" in str(compiled)
     assert "alice" not in str(compiled)
     assert any(value == "%alice%" for value in compiled.params.values())
+
+
+def test_shop_order_history_filters_are_explicit_and_validated():
+    filters = validate_order_filters(
+        MultiDict(
+            {
+                "order_code": "CAF-2026",
+                "customer_name": "Test Student",
+                "order_date": "2026-09-07",
+                "status": "preparing",
+            }
+        )
+    )
+    assert filters["order_code"] == "CAF-2026"
+    assert filters["customer_name"] == "Test Student"
+    assert filters["order_date"].isoformat() == "2026-09-07"
+    assert filters["status"] == "preparing"
+
+    with pytest.raises(ValidationError) as caught:
+        validate_order_filters(MultiDict({"order_date": "07/09/2026"}))
+    assert "order_date" in caught.value.errors
