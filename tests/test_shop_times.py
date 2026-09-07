@@ -59,7 +59,7 @@ def test_shop_serialization_handles_time_and_keeps_timestamps(app):
     data = shop.to_dict(exclude={"password"})
     assert data["open_at"] == "00:00:00"
     assert data["close_at"] == "23:59:59"
-    assert data["created_at"] == created
+    assert data["created_at"] == "2026-08-29T12:00:00+08:00"
     assert "password" not in data
     assert app.json.loads(app.json.dumps(data))["open_at"] == "00:00:00"
 
